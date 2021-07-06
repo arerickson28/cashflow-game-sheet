@@ -1,0 +1,26 @@
+#ProfPlayer {
+    display: flex ;
+    justify-content: space-around ;
+}
+
+
+#middle {
+    display: flex ;
+    justify-content: space-around ;
+}
+
+#balanceSheet {
+    display: flex ;
+    justify-content:  space-around ;
+}
+
+h2 {
+    color: white ;
+    background-color: black ;
+}
+
+#childExp {
+    border: solid ;
+    border-width: 2px ;
+    border-color: gold ;
+}
