@@ -45,7 +45,13 @@ let numberOfChildren = 2 ;
 let perChildExpense = 100 ;
 // 
 let childExpenses = numberOfChildren * perChildExpense ;
-let bankLoanPayment = 0 ;
+let bankLoanPayment = function() {
+    let payment = 0
+    for(let i=0; i<bankLoans.length; i++){
+        payment += bankLoans[i] * 0.1
+    }
+    return payment
+} ;
 
 console.log(`Child Expenses: ${childExpenses}`) ;
 
@@ -56,6 +62,10 @@ console.log(`Total Expenses: ${totalExpenses}`)
 // MonthlyCashflow
 let cashflow = totalIncome - totalExpenses ;
 console.log(`Monthly Cashflow: ${cashflow}`) ;
+
+function addCashflow() {
+    cash += cashflow
+}
 
 // Assets
 let cash = 0 ;
@@ -117,3 +127,8 @@ let businessDebts = function () {
     }
     return bDebts
 }
+
+let bankLoans = [
+   10000,
+   5000
+]
