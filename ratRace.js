@@ -99,13 +99,24 @@ console.log(`Total Income: ${totalIncome}`)
 
 
 // Expenses
-let taxes = 500 ;
-let homeMortgagePayment = 0 ;
-let schoolLoanPayment = 0 ;
-let carPayment = 0 ;
-let creditCardPayment = 0 ;
-let retailPayment = 50 ;
-let otherExpenses = 0 ;
+let expenses = {
+    taxes: 500,
+    homeMortgagePayment: 55,
+    schoolLoanPayment: 60,
+    carPayment: 20,
+    creditCardPayment: 5,
+    retailPayment: 0,
+    otherExpenses: 10,
+    
+
+}
+// let taxes = 500 ;
+// let homeMortgagePayment = 0 ;
+// let schoolLoanPayment = 0 ;
+// let carPayment = 0 ;
+// let creditCardPayment = 0 ;
+// let retailPayment = 50 ;
+// let otherExpenses = 0 ;
 // 
 let numberOfChildren = 2 ;
 let perChildExpense = 100 ;
@@ -122,7 +133,7 @@ let bankLoanPayment = function() {
 
 console.log(`Child Expenses: ${childExpenses}`) ;
 
-let totalExpenses = taxes + homeMortgagePayment + schoolLoanPayment + carPayment + creditCardPayment + retailPayment + otherExpenses + childExpenses + bankLoanPayment() ;
+let totalExpenses = expenses.taxes + expenses.homeMortgagePayment + expenses.schoolLoanPayment + expenses.carPayment + expenses.creditCardPayment + expenses.retailPayment + expenses.otherExpenses + childExpenses + bankLoanPayment() ;
 
 console.log(`Total Expenses: ${totalExpenses}`)
 
@@ -153,3 +164,20 @@ addCashflowBtn.addEventListener("click", function() {
 
 document.getElementById("totalIncome").textContent = totalIncome;
 document.getElementById("totalExp").textContent = totalExpenses;
+
+let htmlExpensesArray = document.querySelectorAll("#expenses p")
+console.log(htmlExpensesArray)
+
+for(let i=0; i< htmlExpensesArray.length; i++) {
+    let currentElement = htmlExpensesArray[i].children[0]
+    // console.log(currentElement)
+    let elId = currentElement.getAttribute("id")
+    console.log(elId)
+
+    for (expense in expenses) {
+        if (elId == expense) {
+            currentElement.textContent = expenses[elId]
+        }
+    }
+    
+}
