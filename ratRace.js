@@ -107,8 +107,18 @@ let expenses = {
     creditCardPayment: 5,
     retailPayment: 0,
     otherExpenses: 10,
-    
-
+    numberOfChildren: 2,
+    perChildExpense: 100,
+    childExpenses: function() {
+        return this.numberOfChildren * this.perChildExpense
+    },
+    bankLoanPayment: function() {
+        let payment = 0
+        for(let i=0; i<bankLoans.length; i++){
+            payment += bankLoans[i] * 0.1
+        }
+        return payment
+    } 
 }
 // let taxes = 500 ;
 // let homeMortgagePayment = 0 ;
@@ -118,22 +128,22 @@ let expenses = {
 // let retailPayment = 50 ;
 // let otherExpenses = 0 ;
 // 
-let numberOfChildren = 2 ;
-let perChildExpense = 100 ;
+// let numberOfChildren = 2 ;
+// let perChildExpense = 100 ;
 // 
-let childExpenses = numberOfChildren * perChildExpense ;
+// let childExpenses = numberOfChildren * perChildExpense ;
 
-let bankLoanPayment = function() {
-    let payment = 0
-    for(let i=0; i<bankLoans.length; i++){
-        payment += bankLoans[i] * 0.1
-    }
-    return payment
-} ;
+// let bankLoanPayment = function() {
+//     let payment = 0
+//     for(let i=0; i<bankLoans.length; i++){
+//         payment += bankLoans[i] * 0.1
+//     }
+//     return payment
+// } ;
 
-console.log(`Child Expenses: ${childExpenses}`) ;
+console.log(`Child Expenses: ${expenses.childExpenses()}`) ;
 
-let totalExpenses = expenses.taxes + expenses.homeMortgagePayment + expenses.schoolLoanPayment + expenses.carPayment + expenses.creditCardPayment + expenses.retailPayment + expenses.otherExpenses + childExpenses + bankLoanPayment() ;
+let totalExpenses = expenses.taxes + expenses.homeMortgagePayment + expenses.schoolLoanPayment + expenses.carPayment + expenses.creditCardPayment + expenses.retailPayment + expenses.otherExpenses + expenses.childExpenses() + expenses.bankLoanPayment() ;
 
 console.log(`Total Expenses: ${totalExpenses}`)
 
@@ -164,18 +174,21 @@ addCashflowBtn.addEventListener("click", function() {
 
 document.getElementById("totalIncome").textContent = totalIncome;
 document.getElementById("totalExp").textContent = totalExpenses;
-
+// console.log(String(typeof(expenses.childExpenses)))
 let htmlExpensesArray = document.querySelectorAll("#expenses p")
 console.log(htmlExpensesArray)
-
 for(let i=0; i< htmlExpensesArray.length; i++) {
     let currentElement = htmlExpensesArray[i].children[0]
     // console.log(currentElement)
     let elId = currentElement.getAttribute("id")
     console.log(elId)
-
+    
     for (expense in expenses) {
         if (elId == expense) {
+            if(String(typeof(expense)) == "function") {
+                console.log("it's a function yo")
+                // currentElement.textContent = expenses[elId]()
+            }
             currentElement.textContent = expenses[elId]
         }
     }
