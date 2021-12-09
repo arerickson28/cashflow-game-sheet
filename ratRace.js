@@ -95,7 +95,7 @@ let businessIncome = function() {
 let monthlySalary = 3020 ;
 let passiveIncome = interestIncome + dividendIncome() + realEstateIncome() + businessIncome() ;
 let totalIncome = monthlySalary + passiveIncome ;
-console.log(`Total Income: ${totalIncome}`)
+// console.log(`Total Income: ${totalIncome}`)
 
 
 // Expenses
@@ -141,15 +141,15 @@ let expenses = {
 //     return payment
 // } ;
 
-console.log(`Child Expenses: ${expenses.childExpenses()}`) ;
+// console.log(`Child Expenses: ${expenses.childExpenses()}`) ;
 
 let totalExpenses = expenses.taxes + expenses.homeMortgagePayment + expenses.schoolLoanPayment + expenses.carPayment + expenses.creditCardPayment + expenses.retailPayment + expenses.otherExpenses + expenses.childExpenses() + expenses.bankLoanPayment() ;
 
-console.log(`Total Expenses: ${totalExpenses}`)
+// console.log(`Total Expenses: ${totalExpenses}`)
 
 // MonthlyCashflow
 let cashflow = totalIncome - totalExpenses ;
-console.log(`Monthly Cashflow: ${cashflow}`) ;
+// console.log(`Monthly Cashflow: ${cashflow}`) ;
 
 function addCashflow() {
     cash += cashflow
@@ -176,20 +176,22 @@ document.getElementById("totalIncome").textContent = totalIncome;
 document.getElementById("totalExp").textContent = totalExpenses;
 // console.log(String(typeof(expenses.childExpenses)))
 let htmlExpensesArray = document.querySelectorAll("#expenses p")
-console.log(htmlExpensesArray)
+// console.log(htmlExpensesArray)
 for(let i=0; i< htmlExpensesArray.length; i++) {
     let currentElement = htmlExpensesArray[i].children[0]
     // console.log(currentElement)
     let elId = currentElement.getAttribute("id")
-    console.log(elId)
-    
+    // console.log(elId)
+    // console.log("expenses: ", expenses)
+    // console.log(typeof(expenses.childExpenses))
     for (expense in expenses) {
         if (elId == expense) {
-            if(String(typeof(expense)) == "function") {
-                console.log("it's a function yo")
-                // currentElement.textContent = expenses[elId]()
+            if(typeof(expenses[expense]) == "function") {
+                currentElement.textContent = expenses[elId]()
+            } else {
+                currentElement.textContent = expenses[elId]
             }
-            currentElement.textContent = expenses[elId]
+            
         }
     }
     
