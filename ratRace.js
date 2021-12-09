@@ -105,7 +105,9 @@ let expenses = {
     carPayment: function() {
         return liabilities.carLoans * 0.05
     },
-    creditCardPayment: 5,
+    creditCardPayment: function() {
+        return liabilities.creditCards * 0.2
+    },
     retailPayment: 0,
     otherExpenses: 10,
     numberOfChildren: 2,
@@ -125,7 +127,7 @@ let expenses = {
 
 
 
-let totalExpenses = expenses.taxes + expenses.homeMortgagePayment + expenses.schoolLoanPayment + expenses.carPayment() + expenses.creditCardPayment + expenses.retailPayment + expenses.otherExpenses + expenses.childExpenses() + expenses.bankLoanPayment() ;
+let totalExpenses = expenses.taxes + expenses.homeMortgagePayment + expenses.schoolLoanPayment + expenses.carPayment() + expenses.creditCardPayment() + expenses.retailPayment + expenses.otherExpenses + expenses.childExpenses() + expenses.bankLoanPayment() ;
 
 
 
