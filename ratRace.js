@@ -34,35 +34,63 @@ let businesses = [
 
 ]
 //liabilities
-let homeMortgage = 0 ;
-let schoolLoans = 0 ;
-let creditCards = 0 ;
-let retailDebt = 0 ;
-let reEsMortgages = function () {
-    let mortgages = []
-    for (let i=0; i<realEstate.length; i++) {
-        mortgages.push({
-            "type": realEstate[i].type,
-            "mortgage": realEstate[i].cost - realEstate[i].downPay
-        })
-    }
-    return mortgages
+let liabilities = {
+    homeMortgage: 70000,
+    schoolLoans: 25000,
+    carLoans: 2000,
+    creditCards: 1200,
+    retailDebt: 700,
+    reEsMortgages: function () {
+        let mortgages = []
+        for (let i=0; i<realEstate.length; i++) {
+            mortgages.push({
+                "type": realEstate[i].type,
+                "mortgage": realEstate[i].cost - realEstate[i].downPay
+            })
+        }
+        return mortgages
+    },
+    businessDebts: function () {
+        let bDebts = []
+        for (let x=0; x<businesses.length; x++) {
+            bDebts.push({
+                "name": businesses[x].name,
+                "debt": businesses[x].cost - businesses[x].downPay
+            })
+        }
+        return bDebts
+    },
+    bankLoans: [10000, 5000]
 }
-let businessDebts = function () {
-    let bDebts = []
-    for (let x=0; x<businesses.length; x++) {
-        bDebts.push({
-            "name": businesses[i].name,
-            "debt": businesses[i].cost - businesses[i].downPay
-        })
-    }
-    return bDebts
-}
+// let homeMortgage = 0 ;
+// let schoolLoans = 0 ;
+// let creditCards = 0 ;
+// let retailDebt = 0 ;
+// let reEsMortgages = function () {
+//     let mortgages = []
+//     for (let i=0; i<realEstate.length; i++) {
+//         mortgages.push({
+//             "type": realEstate[i].type,
+//             "mortgage": realEstate[i].cost - realEstate[i].downPay
+//         })
+//     }
+//     return mortgages
+// }
+// let businessDebts = function () {
+//     let bDebts = []
+//     for (let x=0; x<businesses.length; x++) {
+//         bDebts.push({
+//             "name": businesses[i].name,
+//             "debt": businesses[i].cost - businesses[i].downPay
+//         })
+//     }
+//     return bDebts
+// }
 
-let bankLoans = [
-   10000,
-   5000
-]
+// let bankLoans = [
+//    10000,
+//    5000
+// ]
 
 // Passive Income
 let interestIncome = 0 ;
@@ -103,7 +131,9 @@ let expenses = {
     taxes: 500,
     homeMortgagePayment: 55,
     schoolLoanPayment: 60,
-    carPayment: 20,
+    carPayment: function() {
+        return liabilities.carLoans * 0.05
+    },
     creditCardPayment: 5,
     retailPayment: 0,
     otherExpenses: 10,
@@ -114,8 +144,8 @@ let expenses = {
     },
     bankLoanPayment: function() {
         let payment = 0
-        for(let i=0; i<bankLoans.length; i++){
-            payment += bankLoans[i] * 0.1
+        for(let i=0; i< liabilities.bankLoans.length; i++){
+            payment += liabilities.bankLoans[i] * 0.1
         }
         return payment
     } 
@@ -190,6 +220,28 @@ for(let i=0; i< htmlExpensesArray.length; i++) {
                 currentElement.textContent = expenses[elId]()
             } else {
                 currentElement.textContent = expenses[elId]
+            }
+            
+        }
+    }
+    
+}
+
+let htmlLiabilitiesArray = document.querySelectorAll("#liabilities p")
+// console.log(htmlExpensesArray)
+for(let i=0; i< htmlLiabilitiesArray.length; i++) {
+    let currentElement = htmlLiabilitiesArray[i].children[0]
+    // console.log(currentElement)
+    let elId = currentElement.getAttribute("id")
+    // console.log(elId)
+    // console.log("expenses: ", expenses)
+    // console.log(typeof(expenses.childExpenses))
+    for (liab in liabilities) {
+        if (elId == liab) {
+            if(typeof(liabilities[liab]) == "function") {
+                currentElement.textContent = liabilities[elId]()
+            } else {
+                currentElement.textContent = liabilities[elId]
             }
             
         }
