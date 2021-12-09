@@ -62,35 +62,6 @@ let liabilities = {
     },
     bankLoans: [10000, 5000]
 }
-// let homeMortgage = 0 ;
-// let schoolLoans = 0 ;
-// let creditCards = 0 ;
-// let retailDebt = 0 ;
-// let reEsMortgages = function () {
-//     let mortgages = []
-//     for (let i=0; i<realEstate.length; i++) {
-//         mortgages.push({
-//             "type": realEstate[i].type,
-//             "mortgage": realEstate[i].cost - realEstate[i].downPay
-//         })
-//     }
-//     return mortgages
-// }
-// let businessDebts = function () {
-//     let bDebts = []
-//     for (let x=0; x<businesses.length; x++) {
-//         bDebts.push({
-//             "name": businesses[i].name,
-//             "debt": businesses[i].cost - businesses[i].downPay
-//         })
-//     }
-//     return bDebts
-// }
-
-// let bankLoans = [
-//    10000,
-//    5000
-// ]
 
 // Passive Income
 let interestIncome = 0 ;
@@ -123,7 +94,7 @@ let businessIncome = function() {
 let monthlySalary = 3020 ;
 let passiveIncome = interestIncome + dividendIncome() + realEstateIncome() + businessIncome() ;
 let totalIncome = monthlySalary + passiveIncome ;
-// console.log(`Total Income: ${totalIncome}`)
+
 
 
 // Expenses
@@ -150,36 +121,16 @@ let expenses = {
         return payment
     } 
 }
-// let taxes = 500 ;
-// let homeMortgagePayment = 0 ;
-// let schoolLoanPayment = 0 ;
-// let carPayment = 0 ;
-// let creditCardPayment = 0 ;
-// let retailPayment = 50 ;
-// let otherExpenses = 0 ;
-// 
-// let numberOfChildren = 2 ;
-// let perChildExpense = 100 ;
-// 
-// let childExpenses = numberOfChildren * perChildExpense ;
 
-// let bankLoanPayment = function() {
-//     let payment = 0
-//     for(let i=0; i<bankLoans.length; i++){
-//         payment += bankLoans[i] * 0.1
-//     }
-//     return payment
-// } ;
 
-// console.log(`Child Expenses: ${expenses.childExpenses()}`) ;
 
-let totalExpenses = expenses.taxes + expenses.homeMortgagePayment + expenses.schoolLoanPayment + expenses.carPayment + expenses.creditCardPayment + expenses.retailPayment + expenses.otherExpenses + expenses.childExpenses() + expenses.bankLoanPayment() ;
 
-// console.log(`Total Expenses: ${totalExpenses}`)
+let totalExpenses = expenses.taxes + expenses.homeMortgagePayment + expenses.schoolLoanPayment + expenses.carPayment() + expenses.creditCardPayment + expenses.retailPayment + expenses.otherExpenses + expenses.childExpenses() + expenses.bankLoanPayment() ;
+
+
 
 // MonthlyCashflow
 let cashflow = totalIncome - totalExpenses ;
-// console.log(`Monthly Cashflow: ${cashflow}`) ;
 
 function addCashflow() {
     cash += cashflow
@@ -204,16 +155,12 @@ addCashflowBtn.addEventListener("click", function() {
 
 document.getElementById("totalIncome").textContent = totalIncome;
 document.getElementById("totalExp").textContent = totalExpenses;
-// console.log(String(typeof(expenses.childExpenses)))
+
 let htmlExpensesArray = document.querySelectorAll("#expenses p")
-// console.log(htmlExpensesArray)
+
 for(let i=0; i< htmlExpensesArray.length; i++) {
     let currentElement = htmlExpensesArray[i].children[0]
-    // console.log(currentElement)
     let elId = currentElement.getAttribute("id")
-    // console.log(elId)
-    // console.log("expenses: ", expenses)
-    // console.log(typeof(expenses.childExpenses))
     for (expense in expenses) {
         if (elId == expense) {
             if(typeof(expenses[expense]) == "function") {
@@ -228,14 +175,12 @@ for(let i=0; i< htmlExpensesArray.length; i++) {
 }
 
 let htmlLiabilitiesArray = document.querySelectorAll("#liabilities p")
-// console.log(htmlExpensesArray)
+
 for(let i=0; i< htmlLiabilitiesArray.length; i++) {
     let currentElement = htmlLiabilitiesArray[i].children[0]
-    // console.log(currentElement)
+  
     let elId = currentElement.getAttribute("id")
-    // console.log(elId)
-    // console.log("expenses: ", expenses)
-    // console.log(typeof(expenses.childExpenses))
+
     for (liab in liabilities) {
         if (elId == liab) {
             if(typeof(liabilities[liab]) == "function") {
