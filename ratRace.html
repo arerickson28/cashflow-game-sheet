@@ -22,7 +22,7 @@
             <h1>Income Statement</h1>
             <div id="income">
                 <h2>Income</h2>
-                <p>Salary(per month):</p>
+                <p id="salary">Salary(per month):</p>
                 <p>Interest:</p>
                 <p>Dividends:</p>
                 <p>Real Estate:</p>
@@ -37,11 +37,12 @@
                 <p>Credit Card Payment: $<span id="creditCardPayment"></span></p>
                 <p>Retail Payment: $<span id="retailPayment"></span></p>
                 <p>Other Expenses: $<span id="otherExpenses"></span></p>
-                <!-- <div id="childExp">
-                    <p>Number of Children:</p>
-                    <p>Per Child Expense:</p>
-                </div> -->
+                <div style="border: solid 4px rgb(240, 240, 75); padding: 5px;">
+                <p>Number of Children: <span id="numberOfChildren"></span></p>
+                <p>Per Child Expense: <span id="perChildExpense"></span></p>
                 <p>Child Expenses: $<span id="childExpenses"></span></p>
+                <button id="addChild">Add Child</button>
+                </div>
                 <p>Bank Loan Payment: $<span id="bankLoanPayment"></span></p>
             </div>
         </div>

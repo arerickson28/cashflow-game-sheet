@@ -127,54 +127,68 @@ let expenses = {
 
 
 
+
+
 let totalExpenses = expenses.taxes + expenses.homeMortgagePayment + expenses.schoolLoanPayment + expenses.carPayment() + expenses.creditCardPayment() + expenses.retailPayment + expenses.otherExpenses + expenses.childExpenses() + expenses.bankLoanPayment() ;
-
-
 
 // MonthlyCashflow
 let cashflow = totalIncome - totalExpenses ;
 
-function addCashflow() {
-    cash += cashflow
-}
-
-
-
+// --------------------------------
 // Adding Relations to HTML
+// --------------------------------
 let currentCashEl = document.getElementById("currentCash")
 currentCashEl.textContent = cash;
 
 let addCashflowBtn = document.getElementById("addCashflow")
 
-for(let i=0; i<document.getElementsByClassName("cashflow").length; i++) {
-    document.getElementsByClassName("cashflow")[i].textContent = cashflow;
+
+
+function cashflowCalculator() {
+    totalExpenses = expenses.taxes + expenses.homeMortgagePayment + expenses.schoolLoanPayment + expenses.carPayment() + expenses.creditCardPayment() + expenses.retailPayment + expenses.otherExpenses + expenses.childExpenses() + expenses.bankLoanPayment() ;
+
+    cashflow = totalIncome - totalExpenses
+
+    for(let i=0; i<document.getElementsByClassName("cashflow").length; i++) {
+        document.getElementsByClassName("cashflow")[i].textContent = cashflow;
+    }
+    
+    document.getElementById("totalIncome").textContent = totalIncome;
+    document.getElementById("totalExp").textContent = totalExpenses;
 }
+
+ cashflowCalculator()
 
 addCashflowBtn.addEventListener("click", function() {
     cash += cashflow;
     currentCashEl.textContent = cash;
+    console.log(cash)
 })
 
-document.getElementById("totalIncome").textContent = totalIncome;
-document.getElementById("totalExp").textContent = totalExpenses;
+
 
 let htmlExpensesArray = document.querySelectorAll("#expenses p")
 
-for(let i=0; i< htmlExpensesArray.length; i++) {
-    let currentElement = htmlExpensesArray[i].children[0]
-    let elId = currentElement.getAttribute("id")
-    for (expense in expenses) {
-        if (elId == expense) {
-            if(typeof(expenses[expense]) == "function") {
-                currentElement.textContent = expenses[elId]()
-            } else {
-                currentElement.textContent = expenses[elId]
+function expensesCalculator() {
+
+    for(let i=0; i< htmlExpensesArray.length; i++) {
+        let currentElement = htmlExpensesArray[i].children[0]
+        let elId = currentElement.getAttribute("id")
+        for (expense in expenses) {
+            if (elId == expense) {
+                if(typeof(expenses[expense]) == "function") {
+                    currentElement.textContent = expenses[elId]()
+                } else {
+                    currentElement.textContent = expenses[elId]
+                }
+                
             }
-            
         }
+        
     }
-    
 }
+
+expensesCalculator()
 
 let htmlLiabilitiesArray = document.querySelectorAll("#liabilities p")
 
@@ -195,3 +209,12 @@ for(let i=0; i< htmlLiabilitiesArray.length; i++) {
     }
     
 }
+
+let addChildBtn = document.getElementById("addChild")
+
+addChildBtn.addEventListener("click", function() {
+    expenses.numberOfChildren += 1
+    console.log(expenses.numberOfChildren)
+    expensesCalculator()
+    cashflowCalculator()
+})
