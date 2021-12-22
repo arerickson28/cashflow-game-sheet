@@ -218,3 +218,54 @@ addChildBtn.addEventListener("click", function() {
     expensesCalculator()
     cashflowCalculator()
 })
+
+
+// Adding Real Estate
+
+
+
+let submitNewRe = document.getElementById("submitNewRE")
+let reType = document.getElementById("reType")
+let reCost = document.getElementById("reCost")
+let reDownPay = document.getElementById("reDownPay")
+let reCashflow = document.getElementById("reCashflow");
+let addREForm = document.getElementById("addREForm");
+let reTable = document.getElementById("reTable")
+let addREBtn = document.getElementById("addRE")
+addREBtn.addEventListener("click", function() {
+    addREForm.classList.remove("hide")
+})
+
+submitNewRe.addEventListener("click", function() {
+    let newRealEstateObj = {
+        "type": reType.value,
+        "downPay": reDownPay.value,
+        "cost": reCost.value,
+        "cashflow": reCashflow.value
+    }
+ 
+    realEstate.push(newRealEstateObj)
+    
+    addREForm.classList.add("hide")
+
+  
+
+    
+
+    let newRow = document.createElement("tr")
+    let newRowDataType = document.createElement("td")
+    newRowDataType.textContent = realEstate.at(-1).type
+    newRow.appendChild(newRowDataType)
+    let newRowDataCost = document.createElement("td")
+    newRowDataCost.textContent = realEstate.at(-1).cost
+    newRow.appendChild(newRowDataCost)
+    let newRowDataDown = document.createElement("td")
+    newRowDataDown.textContent = realEstate.at(-1).downPay
+    newRow.appendChild(newRowDataDown)
+    let newRowDataCash =  document.createElement("td")
+    newRowDataCash.textContent = realEstate.at(-1).cashflow
+    newRow.appendChild(newRowDataCash)
+    reTable.appendChild(newRow)
+    
+    
+})
