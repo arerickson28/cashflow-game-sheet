@@ -10,16 +10,22 @@ padding: 5px;
 
 
 
-
-
-function addCashflow() {
-    assets.cash += cashflow();
-}
-
-
-
 function Expenses() {
-    const [numChildren, addChild] = useState(expenses.numberOfChildren)
+    // const [numChildren, addChild] = useState(expenses.numberOfChildren)
+    // const [totalExpenses, updateExp] = useState(expenses.totalExpenses())
+    // const [currenCashflow, updateCashflow] = useState(cashflow())
+    const [assetState, setAssetState] = useState(assets)
+    const [liabilityState, setLiabilityState] = useState(liabilities)
+    const [incomeState, setIncomeState] = useState(income)
+    let [expensesState, setExpensesState] = useState(expenses)
+    const [cashflowState, setCashflowState] = useState(cashflow())
+
+
+    const changeState = () => {
+        // setExpensesState({expensesState.numberOfChildren ++})
+        // setExpensesState(expensesState.totalExpenses())
+        setCashflowState(cashflowState)
+    }
  
     return (
         <>
@@ -33,10 +39,10 @@ function Expenses() {
                 <p>Retail Payment: $<span>{expenses.retailPayment}</span></p>
                 <p>Other Expenses: $<span>{expenses.otherExpenses}</span></p>
                 <GoldBox>
-                <p>Number of Children: <span>{numChildren}</span></p>
+                <p>Number of Children: <span>{expenses.numberOfChildren}</span></p>
                 <p>Per Child Expense: <span>{expenses.perChildExpense}</span></p>
                 <p>Child Expenses: $<span>{expenses.childExpenses()}</span></p>
-                <button onClick={() => addChild(numChildren + 1, expenses.numberOfChildren+= 1)}>Add Child</button>
+                <button onClick={() => changeState()}>Add Child</button>
                 </GoldBox>
                 <p>Bank Loan Payment: $<span>{expenses.bankLoanPayment()}</span></p>
             </div>
