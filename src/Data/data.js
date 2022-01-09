@@ -241,9 +241,7 @@ let expenses =  {
             otherExpenses: 10,
             numberOfChildren: 2,
             perChildExpense: 100,
-            childExpenses: function() {
-                return this.numberOfChildren * this.perChildExpense
-            },
+            childExpenses: 200,
             bankLoanPayment: function() {
                 let payment = 0
                 for(let i=0; i< liabilities.bankLoans.length; i++){
@@ -252,13 +250,12 @@ let expenses =  {
                 return payment
             },
             totalExpenses: function() {
-                return this.taxes + this.homeMortgagePayment + this.schoolLoanPayment + this.carPayment() + this.creditCardPayment() + this.retailPayment + this.otherExpenses + this.childExpenses() + this.bankLoanPayment()
+                return this.taxes + this.homeMortgagePayment + this.schoolLoanPayment + this.carPayment() + this.creditCardPayment() + this.retailPayment + this.otherExpenses + this.childExpenses + this.bankLoanPayment()
             },
         }
         
-let cashflow = function() {
-   return income.totalIncome() - expenses.totalExpenses()
-}
+let cashflow = 855
+
 export { assets, liabilities, income, expenses, cashflow }
 
 

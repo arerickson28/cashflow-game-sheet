@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
+import store from "store"
 
 function Cashflow() {
 
@@ -7,7 +8,7 @@ function Cashflow() {
     const [liabilityState, setLiabilityState] = useState(liabilities)
     const [incomeState, setIncomeState] = useState(income)
     const [expensesState, setExpensesState] = useState(expenses)
-    const [cashflowState, setCashflowState] = useState(cashflow())
+    const [cashflowState, setCashflowState] = useState(cashflow)
     return (
             <>
             <h2>Cashflow Calculator</h2> 
