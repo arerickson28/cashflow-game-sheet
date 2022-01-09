@@ -220,9 +220,7 @@ let assets = {
     passiveIncome: function() {
         return this.interestIncome + this.dividendIncome() + this.realEstateIncome() + this.businessIncome()
     },
-    totalIncome: function() {
-        return this.monthlySalary + this.passiveIncome()
-    },
+    totalIncome: 3520,
 
     }
         
@@ -231,30 +229,20 @@ let expenses =  {
             taxes: 500,
             homeMortgagePayment: 55,
             schoolLoanPayment: 60,
-            carPayment: function() {
-                return liabilities.carLoans * 0.05
-            },
-            creditCardPayment: function() {
-                return liabilities.creditCards * 0.2
-            },
+            carPayment: 100,
+            creditCardPayment: 240,
             retailPayment: 0,
             otherExpenses: 10,
             numberOfChildren: 2,
             perChildExpense: 100,
             childExpenses: 200,
-            bankLoanPayment: function() {
-                let payment = 0
-                for(let i=0; i< liabilities.bankLoans.length; i++){
-                    payment += liabilities.bankLoans[i] * 0.1
-                }
-                return payment
-            },
-            totalExpenses: function() {
-                return this.taxes + this.homeMortgagePayment + this.schoolLoanPayment + this.carPayment() + this.creditCardPayment() + this.retailPayment + this.otherExpenses + this.childExpenses + this.bankLoanPayment()
-            },
+            bankLoanPayment: 1500,
+            totalExpenses: 2665,
         }
         
-let cashflow = 855
+let cashflow = {
+    cashflow: 855
+}
 
 export { assets, liabilities, income, expenses, cashflow }
 

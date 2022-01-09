@@ -4,6 +4,7 @@ import Cashflow from "./components/Cashflow"
 import { assets, liabilities, income, expenses, cashflow } from "./Data/data"
 import store from "store"
 
+
 function App() {
 
 // if (store.get("assets") == null) {
