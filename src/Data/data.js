@@ -127,12 +127,14 @@ let assets = {
     cash: 0,
     stocksMutualsCDs: [
         {
+        "id": "a",
         "name": "MYT4U",
         "no. shares": 5,
         "cost/share": 10,
         "dividends": 0
         },
         {
+        "id": "b",
         "name": "OK4U",
         "no. shares": 10,
         "cost/share": 8,
@@ -141,6 +143,7 @@ let assets = {
     ],
     realEstate:  [
         {
+        "id": "a",
         "type": "3br/2ba",
         "downPay": 20000,
         "cost": 100000,
@@ -149,6 +152,7 @@ let assets = {
     ],
     businesses: [
         {
+        "id": "a",
         "name": "My Pizza Business",
         "downPay": 5000,
         "cost": 15000,

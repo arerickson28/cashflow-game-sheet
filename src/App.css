@@ -36,7 +36,14 @@
     transform: rotate(360deg);
   }
 }
-/* 
-h1 {
-  color: rgb(255, 123, 0);
-} */
+
+/* MyCSS */
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}

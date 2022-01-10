@@ -4,15 +4,17 @@ import store from "store"
 import styled from "styled-components"
 import {useShareMyStates, storeIncome, storeExpenses, storeAssets, storeLiabilities, storeCashflow, newChildExpenses, newTotalExpenses, newCreditCardPayment, newBankLoanPayment, newCarPayment, newCashflow, newTotalIncome } from "../Data/dataFunc"
 
+const GoldBox = styled.div`
+border: solid 4px rgb(240, 240, 75);
+padding: 5px;
+margin: 10px;
+`
+
 function Cashflow() {
 
     const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState } = useShareMyStates()
 
-    const GoldBox = styled.div`
-    border: solid 4px rgb(240, 240, 75);
-    padding: 5px;
-    margin: 10px;
-    `
+   
 
     return (
             <>
