@@ -8,6 +8,11 @@ import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow } from "../Data/dataFunc"
 
 
+const PurpleBox = styled.div`
+border: solid 4px rgb(128, 17, 128);
+padding: 5px;
+margin: 10px;
+`
 
 
 function Liabilities() {
@@ -18,6 +23,9 @@ function Liabilities() {
 
     return (
         <>
+            <PurpleBox>
+
+          
             <h2>Liabilities</h2>
             <p>Home Mortgage: <span>{liabilityState.homeMortgage}</span></p>
             <p>School Loans: <span>{liabilityState.schoolLoans}</span></p>
@@ -46,7 +54,7 @@ function Liabilities() {
                 
                 </table>
             </div> */}
-            
+              </PurpleBox>
         </>
     )
 }

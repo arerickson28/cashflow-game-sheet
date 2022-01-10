@@ -7,9 +7,11 @@ import store from "store"
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow } from "../Data/dataFunc"
 
-const GoldBox = styled.div`
-border: solid 4px rgb(240, 240, 75);
+
+const GreenBox = styled.div`
+border: solid 4px rgb(85, 200, 85);
 padding: 5px;
+margin: 10px;
 `
 
 const useSharedStates = ()=> {
@@ -48,7 +50,7 @@ function Expenses() {
  
     return (
         <>
-              <div>
+              <GreenBox>
                 <h2>Expenses</h2>
                 <p>Taxes: $<span>{expensesState.taxes}</span></p>
                 <p>Home Mortgage: $<span>{expensesState.homeMortgagePayment}</span></p>
@@ -57,14 +59,14 @@ function Expenses() {
                 <p>Credit Card Payment: $<span>{expenses.creditCardPayment}</span></p>
                 <p>Retail Payment: $<span>{expensesState.retailPayment}</span></p>
                 <p>Other Expenses: $<span>{expensesState.otherExpenses}</span></p>
-                <GoldBox>
+                <hr></hr>
                 <p>Number of Children: <span>{expensesState.numberOfChildren}</span></p>
                 <p>Per Child Expense: <span>{expensesState.perChildExpense}</span></p>
                 <p>Child Expenses: $<span>{expensesState.childExpenses}</span></p>
                 <button onClick={() => changeState()}>Add Child</button>
-                </GoldBox>
+                <hr></hr>
                 <p>Bank Loan Payment: $<span>{expenses.bankLoanPayment}</span></p>
-            </div>
+            </GreenBox>
         </>
     )
 }

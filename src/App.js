@@ -2,6 +2,7 @@ import './App.css';
 import Expenses from "./components/Expenses"
 import Cashflow from "./components/Cashflow"
 import Liabilities from './components/Liabilities';
+import Assets from './components/Assets';
 import { assets, liabilities, income, expenses, cashflow } from "./Data/data"
 import store from "store"
 
@@ -24,7 +25,7 @@ store.set('cashflow', cashflow)
       <h1>Cashflow Game Sheet</h1>
       <Expenses />
       <Cashflow />
-      <hr></hr>
+      <Assets />
       <Liabilities />
     </div>
   );
