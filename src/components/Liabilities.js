@@ -5,7 +5,7 @@ import store from "store"
 
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
-import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow } from "../Data/dataFunc"
+import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, newBusinessDebts } from "../Data/dataFunc"
 
 
 const PurpleBox = styled.div`
@@ -54,6 +54,32 @@ function Liabilities() {
                 
                 </table>
             </div> */}
+
+            <hr></hr>
+
+            <h4>Business Debts</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>debt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                { liabilityState.businessDebts.map((bDebt) => {
+                    return (
+                        <tr key={bDebt.id}>
+                            <td>{bDebt.name}</td>
+                            <td>{bDebt.debt}</td>
+                       
+                        </tr>
+                    
+                    )
+                })}
+                </tbody>
+            </table>
+            <hr></hr>
+
               </PurpleBox>
         </>
     )

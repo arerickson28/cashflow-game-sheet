@@ -33,6 +33,7 @@ function Income() {
         <BlueBox>
         <h2>Income</h2>
         <p>Monthly Salary: $<span>{incomeState.monthlySalary}</span></p>
+        <p>Business Income: $<span>{incomeState.businessIncome}</span></p>
         <p>Total Income: $<span>{incomeState.totalIncome}</span></p>
         </BlueBox>
    

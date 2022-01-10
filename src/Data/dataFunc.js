@@ -56,4 +56,22 @@ let newCashflow = function() {
     return storeIncome.monthlySalary + storeIncome.passiveIncome()
 }
 
-export {useShareMyStates, storeIncome, storeExpenses, storeAssets, storeLiabilities, storeCashflow, newChildExpenses, newTotalExpenses, newCreditCardPayment, newBankLoanPayment, newCarPayment, newCashflow, newTotalIncome }
+let newBusinessDebts = function () {
+    for (let x=0; x< storeAssets.businesses.length; x++) {
+        storeLiabilities.businessesDebts.push({
+            "name": storeAssets.businesses[x].name,
+            "debt": storeAssets.businesses[x].cost - storeAssets.businesses[x].downPay
+        })
+    }
+}
+
+let newBusinessIncome = function() {
+    for(let y=0; y< storeAssets.businesses.length; y++) {
+        storeIncome.newBusinessIncome += storeAssets.businesses[y].cashflow
+    }
+}
+
+
+
+
+export {useShareMyStates, storeIncome, storeExpenses, storeAssets, storeLiabilities, storeCashflow, newChildExpenses, newTotalExpenses, newCreditCardPayment, newBankLoanPayment, newCarPayment, newCashflow, newTotalIncome, newBusinessDebts, newBusinessIncome }

@@ -183,16 +183,13 @@ let assets = {
             }
             return mortgages
         },
-        businessDebts: function () {
-            let bDebts = []
-            for (let x=0; x< assets.businesses.length; x++) {
-                bDebts.push({
-                    "name": assets.businesses[x].name,
-                    "debt": assets.businesses[x].cost - assets.businesses[x].downPay
-                })
+        businessDebts: [
+            {
+                id: "a",
+                name: "My Pizza Business",
+                debt: 10000
             }
-            return bDebts
-        },
+        ],
         bankLoans: [
             {
                 id: "a",
@@ -223,13 +220,17 @@ let assets = {
         }
         return income
     },
-    businessIncome: function() {
-        let income = 0
-        for(let y=0; y< assets.businesses.length; y++) {
-            income += assets.businesses[y].cashflow
-        }
-        return income
-    },
+    businessIncome: 300
+    // [
+    //     {
+    //     "id": "a",
+    //     "name": "My Pizza Business",
+    //     "downPay": 5000,
+    //     "cost": 15000,
+    //     "cashflow": 300
+    //     }
+    //  ] 
+    ,
     monthlySalary: 3020,
     passiveIncome: function() {
         return this.interestIncome + this.dividendIncome() + this.realEstateIncome() + this.businessIncome()

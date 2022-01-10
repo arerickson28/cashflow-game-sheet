@@ -27,8 +27,11 @@ store.set('cashflow', cashflow)
       <Income />
       <Expenses />
       <Cashflow />
+      <div className="assLiab">
       <Assets />
       <Liabilities />
+      </div>
+    
     </div>
   );
 }
