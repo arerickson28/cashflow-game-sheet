@@ -5,11 +5,6 @@ import {useShareMyStates, storeIncome, storeExpenses, storeAssets, storeLiabilit
 
 function Cashflow() {
 
-    // const [assetState, setAssetState] = useState(assets)
-    // const [liabilityState, setLiabilityState] = useState(liabilities)
-    // const [incomeState, setIncomeState] = useState(income)
-    // const [expensesState, setExpensesState] = useState(expenses)
-    // const [cashflowState, setCashflowState] = useState(cashflow)
     const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState } = useShareMyStates()
     return (
             <>

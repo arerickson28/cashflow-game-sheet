@@ -189,7 +189,17 @@ let assets = {
             }
             return bDebts
         },
-        bankLoans: [10000, 5000]
+        bankLoans: [
+            {
+                id: "a",
+                amount: "10000"
+            },
+            {
+                id: "b",
+                amount: "5000"
+            }
+        ]
+          
     }
 
 
