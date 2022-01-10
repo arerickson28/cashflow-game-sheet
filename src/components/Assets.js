@@ -9,9 +9,20 @@ import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, sto
 
 function Assets() {
     
+    const OrangeBox = styled.div`
+    border: solid 4px rgb(255, 123, 0);
+    padding: 5px;
+    margin: 10px;
+    `
+
+    
+
     return (
         <>
-            <h2>Assets component</h2>
+        <OrangeBox>
+        <h2>Assets component</h2>
+        </OrangeBox>
+         
         </>
     )
 }

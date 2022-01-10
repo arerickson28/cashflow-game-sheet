@@ -13,3 +13,18 @@ border: solid 4px rgb(20, 20, 167);
 padding: 5px;
 margin: 10px;
 `
+
+function Income() {
+
+    return (
+        <>
+        <BlueBox>
+        <h2>This is the income component</h2>
+        </BlueBox>
+   
+        </>
+    )
+}
+
+
+export default Income
