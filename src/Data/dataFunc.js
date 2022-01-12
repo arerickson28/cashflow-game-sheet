@@ -71,7 +71,13 @@ let newBusinessIncome = function() {
     }
 }
 
+let newDividendIncome = function() {
+    for(let y=0; y< storeAssets.stocksMutualsCDs.length; y++) {
+        let totalSpecificStockHoldingsDividendIncome = storeAssets.stocksMutualsCDs[y]["no. shares"] * storeAssets.stocksMutualsCDs[y]["dividends/share"]
+        storeIncome.dividendIncome += totalSpecificStockHoldingsDividendIncome
+    }
+}
 
 
 
-export {useShareMyStates, storeIncome, storeExpenses, storeAssets, storeLiabilities, storeCashflow, newChildExpenses, newTotalExpenses, newCreditCardPayment, newBankLoanPayment, newCarPayment, newCashflow, newTotalIncome, newBusinessDebts, newBusinessIncome }
+export {useShareMyStates, storeIncome, storeExpenses, storeAssets, storeLiabilities, storeCashflow, newChildExpenses, newTotalExpenses, newCreditCardPayment, newBankLoanPayment, newCarPayment, newCashflow, newTotalIncome, newBusinessDebts, newBusinessIncome, newDividendIncome }

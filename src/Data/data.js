@@ -131,14 +131,14 @@ let assets = {
         "name": "MYT4U",
         "no. shares": 5,
         "cost/share": 10,
-        "dividends": 0
+        "dividends/share": 20
         },
         {
         "id": "b",
         "name": "OK4U",
         "no. shares": 10,
         "cost/share": 8,
-        "dividends": 0
+        "dividends/share": 5
         }
     ],
     realEstate:  [
@@ -206,13 +206,7 @@ let assets = {
 
     let income = {
         interestIncome: 0,
-    dividendIncome: function() {
-        let income = 0
-        for(let y=0; y< assets.stocksMutualsCDs.length; y++) {
-            income += assets.stocksMutualsCDs[y].dividends
-        }
-        return income
-    },
+    dividendIncome: 150,
     realEstateIncome: function() {
         let income = 0
         for(let y=0; y< assets.realEstate.length; y++) {
@@ -235,7 +229,7 @@ let assets = {
     passiveIncome: function() {
         return this.interestIncome + this.dividendIncome() + this.realEstateIncome() + this.businessIncome()
     },
-    totalIncome: 3520,
+    totalIncome: 3670,
 
     }
         
@@ -256,7 +250,7 @@ let expenses =  {
         }
         
 let cashflow = {
-    cashflow: 855
+    cashflow: 1005
 }
 
 export { assets, liabilities, income, expenses, cashflow }

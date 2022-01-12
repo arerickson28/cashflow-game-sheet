@@ -41,7 +41,7 @@ function Assets() {
                     <th>name</th>
                     <th>no. shares</th>
                     <th>cost/share</th>
-                    <th>dividends</th>
+                    <th>dividends/share</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,7 +51,7 @@ function Assets() {
                         <td>{stock.name}</td>
                         <td>{stock["no. shares"]}</td>
                         <td>{stock["cost/share"]}</td>
-                        <td>{stock.dividends}</td>
+                        <td>{stock["dividends/share"]}</td>
                     </tr>
                    
                 )
