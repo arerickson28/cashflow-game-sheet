@@ -6,7 +6,7 @@ import store from "store"
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 
-import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow } from "../Data/dataFunc"
+import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets } from "../Data/dataFunc"
 
 
 const useSharedStates = ()=> {
@@ -27,7 +27,21 @@ function Assets() {
     
     const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState } = useShareMyStates()
 
-    
+    const [addSubState, setAddSubState] = useState(0)
+
+    function handleChange(e) {
+        setAddSubState(parseInt(e.target.value))
+    }
+
+    function handleSubmit(e) {
+        storeAssets.cash += addSubState
+        setAssetState(storeAssets)
+        setAddSubState(0)
+        e.preventDefault()
+
+    }
+
+
     return (
         <>
         <OrangeBox>
@@ -37,10 +51,21 @@ function Assets() {
         {/* <button>Subtract</button> */}
         <br></br>
 
-        <div>
+        {/* <div>
             <input type="number"></input>
             <button>Submit</button>
-        </div>
+        </div> */}
+
+        <form onSubmit={handleSubmit}>
+            <label>
+            Name:
+            <input type="number" value={addSubState} onChange={handleChange} />
+            </label>
+            <input type="submit" value="Submit" />
+        </form>
+
+
+
 
         {/* <div >
             <label>Subtract Amount:</label>
