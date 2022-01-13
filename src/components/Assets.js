@@ -29,6 +29,8 @@ function Assets() {
 
     const [addSubState, setAddSubState] = useState(0)
 
+    const [addSubCashBtn, setAddSubCashBtn] = useState("hide")
+
     function handleChange(e) {
         setAddSubState(parseInt(e.target.value))
     }
@@ -37,6 +39,7 @@ function Assets() {
         storeAssets.cash += addSubState
         setAssetState(storeAssets)
         setAddSubState(0)
+        setAddSubCashBtn("hide")
         e.preventDefault()
 
     }
@@ -47,7 +50,9 @@ function Assets() {
         <OrangeBox>
         <h1>Assets</h1>
         <p>Cash : $<span>{assetState.cash}</span></p>
-        <button>Add/Subtract</button>
+        <button onClick={() => {
+            setAddSubCashBtn("")
+        }}>Add/Subtract</button>
         {/* <button>Subtract</button> */}
         <br></br>
 
@@ -56,9 +61,8 @@ function Assets() {
             <button>Submit</button>
         </div> */}
 
-        <form onSubmit={handleSubmit}>
+        <form className={addSubCashBtn} onSubmit={handleSubmit}>
             <label>
-            Name:
             <input type="number" value={addSubState} onChange={handleChange} />
             </label>
             <input type="submit" value="Submit" />
