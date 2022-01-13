@@ -202,30 +202,12 @@ let assets = {
 
 
     let income = {
-        interestIncome: 0,
+    interestIncome: 0,
     dividendIncome: 150,
-    realEstateIncome: function() {
-        let income = 0
-        for(let y=0; y< assets.realEstate.length; y++) {
-            income += assets.realEstate[y].cashflow
-        }
-        return income
-    },
-    businessIncome: 300
-    // [
-    //     {
-    //     "id": "a",
-    //     "name": "My Pizza Business",
-    //     "downPay": 5000,
-    //     "cost": 15000,
-    //     "cashflow": 300
-    //     }
-    //  ] 
-    ,
+    realEstateIncome: 200,
+    businessIncome: 300,
     monthlySalary: 3020,
-    passiveIncome: function() {
-        return this.interestIncome + this.dividendIncome() + this.realEstateIncome() + this.businessIncome()
-    },
+    passiveIncome: 650,
     totalIncome: 3670,
 
     }

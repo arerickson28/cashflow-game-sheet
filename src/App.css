@@ -53,3 +53,17 @@ table {
   flex-direction: row;
   justify-content: space-around;
 }
+
+/* .flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+} */
+
+button {
+  margin: 5px;
+}
+
+.hide {
+  display: none;
+}

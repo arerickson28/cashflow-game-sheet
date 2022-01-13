@@ -33,8 +33,16 @@ function Income() {
         <BlueBox>
         <h2>Income</h2>
         <p>Monthly Salary: $<span>{incomeState.monthlySalary}</span></p>
+        <hr></hr>
+        <h3>Passive Income</h3>
+        <p>Interest Income: $<span>{incomeState.interestIncome}</span></p>
         <p>Dividend Income: $<span>{incomeState.dividendIncome}</span></p>
+        <p>Real Estate Income: $<span>{incomeState.realEstateIncome}</span></p>
         <p>Business Income: $<span>{incomeState.businessIncome}</span></p>
+        <h3>Total Passive Income: $<span>{incomeState.passiveIncome}</span></h3>
+        
+
+        <hr></hr>
         <p>Total Income: $<span>{incomeState.totalIncome}</span></p>
         </BlueBox>
    

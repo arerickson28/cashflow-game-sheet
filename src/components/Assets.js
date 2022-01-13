@@ -33,6 +33,23 @@ function Assets() {
         <OrangeBox>
         <h1>Assets</h1>
         <p>Cash : $<span>{assetState.cash}</span></p>
+        <button>Add/Subtract</button>
+        {/* <button>Subtract</button> */}
+        <br></br>
+
+        <div>
+            <input type="number"></input>
+            <button>Submit</button>
+        </div>
+
+        {/* <div >
+            <label>Subtract Amount:</label>
+            <input type="number"></input>
+            <button>Submit</button>
+        </div> */}
+       
+        {/* </div> */}
+        
         <hr></hr>
         <p>Stocks/Mutuals/CDs</p>
         <table>
