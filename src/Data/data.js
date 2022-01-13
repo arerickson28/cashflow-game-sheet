@@ -173,16 +173,13 @@ let assets = {
         carLoans: 2000,
         creditCards: 1200,
         retailDebt: 700,
-        reEsMortgages: function () {
-            let mortgages = []
-            for (let i=0; i< assets.realEstate.length; i++) {
-                mortgages.push({
-                    "type": assets.realEstate[i].type,
-                    "mortgage": assets.realEstate[i].cost - assets.realEstate[i].downPay
-                })
+        reEsMortgages: [
+            {
+                "id": "a",
+                "type": "3br/2ba",
+                "mortgage": 80000
             }
-            return mortgages
-        },
+        ],
         businessDebts: [
             {
                 id: "a",

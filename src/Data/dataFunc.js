@@ -79,5 +79,15 @@ let newDividendIncome = function() {
 }
 
 
+let newReEsMortgages = function () {
+    
+    for (let i=0; i< storeAssets.realEstate.length; i++) {
+        storeLiabilities.reEsMortgages.push({
+            "type": storeAssets.realEstate[i].type,
+            "mortgage": storeAssets.realEstate[i].cost - storeAssets.realEstate[i].downPay
+        })
+    }
+}
 
-export {useShareMyStates, storeIncome, storeExpenses, storeAssets, storeLiabilities, storeCashflow, newChildExpenses, newTotalExpenses, newCreditCardPayment, newBankLoanPayment, newCarPayment, newCashflow, newTotalIncome, newBusinessDebts, newBusinessIncome, newDividendIncome }
+
+export {useShareMyStates, storeIncome, storeExpenses, storeAssets, storeLiabilities, storeCashflow, newChildExpenses, newTotalExpenses, newCreditCardPayment, newBankLoanPayment, newCarPayment, newCashflow, newTotalIncome, newBusinessDebts, newBusinessIncome, newDividendIncome, newReEsMortgages }

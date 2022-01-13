@@ -32,6 +32,7 @@ function Liabilities() {
             <p>Car Loans: <span>{liabilityState.carLoans}</span></p>
             <p>Credit Cards: <span>{liabilityState.creditCards}</span></p>
             <p>Retial Debt: <span>{liabilityState.retailDebt}</span></p>
+            <hr></hr>
             <h4>Bank Loans</h4>
             { liabilityState.bankLoans.map((loan) => {
                 return (
@@ -57,6 +58,28 @@ function Liabilities() {
 
             <hr></hr>
 
+            <p>Real Estate</p>   
+            <table>
+                <thead>
+                    <tr>
+                        <th>type</th>
+                        <th>mortgage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                { liabilityState.reEsMortgages.map((estate) => {
+                    return (
+                        <tr key={estate.id}>
+                            <td>{estate.type}</td>
+                            <td>{estate.mortgage}</td>
+                        </tr>
+                    
+                    )
+                })}
+                </tbody>
+            </table>
+
+            <hr></hr>
             <h4>Business Debts</h4>
             <table>
                 <thead>

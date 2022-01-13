@@ -58,6 +58,36 @@ function Assets() {
             })}
             </tbody>
         </table>
+
+        <hr></hr>
+
+        <p>Real Estate</p>   
+        <table>
+            <thead>
+                <tr>
+                    <th>type</th>
+                    <th>down payment</th>
+                    <th>cost</th>
+                    <th>cashflow</th>
+                </tr>
+            </thead>
+            <tbody>
+            { assetState.realEstate.map((estate) => {
+                return (
+                    <tr key={estate.id}>
+                        <td>{estate.type}</td>
+                        <td>{estate.downPay}</td>
+                        <td>{estate.cost}</td>
+                        <td>{estate.cashflow}</td>
+                    </tr>
+                
+                )
+            })}
+            </tbody>
+        </table>
+
+
+
         <hr></hr>
 
         <p>Businesses</p>
