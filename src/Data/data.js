@@ -152,7 +152,7 @@ let assets = {
     ],
     businesses: [
         {
-        "id": "a",
+        "id": 1,
         "name": "My Pizza Business",
         "downPay": 5000,
         "cost": 15000,

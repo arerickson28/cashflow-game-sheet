@@ -54,6 +54,12 @@ table {
   justify-content: space-around;
 }
 
+.incExp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 /* .flex {
   display: flex;
   flex-direction: row;
@@ -66,4 +72,8 @@ button {
 
 .hide {
   display: none;
+}
+
+input {
+  margin: 3px;
 }

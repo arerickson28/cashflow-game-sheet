@@ -6,7 +6,7 @@ import store from "store"
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 
-import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets } from "../Data/dataFunc"
+import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome } from "../Data/dataFunc"
 
 
 const useSharedStates = ()=> {
@@ -31,12 +31,22 @@ function Assets() {
 
     const [addSubCashBtn, setAddSubCashBtn] = useState("hide")
 
-    function handleChange(e) {
+    const [newBusState, setNewBusState] = useState({
+        "name": "",
+        "downPay": 0,
+        "cost": 0,
+        "cashflow": 0
+    })
+
+    const [newBusinessBtn, setNewBusinessBtn] = useState("hide")
+
+    function handleCashChange(e) {
         setAddSubState(parseInt(e.target.value))
     }
 
-    function handleSubmit(e) {
+    function handleCashSubmit(e) {
         storeAssets.cash += addSubState
+        store.set("assets", storeAssets)
         setAssetState(storeAssets)
         setAddSubState(0)
         setAddSubCashBtn("hide")
@@ -44,6 +54,21 @@ function Assets() {
 
     }
 
+    function hanldeBusinessSubmit(e) {
+        console.log(newBusState)
+        storeAssets.businesses.push(newBusState)
+        store.set("assets", storeAssets)
+        setAssetState(storeAssets)
+        setNewBusState({
+            "name": "",
+            "downPay": 0,
+            "cost": 0,
+            "cashflow": 0
+        })
+        setNewBusinessBtn("hide")
+        newBusinessIncome()
+        e.preventDefault()
+    }
 
     return (
         <>
@@ -53,32 +78,15 @@ function Assets() {
         <button onClick={() => {
             setAddSubCashBtn("")
         }}>Add/Subtract</button>
-        {/* <button>Subtract</button> */}
         <br></br>
 
-        {/* <div>
-            <input type="number"></input>
-            <button>Submit</button>
-        </div> */}
-
-        <form className={addSubCashBtn} onSubmit={handleSubmit}>
+        <form className={addSubCashBtn} onSubmit={handleCashSubmit}>
             <label>
-            <input type="number" value={addSubState} onChange={handleChange} />
+            <input type="number" step="10" value={addSubState} onChange={handleCashChange} />
             </label>
             <input type="submit" value="Submit" />
         </form>
 
-
-
-
-        {/* <div >
-            <label>Subtract Amount:</label>
-            <input type="number"></input>
-            <button>Submit</button>
-        </div> */}
-       
-        {/* </div> */}
-        
         <hr></hr>
         <p>Stocks/Mutuals/CDs</p>
         <table>
@@ -93,18 +101,28 @@ function Assets() {
             <tbody>
             { assetState.stocksMutualsCDs.map((stock) => {
                 return (
+                  
                     <tr key={stock.id}>
                         <td>{stock.name}</td>
                         <td>{stock["no. shares"]}</td>
                         <td>{stock["cost/share"]}</td>
                         <td>{stock["dividends/share"]}</td>
                     </tr>
+                  
                    
                 )
             })}
+              
+               <tr key="form">
+                <td><input type="text"></input></td>
+                <td><input type="text"></input></td>
+                <td><input type="text"></input></td>
+                <td><input type="text"></input></td>
+            </tr>
+         
             </tbody>
         </table>
-
+        <button>Buy Stock</button>
         <hr></hr>
 
         <p>Real Estate</p>   
@@ -129,10 +147,16 @@ function Assets() {
                 
                 )
             })}
+               <tr key="form">
+                <td><input type="text"></input></td>
+                <td><input type="text"></input></td>
+                <td><input type="text"></input></td>
+                <td><input type="text"></input></td>
+            </tr>
             </tbody>
         </table>
 
-
+        <button>Buy Real Estate</button>
 
         <hr></hr>
 
@@ -158,8 +182,49 @@ function Assets() {
                    
                 )
             })}
+       
+          
+          
             </tbody>
         </table>
+   
+        {/* <table>
+        <tr key="form">
+                <td><input></input></td>
+                <td><input></input></td>
+                <td><input></input></td>
+                <td><input></input></td>
+            </tr>
+        </table> */}
+
+        <button onClick ={() => {setNewBusinessBtn("")}}>Buy Businesses</button>
+
+        <form className={newBusinessBtn} onSubmit={hanldeBusinessSubmit}>
+            
+            <input onInput={e=>setNewBusState({
+                ...newBusState,
+                // "id": storeAssets.businesses.length += 1,
+                "name": e.target.value
+            })} type="text"></input>
+
+            <input onInput={e=>setNewBusState({
+                ...newBusState,
+                 "downPay": e.target.value
+            })} type="number" min="0" step="100"></input>
+
+            <input onInput={e=>setNewBusState({
+                ...newBusState,
+                 "cost": e.target.value
+            })}type="number" min="0" step="100"></input>
+
+            <input onInput={e=>setNewBusState({
+                ...newBusState,
+                 "cashflow": e.target.value
+            })}type="number" step="50"></input>
+            <br></br>
+            <input type="submit" value="Submit" />
+    
+        </form>
         <hr></hr>
 
 

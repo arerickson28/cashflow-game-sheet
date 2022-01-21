@@ -24,8 +24,11 @@ store.set('cashflow', cashflow)
   return (
     <div className="App">
       <h1>Cashflow Game Sheet</h1>
+      <div className="incExp">
       <Income />
       <Expenses />
+      </div>
+      
       <Cashflow />
       <div className="assLiab">
       <Assets />
