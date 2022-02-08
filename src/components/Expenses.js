@@ -59,6 +59,7 @@ function Expenses() {
                 <p>Car Payment: $<span>{expenses.carPayment}</span></p>
                 <p>Credit Card Payment: $<span>{expenses.creditCardPayment}</span></p>
                 <p>Retail Payment: $<span>{expensesState.retailPayment}</span></p>
+                <p>Bank Loan Payment: $<span>{expenses.bankLoanPayment}</span></p>
                 <p>Other Expenses: $<span>{expensesState.otherExpenses}</span></p>
                 <hr></hr>
                 <p>Number of Children: <span>{expensesState.numberOfChildren}</span></p>
@@ -66,7 +67,7 @@ function Expenses() {
                 <p>Child Expenses: $<span>{expensesState.childExpenses}</span></p>
                 <button onClick={() => changeState()}>Add Child</button>
                 <hr></hr>
-                <p>Bank Loan Payment: $<span>{expenses.bankLoanPayment}</span></p>
+                <p>Total Expenses: $<span>{expensesState.totalExpenses}</span></p>
             </GreenBox>
         </>
     )

@@ -26,10 +26,11 @@ store.set('cashflow', cashflow)
       <h1>Cashflow Game Sheet</h1>
       <div className="incExp">
       <Income />
+      <Cashflow />
       <Expenses />
       </div>
       
-      <Cashflow />
+    
       <div className="assLiab">
       <Assets />
       <Liabilities />

@@ -89,18 +89,16 @@ function Assets() {
                         <td>{stock["cost/share"]}</td>
                         <td>{stock["dividends/share"]}</td>
                     </tr>
-                  
-                   
                 )
             })}
               
-        
-         
             </tbody>
         </table>
+
         <button onClick={() => {setNewStockBtn(true)}}>Buy Stock</button>
 
         {newStockBtn ? <NewStock /> : <></>}
+
         <hr></hr>
 
         <p>Real Estate</p>   
@@ -122,7 +120,6 @@ function Assets() {
                         <td>{estate.cost}</td>
                         <td>{estate.cashflow}</td>
                     </tr>
-                
                 )
             })}
           
@@ -154,7 +151,6 @@ function Assets() {
                         <td>{business.cost}</td>
                         <td>{business.cashflow}</td>
                     </tr>
-                   
                 )
             })}
             </tbody>
@@ -162,14 +158,10 @@ function Assets() {
    
         <button onClick ={() => {setNewBusinessBtn(true)}}>Buy Businesses</button>
 
-      
         {newBusinessBtn ? <NewBus /> : <></>}
 
-     
         <hr></hr>
-
-
-      
+        
         </OrangeBox>
          
         </>
