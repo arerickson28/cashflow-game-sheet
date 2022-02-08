@@ -14,8 +14,9 @@ const useSharedStates = ()=> {
     const [incomeState, setIncomeState] = useState(store.get("income"))
     const [expensesState, setExpensesState] = useState(store.get("expenses"))
     const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
+    const [newBusinessBtn, setNewBusinessBtn] = useState(false)
     return {
-        assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState
+        assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn
     }
 }
 
@@ -53,7 +54,7 @@ let newCashflow = function() {
  }
 
  let newTotalIncome = function() {
-    return storeIncome.monthlySalary + storeIncome.passiveIncome()
+    return storeIncome.monthlySalary + storeIncome.passiveIncome
 }
 
 let newBusinessDebts = function () {
@@ -66,9 +67,12 @@ let newBusinessDebts = function () {
 }
 
 let newBusinessIncome = function() {
+    let newBusinessIncome = 0
     for(let y=0; y< storeAssets.businesses.length; y++) {
-        storeIncome.newBusinessIncome += storeAssets.businesses[y].cashflow
+        newBusinessIncome += storeAssets.businesses[y].cashflow
     }
+    console.log(newBusinessIncome)
+    return newBusinessIncome
 }
 
 let newDividendIncome = function() {

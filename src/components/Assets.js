@@ -2,11 +2,12 @@ import React, { useState } from "react"
 import { useBetween } from "use-between"
 import styled from "styled-components"
 import store from "store"
+import NewBus from "./NewBus"
 
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 
-import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome } from "../Data/dataFunc"
+import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
 
 
 const useSharedStates = ()=> {
@@ -15,6 +16,7 @@ const useSharedStates = ()=> {
     const [incomeState, setIncomeState] = useState(store.get("income"))
     const [expensesState, setExpensesState] = useState(store.get("expenses"))
     const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
+    const [newBusinessBtn, setNewBusinessBtn] = useState(false)
 }
 
 const OrangeBox = styled.div`
@@ -25,7 +27,7 @@ const OrangeBox = styled.div`
 
 function Assets() {
     
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState } = useShareMyStates()
+    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn } = useShareMyStates()
 
     const [addSubState, setAddSubState] = useState(0)
 
@@ -38,7 +40,7 @@ function Assets() {
         "cashflow": 0
     })
 
-    const [newBusinessBtn, setNewBusinessBtn] = useState("hide")
+    // const [newBusinessBtn, setNewBusinessBtn] = useState(false)
 
     function handleCashChange(e) {
         setAddSubState(parseInt(e.target.value))
@@ -54,21 +56,26 @@ function Assets() {
 
     }
 
-    function hanldeBusinessSubmit(e) {
-        console.log(newBusState)
-        storeAssets.businesses.push(newBusState)
-        store.set("assets", storeAssets)
-        setAssetState(storeAssets)
-        setNewBusState({
-            "name": "",
-            "downPay": 0,
-            "cost": 0,
-            "cashflow": 0
-        })
-        setNewBusinessBtn("hide")
-        newBusinessIncome()
-        e.preventDefault()
-    }
+    // function hanldeBusinessSubmit(e) {
+    //     console.log(newBusState)
+    //     storeAssets.businesses.push(newBusState)
+    //     store.set("assets", storeAssets)
+    //     setAssetState(storeAssets)
+      
+    //     setNewBusinessBtn("hide")
+    //     storeIncome.businessIncome = newBusinessIncome()
+    //     storeIncome.passiveIncome = newTotalPassiveIncome()
+    //     storeIncome.totalIncome = newTotalIncome()
+    //     store.set("income", storeIncome)
+    //     setIncomeState(storeIncome)
+    //     setNewBusState({
+    //         "name": "",
+    //         "downPay": 0,
+    //         "cost": 0,
+    //         "cashflow": 0
+    //     })
+    //     e.preventDefault()
+    // }
 
     return (
         <>
@@ -182,24 +189,19 @@ function Assets() {
                    
                 )
             })}
-       
-          
-          
             </tbody>
         </table>
    
-        {/* <table>
-        <tr key="form">
-                <td><input></input></td>
-                <td><input></input></td>
-                <td><input></input></td>
-                <td><input></input></td>
-            </tr>
-        </table> */}
+        <button onClick ={() => {setNewBusinessBtn(true)}}>Buy Businesses</button>
 
-        <button onClick ={() => {setNewBusinessBtn("")}}>Buy Businesses</button>
+      
+        {newBusinessBtn ? <NewBus /> : <></>}
 
-        <form className={newBusinessBtn} onSubmit={hanldeBusinessSubmit}>
+        {/* <div className={newBusinessBtn}>
+            <NewBus />
+        </div> */}
+
+        {/* <form className={newBusinessBtn} onSubmit={hanldeBusinessSubmit}>
             
             <input onInput={e=>setNewBusState({
                 ...newBusState,
@@ -209,22 +211,22 @@ function Assets() {
 
             <input onInput={e=>setNewBusState({
                 ...newBusState,
-                 "downPay": e.target.value
+                 "downPay": parseInt(e.target.value)
             })} type="number" min="0" step="100"></input>
 
             <input onInput={e=>setNewBusState({
                 ...newBusState,
-                 "cost": e.target.value
+                 "cost": parseInt(e.target.value)
             })}type="number" min="0" step="100"></input>
 
             <input onInput={e=>setNewBusState({
                 ...newBusState,
-                 "cashflow": e.target.value
+                 "cashflow": parseInt(e.target.value)
             })}type="number" step="50"></input>
             <br></br>
             <input type="submit" value="Submit" />
     
-        </form>
+        </form> */}
         <hr></hr>
 
 
