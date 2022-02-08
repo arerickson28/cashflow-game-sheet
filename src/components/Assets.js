@@ -4,6 +4,7 @@ import styled from "styled-components"
 import store from "store"
 import NewBus from "./NewBus"
 import NewRE from "./NewRE"
+import NewStock from "./NewStock"
 
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
@@ -19,6 +20,7 @@ const useSharedStates = ()=> {
     const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
     const [newBusinessBtn, setNewBusinessBtn] = useState(false)
     const [newREBtn, setNewREBtn] = useState(false)
+    const [newStockBtn, setNewStockBtn] = useState(false)
 }
 
 const OrangeBox = styled.div`
@@ -29,20 +31,11 @@ const OrangeBox = styled.div`
 
 function Assets() {
     
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn } = useShareMyStates()
+    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn } = useShareMyStates()
 
     const [addSubState, setAddSubState] = useState(0)
 
     const [addSubCashBtn, setAddSubCashBtn] = useState("hide")
-
-    const [newBusState, setNewBusState] = useState({
-        "name": "",
-        "downPay": 0,
-        "cost": 0,
-        "cashflow": 0
-    })
-
-    // const [newBusinessBtn, setNewBusinessBtn] = useState(false)
 
     function handleCashChange(e) {
         setAddSubState(parseInt(e.target.value))
@@ -57,27 +50,6 @@ function Assets() {
         e.preventDefault()
 
     }
-
-    // function hanldeBusinessSubmit(e) {
-    //     console.log(newBusState)
-    //     storeAssets.businesses.push(newBusState)
-    //     store.set("assets", storeAssets)
-    //     setAssetState(storeAssets)
-      
-    //     setNewBusinessBtn("hide")
-    //     storeIncome.businessIncome = newBusinessIncome()
-    //     storeIncome.passiveIncome = newTotalPassiveIncome()
-    //     storeIncome.totalIncome = newTotalIncome()
-    //     store.set("income", storeIncome)
-    //     setIncomeState(storeIncome)
-    //     setNewBusState({
-    //         "name": "",
-    //         "downPay": 0,
-    //         "cost": 0,
-    //         "cashflow": 0
-    //     })
-    //     e.preventDefault()
-    // }
 
     return (
         <>
@@ -122,16 +94,13 @@ function Assets() {
                 )
             })}
               
-               <tr key="form">
-                <td><input type="text"></input></td>
-                <td><input type="text"></input></td>
-                <td><input type="text"></input></td>
-                <td><input type="text"></input></td>
-            </tr>
+        
          
             </tbody>
         </table>
-        <button>Buy Stock</button>
+        <button onClick={() => {setNewStockBtn(true)}}>Buy Stock</button>
+
+        {newStockBtn ? <NewStock /> : <></>}
         <hr></hr>
 
         <p>Real Estate</p>   

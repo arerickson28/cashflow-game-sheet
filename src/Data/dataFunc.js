@@ -16,8 +16,9 @@ const useSharedStates = ()=> {
     const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
     const [newBusinessBtn, setNewBusinessBtn] = useState(false)
     const [newREBtn, setNewREBtn] = useState(false)
+    const [newStockBtn, setNewStockBtn] = useState(false)
     return {
-        assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn
+        assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn
     }
 }
 
@@ -85,10 +86,12 @@ let newRealEstateIncome = function() {
 }
 
 let newDividendIncome = function() {
+    let newDividendIncome = 0
     for(let y=0; y< storeAssets.stocksMutualsCDs.length; y++) {
         let totalSpecificStockHoldingsDividendIncome = storeAssets.stocksMutualsCDs[y]["no. shares"] * storeAssets.stocksMutualsCDs[y]["dividends/share"]
-        storeIncome.dividendIncome += totalSpecificStockHoldingsDividendIncome
+        newDividendIncome += totalSpecificStockHoldingsDividendIncome
     }
+    return newDividendIncome
 }
 
 

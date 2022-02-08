@@ -33,7 +33,6 @@ function NewBus() {
         "cashflow": 0
     })
 
-    // const [newBusinessBtn, setNewBusinessBtn] = useState("hide")
 
     function handleBusinessSubmit(e) {
         console.log(newBusState)
