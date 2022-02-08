@@ -7,7 +7,7 @@ import store from "store"
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 
-import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
+import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newRealEstateIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
 
 
 const useSharedStates = ()=> {
@@ -20,35 +20,32 @@ const useSharedStates = ()=> {
 }
 
 
-function NewBus() {
+function NewRE() {
 
 
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn } = useShareMyStates()
+    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn } = useShareMyStates()
 
-
-    const [newBusState, setNewBusState] = useState({
-        "name": "",
+    const [newREState, setNewREState] = useState({
+        "type": "",
         "downPay": 0,
         "cost": 0,
         "cashflow": 0
     })
 
-    // const [newBusinessBtn, setNewBusinessBtn] = useState("hide")
-
-    function handleBusinessSubmit(e) {
-        console.log(newBusState)
-        storeAssets.businesses.push(newBusState)
+    function handleRESubmit(e) {
+        console.log(newREState)
+        storeAssets.realEstate.push(newREState)
         store.set("assets", storeAssets)
         setAssetState(storeAssets)
       
-        setNewBusinessBtn(false)
-        storeIncome.businessIncome = newBusinessIncome()
+        setNewREBtn(false)
+        storeIncome.realEstateIncome = newRealEstateIncome()
         storeIncome.passiveIncome = newTotalPassiveIncome()
         storeIncome.totalIncome = newTotalIncome()
         store.set("income", storeIncome)
         setIncomeState(storeIncome)
-        setNewBusState({
-            "name": "",
+        setNewREState({
+            "type": "",
             "downPay": 0,
             "cost": 0,
             "cashflow": 0
@@ -59,36 +56,36 @@ function NewBus() {
 
     return (
         <>
-             <form onSubmit={handleBusinessSubmit}>
+        <h3>This is a new real estate thing</h3>
+        <form onSubmit={handleRESubmit}>
             
-            <input onInput={e=>setNewBusState({
-                ...newBusState,
+            <input onInput={e=>setNewREState({
+                ...newREState,
                 // "id": storeAssets.businesses.length += 1,
-                "name": e.target.value
+                "type": e.target.value
             })} type="text"></input>
 
-            <input onInput={e=>setNewBusState({
-                ...newBusState,
+            <input onInput={e=>setNewREState({
+                ...newREState,
                  "downPay": parseInt(e.target.value)
             })} type="number" min="0" step="100"></input>
 
-            <input onInput={e=>setNewBusState({
-                ...newBusState,
+            <input onInput={e=>setNewREState({
+                ...newREState,
                  "cost": parseInt(e.target.value)
             })}type="number" min="0" step="100"></input>
 
-            <input onInput={e=>setNewBusState({
-                ...newBusState,
+            <input onInput={e=>setNewREState({
+                ...newREState,
                  "cashflow": parseInt(e.target.value)
             })}type="number" step="50"></input>
             <br></br>
             <input type="submit" value="Submit" />
     
         </form>
-        
         </>
     )
 
 }
 
-export default NewBus
+export default NewRE

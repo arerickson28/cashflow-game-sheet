@@ -3,6 +3,7 @@ import { useBetween } from "use-between"
 import styled from "styled-components"
 import store from "store"
 import NewBus from "./NewBus"
+import NewRE from "./NewRE"
 
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
@@ -17,6 +18,7 @@ const useSharedStates = ()=> {
     const [expensesState, setExpensesState] = useState(store.get("expenses"))
     const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
     const [newBusinessBtn, setNewBusinessBtn] = useState(false)
+    const [newREBtn, setNewREBtn] = useState(false)
 }
 
 const OrangeBox = styled.div`
@@ -27,7 +29,7 @@ const OrangeBox = styled.div`
 
 function Assets() {
     
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn } = useShareMyStates()
+    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn } = useShareMyStates()
 
     const [addSubState, setAddSubState] = useState(0)
 
@@ -154,17 +156,14 @@ function Assets() {
                 
                 )
             })}
-               <tr key="form">
-                <td><input type="text"></input></td>
-                <td><input type="text"></input></td>
-                <td><input type="text"></input></td>
-                <td><input type="text"></input></td>
-            </tr>
+          
             </tbody>
         </table>
 
-        <button>Buy Real Estate</button>
+        <button onClick={()=> {setNewREBtn(true)}}>Buy Real Estate</button>
 
+        {newREBtn ? <NewRE /> : <></>}
+      
         <hr></hr>
 
         <p>Businesses</p>
@@ -197,36 +196,7 @@ function Assets() {
       
         {newBusinessBtn ? <NewBus /> : <></>}
 
-        {/* <div className={newBusinessBtn}>
-            <NewBus />
-        </div> */}
-
-        {/* <form className={newBusinessBtn} onSubmit={hanldeBusinessSubmit}>
-            
-            <input onInput={e=>setNewBusState({
-                ...newBusState,
-                // "id": storeAssets.businesses.length += 1,
-                "name": e.target.value
-            })} type="text"></input>
-
-            <input onInput={e=>setNewBusState({
-                ...newBusState,
-                 "downPay": parseInt(e.target.value)
-            })} type="number" min="0" step="100"></input>
-
-            <input onInput={e=>setNewBusState({
-                ...newBusState,
-                 "cost": parseInt(e.target.value)
-            })}type="number" min="0" step="100"></input>
-
-            <input onInput={e=>setNewBusState({
-                ...newBusState,
-                 "cashflow": parseInt(e.target.value)
-            })}type="number" step="50"></input>
-            <br></br>
-            <input type="submit" value="Submit" />
-    
-        </form> */}
+     
         <hr></hr>
 
 
