@@ -32,14 +32,15 @@ function Liabilities() {
             <p>Car Loans: <span>{liabilityState.carLoans}</span></p>
             <p>Credit Cards: <span>{liabilityState.creditCards}</span></p>
             <p>Retial Debt: <span>{liabilityState.retailDebt}</span></p>
+            <button>Make Payment</button>
             <hr></hr>
-            <h4>Bank Loans</h4>
+            <h4>Bank Loans (10%)</h4>
             { liabilityState.bankLoans.map((loan) => {
                 return (
                     <p key={loan.id}>{loan.amount}</p>
                 )
             })}
-           
+           <button>Make Payment</button>
             {/* <div>
                 <table>
                     <thead>

@@ -70,6 +70,16 @@ function NewRE() {
 
     return (
         <>
+         <table>
+                <thead>
+                    <tr>
+                        <th>type</th>
+                        <th>down payment</th>
+                        <th>cost</th>
+                        <th>cashflow</th>
+                    </tr>
+                </thead>
+            </table>
         <form onSubmit={handleRESubmit}>
             
             <input onInput={e=>setNewREState({
@@ -94,7 +104,7 @@ function NewRE() {
             })}type="number" step="50"></input>
             <br></br>
             <input type="submit" value="Submit" />
-    
+            <button onClick={()=>setNewREBtn(false)}>Cancel</button>
         </form>
         </>
     )

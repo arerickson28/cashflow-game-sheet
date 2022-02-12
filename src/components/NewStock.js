@@ -57,8 +57,17 @@ function NewStock() {
 
     return (
         <>
+            <table>
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>no. shares</th>
+                        <th>cost/share</th>
+                        <th>dividends/share</th>
+                    </tr>
+                </thead>
+            </table>
             <form onSubmit={handleStockSubmit}>
-            
                 <input onInput={e=>setNewStockState({
                     ...newStockState,
                     // "id": storeAssets.businesses.length += 1,
@@ -70,17 +79,18 @@ function NewStock() {
                     "no. shares": parseInt(e.target.value)
                 })} type="number" min="0" step="5"></input>
 
-                <input onInput={e=>setNewStockState({
+                <input size="10" onInput={e=>setNewStockState({
                     ...newStockState,
                     "cost/share": parseInt(e.target.value)
                 })}type="number" min="0" step="5"></input>
 
-                <input onInput={e=>setNewStockState({
+                <input size="10" onInput={e=>setNewStockState({
                     ...newStockState,
                     "dividends/share": parseInt(e.target.value)
                 })}type="number" step="5"></input>
                 <br></br>
                 <input type="submit" value="Submit" />
+                <button onClick={()=>setNewStockBtn(false)}>Cancel</button>
     
             </form>
    

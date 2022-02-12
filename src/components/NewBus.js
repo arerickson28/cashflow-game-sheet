@@ -58,7 +58,6 @@ function NewBus() {
         storeLiabilities.businessDebts.push(newBusLiability)
         store.set("liabilities", storeLiabilities)
         setLiabilityState(storeLiabilities)
-        console.log(storeLiabilities)
 
         setNewBusState({
             "name": "",
@@ -72,6 +71,16 @@ function NewBus() {
 
     return (
         <>
+         <table>
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>down payment</th>
+                        <th>cost</th>
+                        <th>cashflow</th>
+                    </tr>
+                </thead>
+            </table>
              <form onSubmit={handleBusinessSubmit}>
             
             <input onInput={e=>setNewBusState({
@@ -96,7 +105,7 @@ function NewBus() {
             })}type="number" step="50"></input>
             <br></br>
             <input type="submit" value="Submit" />
-    
+            <button onClick={()=>setNewBusinessBtn(false)}>Cancel</button>
         </form>
         
         </>
