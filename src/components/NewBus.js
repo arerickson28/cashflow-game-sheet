@@ -7,7 +7,7 @@ import store from "store"
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 
-import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
+import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newTotalIncome, newTotalPassiveIncome, storeLiabilities } from "../Data/dataFunc"
 
 
 const useSharedStates = ()=> {
@@ -35,17 +35,31 @@ function NewBus() {
 
 
     function handleBusinessSubmit(e) {
-        console.log(newBusState)
+
         storeAssets.businesses.push(newBusState)
+
         store.set("assets", storeAssets)
         setAssetState(storeAssets)
       
         setNewBusinessBtn(false)
+
         storeIncome.businessIncome = newBusinessIncome()
         storeIncome.passiveIncome = newTotalPassiveIncome()
         storeIncome.totalIncome = newTotalIncome()
+
         store.set("income", storeIncome)
         setIncomeState(storeIncome)
+
+        let newBusLiability = {
+            "name": newBusState["name"],
+            "debt": newBusState["cost"] - newBusState["downPay"]
+        }
+
+        storeLiabilities.businessDebts.push(newBusLiability)
+        store.set("liabilities", storeLiabilities)
+        setLiabilityState(storeLiabilities)
+        console.log(storeLiabilities)
+
         setNewBusState({
             "name": "",
             "downPay": 0,

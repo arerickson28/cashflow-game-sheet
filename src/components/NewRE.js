@@ -56,7 +56,6 @@ function NewRE() {
 
     return (
         <>
-        <h3>This is a new real estate thing</h3>
         <form onSubmit={handleRESubmit}>
             
             <input onInput={e=>setNewREState({

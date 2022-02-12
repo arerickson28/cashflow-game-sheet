@@ -94,7 +94,6 @@ function Liabilities() {
                         <tr key={bDebt.id}>
                             <td>{bDebt.name}</td>
                             <td>{bDebt.debt}</td>
-                       
                         </tr>
                     
                     )
