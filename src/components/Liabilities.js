@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useBetween } from "use-between"
 import styled from "styled-components"
 import store from "store"
+import PayLiab from "./PayLiab"
 
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
@@ -17,22 +18,26 @@ margin: 10px;
 
 function Liabilities() {
    
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState } = useShareMyStates()
+    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, payLiabBtn, setPayLiabBtn } = useShareMyStates()
 
 
 
     return (
         <>
             <PurpleBox>
-
-          
+                
             <h2>Liabilities</h2>
+
             <p>Home Mortgage: <span>{liabilityState.homeMortgage}</span></p>
             <p>School Loans: <span>{liabilityState.schoolLoans}</span></p>
             <p>Car Loans: <span>{liabilityState.carLoans}</span></p>
             <p>Credit Cards: <span>{liabilityState.creditCards}</span></p>
             <p>Retial Debt: <span>{liabilityState.retailDebt}</span></p>
-            <button>Make Payment</button>
+
+            <button onClick={() => setPayLiabBtn(true)}>Make Payment</button>
+
+            {payLiabBtn ? <PayLiab /> : <></>}
+           
             <hr></hr>
             <h4>Bank Loans (10%)</h4>
             { liabilityState.bankLoans.map((loan) => {
@@ -40,7 +45,7 @@ function Liabilities() {
                     <p key={loan.id}>{loan.amount}</p>
                 )
             })}
-           <button>Make Payment</button>
+             <button>Make Payment</button>
             {/* <div>
                 <table>
                     <thead>
