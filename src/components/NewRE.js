@@ -7,7 +7,7 @@ import store from "store"
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 
-import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newRealEstateIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
+import {useShareMyStates, storeExpenses, storeIncome, storeLiabilities, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newRealEstateIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
 
 
 const useSharedStates = ()=> {
@@ -33,17 +33,31 @@ function NewRE() {
     })
 
     function handleRESubmit(e) {
-        console.log(newREState)
+
         storeAssets.realEstate.push(newREState)
+
         store.set("assets", storeAssets)
         setAssetState(storeAssets)
       
         setNewREBtn(false)
+
         storeIncome.realEstateIncome = newRealEstateIncome()
         storeIncome.passiveIncome = newTotalPassiveIncome()
         storeIncome.totalIncome = newTotalIncome()
+
         store.set("income", storeIncome)
         setIncomeState(storeIncome)
+
+        let newRELiability = {
+            "type": newREState["type"],
+            "mortgage": newREState["cost"] - newREState["downPay"]
+        }
+
+        storeLiabilities.reEsMortgages.push(newRELiability)
+        store.set("liabilities", storeLiabilities)
+        setLiabilityState(storeLiabilities)
+
+
         setNewREState({
             "type": "",
             "downPay": 0,
