@@ -12,16 +12,16 @@ import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
 
 
-const useSharedStates = ()=> {
-    const [assetState, setAssetState] = useState(store.get('assets'))
-    const [liabilityState, setLiabilityState] = useState(store.get("liabilities"))
-    const [incomeState, setIncomeState] = useState(store.get("income"))
-    const [expensesState, setExpensesState] = useState(store.get("expenses"))
-    const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
-    const [newBusinessBtn, setNewBusinessBtn] = useState(false)
-    const [newREBtn, setNewREBtn] = useState(false)
-    const [newStockBtn, setNewStockBtn] = useState(false)
-}
+// const useSharedStates = ()=> {
+//     const [assetState, setAssetState] = useState(store.get('assets'))
+//     const [liabilityState, setLiabilityState] = useState(store.get("liabilities"))
+//     const [incomeState, setIncomeState] = useState(store.get("income"))
+//     const [expensesState, setExpensesState] = useState(store.get("expenses"))
+//     const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
+//     const [newBusinessBtn, setNewBusinessBtn] = useState(false)
+//     const [newREBtn, setNewREBtn] = useState(false)
+//     const [newStockBtn, setNewStockBtn] = useState(false)
+// }
 
 const OrangeBox = styled.div`
     border: solid 4px rgb(255, 123, 0);

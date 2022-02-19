@@ -3,6 +3,7 @@ import { useBetween } from "use-between"
 import styled from "styled-components"
 import store from "store"
 import PayLiab from "./PayLiab"
+import PayLoan from "./PayLoan"
 
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
@@ -18,7 +19,7 @@ margin: 10px;
 
 function Liabilities() {
    
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, payLiabBtn, setPayLiabBtn } = useShareMyStates()
+    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn } = useShareMyStates()
 
 
 
@@ -45,7 +46,10 @@ function Liabilities() {
                     <p key={loan.id}>{loan.amount}</p>
                 )
             })}
-             <button>Make Payment</button>
+
+             <button onClick={() => setPayLoanBtn(true)}>Make Payment</button>
+
+             {payLoanBtn ? <PayLoan /> : <></>}
             {/* <div>
                 <table>
                     <thead>

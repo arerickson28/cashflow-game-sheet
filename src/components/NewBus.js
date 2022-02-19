@@ -10,14 +10,14 @@ import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newTotalIncome, newTotalPassiveIncome, storeLiabilities } from "../Data/dataFunc"
 
 
-const useSharedStates = ()=> {
-    const [assetState, setAssetState] = useState(store.get('assets'))
-    const [liabilityState, setLiabilityState] = useState(store.get("liabilities"))
-    const [incomeState, setIncomeState] = useState(store.get("income"))
-    const [expensesState, setExpensesState] = useState(store.get("expenses"))
-    const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
-    const [newBusinessBtn, setNewBusinessBtn] = useState(false)
-}
+// const useSharedStates = ()=> {
+//     const [assetState, setAssetState] = useState(store.get('assets'))
+//     const [liabilityState, setLiabilityState] = useState(store.get("liabilities"))
+//     const [incomeState, setIncomeState] = useState(store.get("income"))
+//     const [expensesState, setExpensesState] = useState(store.get("expenses"))
+//     const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
+//     const [newBusinessBtn, setNewBusinessBtn] = useState(false)
+// }
 
 
 function NewBus() {

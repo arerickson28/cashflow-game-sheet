@@ -15,13 +15,13 @@ padding: 5px;
 margin: 10px;
 `
 
-const useSharedStates = ()=> {
-    const [assetState, setAssetState] = useState(store.get('assets'))
-    const [liabilityState, setLiabilityState] = useState(store.get("liabilities"))
-    const [incomeState, setIncomeState] = useState(store.get("income"))
-    const [expensesState, setExpensesState] = useState(store.get("expenses"))
-    const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
-}
+// const useSharedStates = ()=> {
+//     const [assetState, setAssetState] = useState(store.get('assets'))
+//     const [liabilityState, setLiabilityState] = useState(store.get("liabilities"))
+//     const [incomeState, setIncomeState] = useState(store.get("income"))
+//     const [expensesState, setExpensesState] = useState(store.get("expenses"))
+//     const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
+// }
 
 // const useShareMyStates = ()=> useBetween(useSharedStates)
 
