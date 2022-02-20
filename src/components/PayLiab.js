@@ -7,18 +7,9 @@ import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 
 import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newRealEstateIncome, newDividendIncome, newTotalIncome, newTotalPassiveIncome, storeLiabilities } from "../Data/dataFunc"
 
-// const useSharedStates = ()=> {
-//     const [assetState, setAssetState] = useState(store.get('assets'))
-//     const [liabilityState, setLiabilityState] = useState(store.get("liabilities"))
-//     const [incomeState, setIncomeState] = useState(store.get("income"))
-//     const [expensesState, setExpensesState] = useState(store.get("expenses"))
-//     const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
-//     const [newBusinessBtn, setNewBusinessBtn] = useState(false)
-//     const [payLiabBtn, setPayLiabBtn] = useState(false)
-// }
 
 function PayLiab() {
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, payLiabBtn, setPayLiabBtn } = useShareMyStates()
+    const { liabilityState, setLiabilityState, expensesState, setExpensesState, cashflowState, setCashflowState, payLiabBtn, setPayLiabBtn } = useShareMyStates()
 
 
     const [liabPaymentState, setLiabPaymentState] = useState({

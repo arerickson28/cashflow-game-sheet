@@ -19,8 +19,10 @@ const useSharedStates = ()=> {
     const [newStockBtn, setNewStockBtn] = useState(false)
     const [payLiabBtn, setPayLiabBtn] = useState(false)
     const [payLoanBtn, setPayLoanBtn] = useState(false)
+    const [payBusBtn, setPayBusBtn] = useState(false)
+
     return {
-        assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn
+        assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn
     }
 }
 

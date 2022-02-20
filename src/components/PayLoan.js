@@ -5,11 +5,11 @@ import store from "store"
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 
-import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newRealEstateIncome, newDividendIncome, newTotalIncome, newTotalPassiveIncome, storeLiabilities } from "../Data/dataFunc"
+import {useShareMyStates, storeExpenses, newTotalExpenses, storeCashflow, newCashflow, storeLiabilities } from "../Data/dataFunc"
 
 
 function PayLoan() {
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn } = useShareMyStates()
+    const { liabilityState, setLiabilityState, payLoanBtn, setPayLoanBtn } = useShareMyStates()
 
 
     const [loanPaymentState, setLoanPaymentState] = useState({
@@ -22,11 +22,14 @@ function PayLoan() {
         console.log(loanPaymentState["loan"], loanPaymentState.amount)
         let chosenLoan = loanPaymentState["loan"]
 
-        for (let i=0; i<storeLiabilities["bankLoans"].length; i++)
-            if (storeLiabilities["bankLoans"][i]["amount"] === chosenLoan)
+        for (let i=0; i<storeLiabilities["bankLoans"].length; i++) {
+            if (storeLiabilities["bankLoans"][i]["amount"] == chosenLoan) {
                 storeLiabilities["bankLoans"][i]["amount"] -= loanPaymentState.amount
                 store.set("liabilities", storeLiabilities)
                 setLiabilityState(storeLiabilities)
+            }
+        }
+               
 
 
         setLoanPaymentState({
@@ -36,20 +39,6 @@ function PayLoan() {
     }
 
 
-    { assetState.stocksMutualsCDs.map((stock) => {
-        return (
-          
-            <tr key={stock.id}>
-                <td>{stock.name}</td>
-                <td>{stock["no. shares"]}</td>
-                <td>{stock["cost/share"]}</td>
-                <td>{stock["dividends/share"]}</td>
-            </tr>
-        )
-    })}
-
-
-
     return (
         <>
             <form onSubmit={handleLoanPayment}>
@@ -57,12 +46,13 @@ function PayLoan() {
                     ...loanPaymentState,
                     "loan": e.target.value
                 })}>
-                    <option>--choose liability--</option>
+                    <option>--choose loan--</option>
                     {liabilityState.bankLoans.map((loan) => {
                         return (
                             <option value={loan.amount}>{loan.amount}</option>
                         )
                     })}
+
                 </select>
 
                 <input type="number" step="50" onInput={(e) =>setLoanPaymentState({

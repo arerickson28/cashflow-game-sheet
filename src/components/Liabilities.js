@@ -4,6 +4,7 @@ import styled from "styled-components"
 import store from "store"
 import PayLiab from "./PayLiab"
 import PayLoan from "./PayLoan"
+import PayBus from "./PayBus"
 
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
@@ -19,7 +20,7 @@ margin: 10px;
 
 function Liabilities() {
    
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn } = useShareMyStates()
+    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn } = useShareMyStates()
 
 
 
@@ -88,7 +89,7 @@ function Liabilities() {
                 })}
                 </tbody>
             </table>
-
+            <button>Make Payment</button>
             <hr></hr>
             <h4>Business Debts</h4>
             <table>
@@ -110,6 +111,13 @@ function Liabilities() {
                 })}
                 </tbody>
             </table>
+
+            <button onClick={()=>setPayBusBtn(true)}>Make Payment</button>
+            
+
+
+            {payBusBtn ? <PayBus /> : <></>}
+            
             <hr></hr>
 
               </PurpleBox>

@@ -12,16 +12,7 @@ import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
 
 
-// const useSharedStates = ()=> {
-//     const [assetState, setAssetState] = useState(store.get('assets'))
-//     const [liabilityState, setLiabilityState] = useState(store.get("liabilities"))
-//     const [incomeState, setIncomeState] = useState(store.get("income"))
-//     const [expensesState, setExpensesState] = useState(store.get("expenses"))
-//     const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
-//     const [newBusinessBtn, setNewBusinessBtn] = useState(false)
-//     const [newREBtn, setNewREBtn] = useState(false)
-//     const [newStockBtn, setNewStockBtn] = useState(false)
-// }
+
 
 const OrangeBox = styled.div`
     border: solid 4px rgb(255, 123, 0);
@@ -96,6 +87,7 @@ function Assets() {
         </table>
 
         <button onClick={() => {setNewStockBtn(true)}}>Buy Stock</button>
+        <button>Sell Stock</button>
 
         {newStockBtn ? <NewStock /> : <></>}
 
@@ -127,6 +119,7 @@ function Assets() {
         </table>
 
         <button onClick={()=> {setNewREBtn(true)}}>Buy Real Estate</button>
+        <button>Sell Real Estate</button>
 
         {newREBtn ? <NewRE /> : <></>}
       
@@ -157,6 +150,7 @@ function Assets() {
         </table>
    
         <button onClick ={() => {setNewBusinessBtn(true)}}>Buy Businesses</button>
+        <button>Sell Business</button>
 
         {newBusinessBtn ? <NewBus /> : <></>}
 
