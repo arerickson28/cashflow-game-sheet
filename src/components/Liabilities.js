@@ -43,30 +43,35 @@ function Liabilities() {
            
             <hr></hr>
             <h4>Bank Loans (10%)</h4>
-            { liabilityState.bankLoans.map((loan) => {
-                return (
-                    <p key={loan.id}>{loan.amount}</p>
-                )
-            })}
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>amount</th>
+                        <th>remaining</th>
+                    </tr>
+                </thead>
+                <tbody>
+                { liabilityState.bankLoans.map((loan) => {
+                    return (
+                        <tr key={loan.id}>
+                            <td>{loan.name}</td>
+                            <td>{loan.amount}</td>
+                            <td>{loan.remaining}</td>
+                        </tr>
+                    
+                    )
+                })}
+                </tbody>
+            </table>
+
+
 
              <button onClick={() => setPayLoanBtn(true)}>Make Payment</button>
 
              {payLoanBtn ? <PayLoan /> : <></>}
-            {/* <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>
-                                Bank Loans:
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {displayBankLoans()}
-                    </tbody>
-                
-                </table>
-            </div> */}
+        
 
             <hr></hr>
 
@@ -74,7 +79,7 @@ function Liabilities() {
             <table>
                 <thead>
                     <tr>
-                        <th>type</th>
+                        <th>name</th>
                         <th>mortgage</th>
                     </tr>
                 </thead>

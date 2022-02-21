@@ -193,12 +193,14 @@ let assets = {
             {
                 id: "a",
                 name: "Wells Fargo",
-                amount: 10000
+                amount: 10000,
+                remaining: 10000
             },
             {
                 id: "b",
                 name: "Spire Credit Union",
-                amount: 5000
+                amount: 5000,
+                remaining: 5000
             }
         ]
           

@@ -13,18 +13,18 @@ function PayLoan() {
 
 
     const [loanPaymentState, setLoanPaymentState] = useState({
-        "loan": "",
+        "loanName": "",
         "amount": 0
     })
 
     function handleLoanPayment() {
         setPayLoanBtn(false)
         console.log(loanPaymentState["loan"], loanPaymentState.amount)
-        let chosenLoan = loanPaymentState["loan"]
+        let chosenLoan = loanPaymentState["loanName"]
 
         for (let i=0; i<storeLiabilities["bankLoans"].length; i++) {
-            if (storeLiabilities["bankLoans"][i]["amount"] == chosenLoan) {
-                storeLiabilities["bankLoans"][i]["amount"] -= loanPaymentState.amount
+            if (storeLiabilities["bankLoans"][i]["name"] == chosenLoan) {
+                storeLiabilities["bankLoans"][i]["remaining"] -= loanPaymentState.amount
                 store.set("liabilities", storeLiabilities)
                 setLiabilityState(storeLiabilities)
             }
@@ -33,7 +33,7 @@ function PayLoan() {
 
 
         setLoanPaymentState({
-            "liability": "",
+            "loanName": "",
             "amount": 0
         })
     }
@@ -44,12 +44,12 @@ function PayLoan() {
             <form onSubmit={handleLoanPayment}>
                 <select onChange={(e)=>setLoanPaymentState({
                     ...loanPaymentState,
-                    "loan": e.target.value
+                    "loanName": e.target.value
                 })}>
                     <option>--choose loan--</option>
                     {liabilityState.bankLoans.map((loan) => {
                         return (
-                            <option value={loan.amount}>{loan.amount}</option>
+                            <option value={loan.name}>{loan.name}</option>
                         )
                     })}
 
