@@ -19,6 +19,7 @@ function NewRE() {
     const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn } = useShareMyStates()
 
     const [newREState, setNewREState] = useState({
+        "name": "",
         "type": "",
         "downPay": 0,
         "cost": 0,
@@ -52,6 +53,7 @@ function NewRE() {
 
 
         setNewREState({
+            "name": "",
             "type": "",
             "downPay": 0,
             "cost": 0,
@@ -66,6 +68,7 @@ function NewRE() {
          <table>
                 <thead>
                     <tr>
+                        <th>name</th>
                         <th>type</th>
                         <th>down payment</th>
                         <th>cost</th>
@@ -74,6 +77,12 @@ function NewRE() {
                 </thead>
             </table>
         <form onSubmit={handleRESubmit}>
+
+            <input onInput={e=>setNewREState({
+                ...newREState,
+                // "id": storeAssets.businesses.length += 1,
+                "name": e.target.value
+            })} type="text"></input>
             
             <input onInput={e=>setNewREState({
                 ...newREState,

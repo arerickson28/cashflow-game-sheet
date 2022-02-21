@@ -5,6 +5,7 @@ import store from "store"
 import PayLiab from "./PayLiab"
 import PayLoan from "./PayLoan"
 import PayBus from "./PayBus"
+import PayRE from "./PayRE"
 
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
@@ -20,7 +21,7 @@ margin: 10px;
 
 function Liabilities() {
    
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn } = useShareMyStates()
+    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn, payREBtn, setPayREBtn } = useShareMyStates()
 
 
 
@@ -81,7 +82,7 @@ function Liabilities() {
                 { liabilityState.reEsMortgages.map((estate) => {
                     return (
                         <tr key={estate.id}>
-                            <td>{estate.type}</td>
+                            <td>{estate.name}</td>
                             <td>{estate.mortgage}</td>
                         </tr>
                     
@@ -89,7 +90,10 @@ function Liabilities() {
                 })}
                 </tbody>
             </table>
-            <button>Make Payment</button>
+            <button onClick={()=>setPayREBtn(true)}>Make Payment</button>
+            
+            {payREBtn ? <PayRE /> : <></>}
+
             <hr></hr>
             <h4>Business Debts</h4>
             <table>
@@ -117,7 +121,7 @@ function Liabilities() {
 
 
             {payBusBtn ? <PayBus /> : <></>}
-            
+
             <hr></hr>
 
               </PurpleBox>

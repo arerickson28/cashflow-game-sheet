@@ -48,6 +48,11 @@ table {
   margin-right: auto;
 }
 
+th, td {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
 .assLiab {
   display: flex;
   flex-direction: row;

@@ -144,6 +144,7 @@ let assets = {
     realEstate:  [
         {
         "id": "a",
+        "name": "camelot circle",
         "type": "3br/2ba",
         "downPay": 20000,
         "cost": 100000,
@@ -176,6 +177,7 @@ let assets = {
         reEsMortgages: [
             {
                 "id": "a",
+                "name": "camelot cirlce",
                 "type": "3br/2ba",
                 "mortgage": 80000
             }
@@ -190,10 +192,12 @@ let assets = {
         bankLoans: [
             {
                 id: "a",
+                name: "Wells Fargo",
                 amount: 10000
             },
             {
                 id: "b",
+                name: "Spire Credit Union",
                 amount: 5000
             }
         ]

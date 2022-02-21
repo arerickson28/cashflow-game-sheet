@@ -97,6 +97,7 @@ function Assets() {
         <table>
             <thead>
                 <tr>
+                    <th>name</th>
                     <th>type</th>
                     <th>down payment</th>
                     <th>cost</th>
@@ -107,6 +108,7 @@ function Assets() {
             { assetState.realEstate.map((estate) => {
                 return (
                     <tr key={estate.id}>
+                        <td>{estate.name}</td>
                         <td>{estate.type}</td>
                         <td>{estate.downPay}</td>
                         <td>{estate.cost}</td>
