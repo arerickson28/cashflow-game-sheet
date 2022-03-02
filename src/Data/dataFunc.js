@@ -17,13 +17,14 @@ const useSharedStates = ()=> {
     const [newBusinessBtn, setNewBusinessBtn] = useState(false)
     const [newREBtn, setNewREBtn] = useState(false)
     const [newStockBtn, setNewStockBtn] = useState(false)
+    const [sellStockBtn, setSellStockBtn] = useState(false)
     const [payLiabBtn, setPayLiabBtn] = useState(false)
     const [payLoanBtn, setPayLoanBtn] = useState(false)
     const [payBusBtn, setPayBusBtn] = useState(false)
     const [payREBtn, setPayREBtn] = useState(false)
 
     return {
-        assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn, payREBtn, setPayREBtn
+        assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn, payREBtn, setPayREBtn
     }
 }
 

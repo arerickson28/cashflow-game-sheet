@@ -5,6 +5,7 @@ import store from "store"
 import NewBus from "./NewBus"
 import NewRE from "./NewRE"
 import NewStock from "./NewStock"
+import SellStock from "./SellStock"
 
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
@@ -22,7 +23,7 @@ const OrangeBox = styled.div`
 
 function Assets() {
     
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn } = useShareMyStates()
+    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn } = useShareMyStates()
 
     const [addSubState, setAddSubState] = useState(0)
 
@@ -87,9 +88,10 @@ function Assets() {
         </table>
 
         <button onClick={() => {setNewStockBtn(true)}}>Buy Stock</button>
-        <button>Sell Stock</button>
+        <button onClick={() => {setSellStockBtn(true)}}>Sell Stock</button>
 
         {newStockBtn ? <NewStock /> : <></>}
+        {sellStockBtn ? <SellStock /> : <></>}
 
         <hr></hr>
 

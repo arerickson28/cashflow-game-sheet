@@ -43,6 +43,7 @@ function NewRE() {
         setIncomeState(storeIncome)
 
         let newRELiability = {
+            "name": newREState["name"],
             "type": newREState["type"],
             "mortgage": newREState["cost"] - newREState["downPay"]
         }
@@ -80,13 +81,11 @@ function NewRE() {
 
             <input onInput={e=>setNewREState({
                 ...newREState,
-                // "id": storeAssets.businesses.length += 1,
                 "name": e.target.value
             })} type="text"></input>
             
             <input onInput={e=>setNewREState({
                 ...newREState,
-                // "id": storeAssets.businesses.length += 1,
                 "type": e.target.value
             })} type="text"></input>
 

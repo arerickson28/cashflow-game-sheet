@@ -38,6 +38,11 @@ function NewStock() {
         storeIncome.totalIncome = newTotalIncome()
         store.set("income", storeIncome)
         setIncomeState(storeIncome)
+
+        storeCashflow.cashflow = newCashflow()
+        store.set("cashflow", storeCashflow)
+        setCashflowState(storeCashflow)
+
         setNewStockState({
             "name": "",
             "no. shares": 0,
