@@ -9,29 +9,26 @@ import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 
 import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newRealEstateIncome, newDividendIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
 
+function SellRE() {
 
 
-
-function SellStock() {
-
-
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn } = useShareMyStates()
+    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn, sellREBtn, setSellREBtn } = useShareMyStates()
 
 
-    const [sellStockState, setSellStockState] = useState({
-        "name": "",
-        "no. shares": 0,
-        // "cost/share": 0,
-        // "dividens/share": 0
+    const [sellREState, setSellREState] = useState({
+        "name": ""
     })
 
 
     function handleStockSubmit(e) {
-        console.log(sellStockState)
+        console.log(sellREState)
         // storeAssets.stocksMutualsCDs.push(sellStockState)
-        for (let i=0; i<storeAssets.stocksMutualsCDs.length; i++) {
-            if (storeAssets.stocksMutualsCDs[i]["name"] == sellStockState["name"]) {
-                storeAssets.stocksMutualsCDs[i]["no. shares"] -= sellStockState["no. shares"]
+        for (let i=0; i<storeAssets.realEstate.length; i++) {
+            if (storeAssets.realEstate[i]["name"] == sellREState["name"]) {
+
+                storeAssets.realEstate.pop(i)
+
+                // storeAssets.realEstate[i]["no. shares"] -= sellStockState["no. shares"]
             }
         }
 
@@ -40,9 +37,9 @@ function SellStock() {
         store.set("assets", storeAssets)
         setAssetState(storeAssets)
       
-        setSellStockBtn(false)
+        setSellREBtn(false)
 
-        storeIncome.dividendIncome = newDividendIncome()
+        storeIncome.realEstateIncome = newRealEstateIncome()
         storeIncome.passiveIncome = newTotalPassiveIncome()
         storeIncome.totalIncome = newTotalIncome()
 
@@ -53,11 +50,8 @@ function SellStock() {
         store.set("cashflow", storeCashflow)
         setCashflowState(storeCashflow)
 
-        setSellStockState({
+        setSellREState({
             "name": "",
-            "no. shares": 0,
-            // "cost/share": 0,
-            // "dividends/share": 0
         })
         e.preventDefault()
     }
@@ -66,27 +60,28 @@ function SellStock() {
         <>
       
             <form onSubmit={handleStockSubmit}>
-                <select onChange={(e)=>setSellStockState({
-                    ...sellStockState,
+                <select onChange={(e)=>setSellREState({
+                    ...sellREState,
                     "name": e.target.value
                 })}>
-                    <option>--choose stock--</option>
-                    {assetState.stocksMutualsCDs.map((stock) => {
+                    <option>--choose Real Estate--</option>
+                    {assetState.realEstate.map((re) => {
                         return (
-                            <option value={stock.name}>{stock.name}</option>
+                            <option value={re.name}>{re.name}</option>
                         )
                     })}
                     
                 </select>
 
 
-                <input type="number" step="1" onInput={(e) =>setSellStockState({
+                {/* <input type="number" step="1" onInput={(e) =>setSellStockState({
                  ...sellStockState,
                  "no. shares": parseInt(e.target.value)
-                }) }></input>
+                }) }></input> */}
                 <br></br>
+
                 <input type="submit" value="Submit"></input>
-                <button onClick={()=>setSellStockBtn(false)}>Cancel</button>
+                <button onClick={()=>setSellREBtn(false)}>Cancel</button>
     
             </form>
    
@@ -94,4 +89,4 @@ function SellStock() {
     )
 }
 
-export default SellStock
+export default SellRE

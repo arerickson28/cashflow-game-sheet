@@ -74,7 +74,7 @@ function NewStock() {
                 <input onInput={e=>setNewStockState({
                     ...newStockState,
                     "no. shares": parseInt(e.target.value)
-                })} type="number" min="0" step="5"></input>
+                })} type="number" min="0" step="1"></input>
 
                 <input size="10" onInput={e=>setNewStockState({
                     ...newStockState,

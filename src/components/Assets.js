@@ -6,6 +6,7 @@ import NewBus from "./NewBus"
 import NewRE from "./NewRE"
 import NewStock from "./NewStock"
 import SellStock from "./SellStock"
+import SellRE from "./SellRE"
 
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
@@ -23,7 +24,7 @@ const OrangeBox = styled.div`
 
 function Assets() {
     
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn } = useShareMyStates()
+    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn, sellREBtn, setSellREBtn } = useShareMyStates()
 
     const [addSubState, setAddSubState] = useState(0)
 
@@ -55,7 +56,7 @@ function Assets() {
 
         <form className={addSubCashBtn} onSubmit={handleCashSubmit}>
             <label>
-            <input type="number" step="10" value={addSubState} onChange={handleCashChange} />
+            <input type="number" step="5" value={addSubState} onChange={handleCashChange} />
             </label>
             <input type="submit" value="Submit" />
         </form>
@@ -123,9 +124,10 @@ function Assets() {
         </table>
 
         <button onClick={()=> {setNewREBtn(true)}}>Buy Real Estate</button>
-        <button>Sell Real Estate</button>
+        <button onClick={() => {setSellREBtn(true)}}>Sell Real Estate</button>
 
         {newREBtn ? <NewRE /> : <></>}
+        {sellREBtn ? <SellRE /> : <></>}
       
         <hr></hr>
 
