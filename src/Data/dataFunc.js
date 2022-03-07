@@ -81,7 +81,7 @@ let newBusinessIncome = function() {
     for(let y=0; y< storeAssets.businesses.length; y++) {
         newBusinessIncome += storeAssets.businesses[y].cashflow
     }
-    console.log(newBusinessIncome)
+    console.log(newBusinessIncome, "newBusinessIncome")
     return newBusinessIncome
 }
 

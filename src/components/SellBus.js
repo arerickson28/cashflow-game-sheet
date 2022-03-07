@@ -34,7 +34,7 @@ function SellBus() {
       
         setSellBusBtn(false)
 
-        storeIncome.newBusinessIncome = newBusinessIncome()
+        storeIncome.businessIncome = newBusinessIncome()
         storeIncome.passiveIncome = newTotalPassiveIncome()
         storeIncome.totalIncome = newTotalIncome()
 
