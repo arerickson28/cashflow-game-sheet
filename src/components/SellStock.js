@@ -21,7 +21,7 @@ function SellStock() {
     const [sellStockState, setSellStockState] = useState({
         "name": "",
         "no. shares": 0,
-        // "cost/share": 0,
+        "current price": 0,
         // "dividens/share": 0
     })
 
@@ -32,10 +32,18 @@ function SellStock() {
         for (let i=0; i<storeAssets.stocksMutualsCDs.length; i++) {
             if (storeAssets.stocksMutualsCDs[i]["name"] == sellStockState["name"]) {
                 storeAssets.stocksMutualsCDs[i]["no. shares"] -= sellStockState["no. shares"]
-            }
+
+             
+            } 
         }
 
+        // for (let i=0; i<storeAssets.stocksMutualsCDs.length; i++) {
+        //     if (storeAssets.stocksMutualsCDs[i]["no. shares"] == 0) {
+        //         storeAssets.stocksMutualsCDs.pop(i)
+        //     }
+        // }
 
+        storeAssets.cash += sellStockState["no. shares"] * sellStockState["current price"]
 
         store.set("assets", storeAssets)
         setAssetState(storeAssets)
@@ -53,10 +61,12 @@ function SellStock() {
         store.set("cashflow", storeCashflow)
         setCashflowState(storeCashflow)
 
+        
+
         setSellStockState({
             "name": "",
             "no. shares": 0,
-            // "cost/share": 0,
+            "current price": 0,
             // "dividends/share": 0
         })
         e.preventDefault()
@@ -78,11 +88,20 @@ function SellStock() {
                     })}
                     
                 </select>
+                <br></br>
 
-
+                <label>No. Shares</label>
+                <br></br>
                 <input type="number" step="1" onInput={(e) =>setSellStockState({
                  ...sellStockState,
                  "no. shares": parseInt(e.target.value)
+                }) }></input>
+                <br></br>
+                <label>Current Price</label>
+                <br></br>
+                <input type="number" step="1" onInput={(e) =>setSellStockState({
+                 ...sellStockState,
+                 "current price": parseInt(e.target.value)
                 }) }></input>
                 <br></br>
                 <input type="submit" value="Submit"></input>
