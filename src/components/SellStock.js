@@ -36,12 +36,16 @@ function SellStock() {
              
             } 
         }
+        let tempArray = []
+        for (let i= storeAssets.stocksMutualsCDs.length - 1; i>=0; i--) {
+            
+            if (storeAssets.stocksMutualsCDs[i]["no. shares"] != 0) {
+                tempArray.push(storeAssets.stocksMutualsCDs[i])
+                console.log(storeAssets.stocksMutualsCDs)
+            }
+        }
 
-        // for (let i=0; i<storeAssets.stocksMutualsCDs.length; i++) {
-        //     if (storeAssets.stocksMutualsCDs[i]["no. shares"] == 0) {
-        //         storeAssets.stocksMutualsCDs.pop(i)
-        //     }
-        // }
+        storeAssets.stocksMutualsCDs = tempArray
 
         storeAssets.cash += sellStockState["no. shares"] * sellStockState["current price"]
 

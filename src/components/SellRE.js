@@ -32,8 +32,6 @@ function SellRE() {
             }
         }
 
-
-
         store.set("assets", storeAssets)
         setAssetState(storeAssets)
       
