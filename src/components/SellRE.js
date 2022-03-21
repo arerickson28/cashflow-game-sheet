@@ -16,21 +16,26 @@ function SellRE() {
 
 
     const [sellREState, setSellREState] = useState({
-        "name": ""
+        "name": "",
+        "sellPrice": 0
     })
 
 
     function handleStockSubmit(e) {
         console.log(sellREState)
         // storeAssets.stocksMutualsCDs.push(sellStockState)
+        let tempArray = []
         for (let i=0; i<storeAssets.realEstate.length; i++) {
-            if (storeAssets.realEstate[i]["name"] == sellREState["name"]) {
-
-                storeAssets.realEstate.pop(i)
+            if (storeAssets.realEstate[i]["name"] !== sellREState["name"]) {
+                tempArray.push(storeAssets.realEstate[i])
 
                 // storeAssets.realEstate[i]["no. shares"] -= sellStockState["no. shares"]
             }
         }
+
+        storeAssets.realEstate = tempArray
+
+        storeAssets.cash += sellREState["sellPrice"] 
 
         store.set("assets", storeAssets)
         setAssetState(storeAssets)
@@ -50,6 +55,7 @@ function SellRE() {
 
         setSellREState({
             "name": "",
+            "sellPrice": 0
         })
         e.preventDefault()
     }
@@ -70,12 +76,16 @@ function SellRE() {
                     })}
                     
                 </select>
+                <br></br>
+                <label>Sell Price</label>
+                <br></br>
+                <input type="number" step="100" onInput={(e) =>setSellREState({
+                 ...sellREState,
+                 "sellPrice": parseInt(e.target.value)
+                }) }></input>
 
 
-                {/* <input type="number" step="1" onInput={(e) =>setSellStockState({
-                 ...sellStockState,
-                 "no. shares": parseInt(e.target.value)
-                }) }></input> */}
+            
                 <br></br>
 
                 <input type="submit" value="Submit"></input>
