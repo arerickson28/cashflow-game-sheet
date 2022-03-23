@@ -14,20 +14,23 @@ function SellBus() {
 
 
     const [sellBusState, setSellBusState] = useState({
-        "name": ""
+        "name": "",
+        "sellPrice": 0
     })
 
     function handleBusSubmit(e) {
         console.log(sellBusState)
-        // storeAssets.stocksMutualsCDs.push(sellStockState)
+       
+        let tempArray = []
         for (let i=0; i<storeAssets.businesses.length; i++) {
-            if (storeAssets.businesses[i]["name"] == sellBusState["name"]) {
-
-                storeAssets.businesses.pop(i)
-
-                // storeAssets.realEstate[i]["no. shares"] -= sellStockState["no. shares"]
+            if (storeAssets.businesses[i]["name"] !== sellBusState["name"]) {
+                tempArray.push(storeAssets.businesses[i])
             }
         }
+
+        storeAssets.businesses = tempArray
+
+        storeAssets.cash += sellBusState["sellPrice"] 
 
         store.set("assets", storeAssets)
         setAssetState(storeAssets)
@@ -47,6 +50,7 @@ function SellBus() {
 
         setSellBusState({
             "name": "",
+            "sellPrice": 0
         })
         e.preventDefault()
     }
@@ -66,6 +70,13 @@ function SellBus() {
             })}
             
         </select>
+        <br></br>
+                <label>Sell Price</label>
+                <br></br>
+                <input type="number" step="100" onInput={(e) =>setSellBusState({
+                 ...sellBusState,
+                 "sellPrice": parseInt(e.target.value)
+                }) }></input>
 
 
        
