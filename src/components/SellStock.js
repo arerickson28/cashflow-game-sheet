@@ -103,7 +103,7 @@ function SellStock() {
                 <br></br>
                 <label>Current Price</label>
                 <br></br>
-                <input type="number" step="1" onInput={(e) =>setSellStockState({
+                $<input type="number" step="1" onInput={(e) =>setSellStockState({
                  ...sellStockState,
                  "current price": parseInt(e.target.value)
                 }) }></input>

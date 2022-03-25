@@ -64,6 +64,13 @@ function SellRE() {
         <>
       
             <form onSubmit={handleStockSubmit}>
+            <label>Sell Price</label>
+                <br></br>
+                $<input type="number" step="100" onInput={(e) =>setSellREState({
+                 ...sellREState,
+                 "sellPrice": parseInt(e.target.value)
+                }) }></input>
+                <br></br>
                 <select onChange={(e)=>setSellREState({
                     ...sellREState,
                     "name": e.target.value
@@ -76,16 +83,6 @@ function SellRE() {
                     })}
                     
                 </select>
-                <br></br>
-                <label>Sell Price</label>
-                <br></br>
-                <input type="number" step="100" onInput={(e) =>setSellREState({
-                 ...sellREState,
-                 "sellPrice": parseInt(e.target.value)
-                }) }></input>
-
-
-            
                 <br></br>
 
                 <input type="submit" value="Submit"></input>

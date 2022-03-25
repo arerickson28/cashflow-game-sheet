@@ -58,6 +58,16 @@ function SellBus() {
     <>
       
     <form onSubmit={handleBusSubmit}>
+        <label>Sell Price</label>
+        <br></br>
+        $<input type="number" step="100" onInput={(e) =>setSellBusState({
+                 ...sellBusState,
+                 "sellPrice": parseInt(e.target.value)
+                }) }></input>
+
+
+       
+        <br></br>
         <select onChange={(e)=>setSellBusState({
             ...sellBusState,
             "name": e.target.value
@@ -71,16 +81,7 @@ function SellBus() {
             
         </select>
         <br></br>
-                <label>Sell Price</label>
-                <br></br>
-                <input type="number" step="100" onInput={(e) =>setSellBusState({
-                 ...sellBusState,
-                 "sellPrice": parseInt(e.target.value)
-                }) }></input>
-
-
-       
-        <br></br>
+              
 
         <input type="submit" value="Submit"></input>
         <button onClick={()=>setSellBusBtn(false)}>Cancel</button>

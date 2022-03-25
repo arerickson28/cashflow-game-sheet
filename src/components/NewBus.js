@@ -29,6 +29,8 @@ function NewBus() {
 
     function handleBusinessSubmit(e) {
 
+        storeAssets.cash -= newBusState["downPay"]
+
         storeAssets.businesses.push(newBusState)
 
         store.set("assets", storeAssets)

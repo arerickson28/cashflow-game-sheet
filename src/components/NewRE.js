@@ -28,6 +28,8 @@ function NewRE() {
 
     function handleRESubmit(e) {
 
+        storeAssets.cash -= newREState["downPay"]        
+
         storeAssets.realEstate.push(newREState)
 
         store.set("assets", storeAssets)
