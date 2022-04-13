@@ -24,6 +24,9 @@ function PayBus() {
         for (let i=0; i<storeLiabilities["businessDebts"].length; i++)
             if (storeLiabilities["businessDebts"][i]["name"] === chosenBusiness) {
                 storeLiabilities["businessDebts"][i]["debt"] -= busPaymentState.amount
+                if(storeLiabilities["businessDebts"][i]["debt"] == 0) {
+                    storeLiabilities["businessDebts"].pop(i)
+                }
                 store.set("liabilities", storeLiabilities)
                 setLiabilityState(storeLiabilities)
             }

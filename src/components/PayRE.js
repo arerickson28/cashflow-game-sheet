@@ -24,6 +24,9 @@ function PayRE() {
         for (let i=0; i<storeLiabilities["reEsMortgages"].length; i++)
             if (storeLiabilities["reEsMortgages"][i]["name"] === chosenRE) {
                 storeLiabilities["reEsMortgages"][i]["mortgage"] -= rePaymentState.amount
+                if(storeLiabilities["reEsMortgages"][i]["mortgage"] == 0) {
+                    storeLiabilities["reEsMortgages"].pop(i)
+                }
                 store.set("liabilities", storeLiabilities)
                 setLiabilityState(storeLiabilities)
         }

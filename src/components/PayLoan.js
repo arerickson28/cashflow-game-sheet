@@ -22,14 +22,25 @@ function PayLoan() {
         console.log(loanPaymentState["loan"], loanPaymentState.amount)
         let chosenLoan = loanPaymentState["loanName"]
 
+        let tempArray = []
+
         for (let i=0; i<storeLiabilities["bankLoans"].length; i++) {
-            if (storeLiabilities["bankLoans"][i]["name"] == chosenLoan) {
-                storeLiabilities["bankLoans"][i]["remaining"] -= loanPaymentState.amount
-                store.set("liabilities", storeLiabilities)
-                setLiabilityState(storeLiabilities)
+            if (storeLiabilities["bankLoans"][i]["name"] !== chosenLoan) {
+                tempArray.push(storeLiabilities["bankLoans"][i])
+         
             }
+            else {
+                storeLiabilities["bankLoans"][i]["remaining"] -= loanPaymentState.amount
+                if(storeLiabilities["bankLoans"][i]["remaining"] !== 0) {
+                    tempArray.push(storeLiabilities["bankLoans"][i])
+                }
+            }
+        
         }
-               
+            
+        storeLiabilities["bankLoans"] = tempArray
+        store.set("liabilities", storeLiabilities)
+        setLiabilityState(storeLiabilities)
 
 
         setLoanPaymentState({

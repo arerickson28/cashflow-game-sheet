@@ -10,6 +10,18 @@ import SellRE from "./SellRE"
 import SellBus from "./SellBus"
 
 
+// Todo: 
+// Form to initiate sheet
+// Not enough cash error
+// Invalid stock number when selling more stock than you have
+// Possibility to buy more of same stock
+// Liabilities, once something is paid off, it dissapears, careful with pop
+// Liabilities, once something with a monthy payment is paid off, expenses and cashflow adjust
+
+
+
+
+
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 
 import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
