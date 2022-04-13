@@ -5,11 +5,11 @@ import store from "store"
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 
-import {useShareMyStates, storeExpenses, newTotalExpenses, storeCashflow, newCashflow, storeLiabilities } from "../Data/dataFunc"
+import {useShareMyStates, storeExpenses, newTotalExpenses, storeCashflow, newCashflow, storeLiabilities, storeAssets } from "../Data/dataFunc"
 
 
 function PayLoan() {
-    const { liabilityState, setLiabilityState, payLoanBtn, setPayLoanBtn } = useShareMyStates()
+    const { assetState, setAssetState,liabilityState, setLiabilityState, payLoanBtn, setPayLoanBtn } = useShareMyStates()
 
 
     const [loanPaymentState, setLoanPaymentState] = useState({
@@ -42,6 +42,10 @@ function PayLoan() {
         store.set("liabilities", storeLiabilities)
         setLiabilityState(storeLiabilities)
 
+        storeAssets.cash -= loanPaymentState.amount
+
+        store.set("assets", storeAssets)
+        setAssetState(storeAssets)
 
         setLoanPaymentState({
             "loanName": "",
