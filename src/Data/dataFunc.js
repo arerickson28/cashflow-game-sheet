@@ -54,7 +54,7 @@ let newCreditCardPayment = function() {
 let newBankLoanPayment = function() {
     let payment = 0
     for(let i=0; i< storeLiabilities.bankLoans.length; i++){
-        payment += storeLiabilities.bankLoans[i] * 0.1
+        payment += storeLiabilities.bankLoans[i]["amount"] * 0.1
     }
     return payment
 }

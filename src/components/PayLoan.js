@@ -5,11 +5,11 @@ import store from "store"
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 
-import {useShareMyStates, storeExpenses, newTotalExpenses, storeCashflow, newCashflow, storeLiabilities, storeAssets } from "../Data/dataFunc"
+import {useShareMyStates, storeCashflow, storeExpenses, newTotalExpenses, newBankLoanPayment, newCashflow, storeLiabilities, storeAssets } from "../Data/dataFunc"
 
 
 function PayLoan() {
-    const { assetState, setAssetState,liabilityState, setLiabilityState, payLoanBtn, setPayLoanBtn } = useShareMyStates()
+    const { cashflowState, assetState, expensesState, setCashflowState, setExpensesState, setAssetState,liabilityState, setLiabilityState, payLoanBtn, setPayLoanBtn } = useShareMyStates()
 
 
     const [loanPaymentState, setLoanPaymentState] = useState({
@@ -19,7 +19,7 @@ function PayLoan() {
 
     function handleLoanPayment() {
         setPayLoanBtn(false)
-        console.log(loanPaymentState["loan"], loanPaymentState.amount)
+        console.log(loanPaymentState["loanName"], loanPaymentState.amount)
         let chosenLoan = loanPaymentState["loanName"]
 
         let tempArray = []
@@ -33,6 +33,22 @@ function PayLoan() {
                 storeLiabilities["bankLoans"][i]["remaining"] -= loanPaymentState.amount
                 if(storeLiabilities["bankLoans"][i]["remaining"] !== 0) {
                     tempArray.push(storeLiabilities["bankLoans"][i])
+                } else {
+
+                    storeLiabilities["bankLoans"] = tempArray
+                    
+                    store.set("liabilities", storeLiabilities)
+                    setLiabilityState(storeLiabilities)
+                 
+                    storeExpenses.bankLoanPayment = newBankLoanPayment()
+                    storeExpenses.totalExpenses = newTotalExpenses()
+                    store.set("expenses", storeExpenses)
+                    setExpensesState(storeExpenses)
+                 
+                    storeCashflow.cashflow = newCashflow()
+                    store.set("cashflow", storeCashflow)
+                    setCashflowState(storeCashflow)
+              
                 }
             }
         
