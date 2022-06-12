@@ -18,51 +18,48 @@ function PayLoan() {
     })
 
     function handleLoanPayment() {
+
         setPayLoanBtn(false)
+
         console.log(loanPaymentState["loanName"], loanPaymentState.amount)
+
         let chosenLoan = loanPaymentState["loanName"]
 
         let tempArray = []
 
-        for (let i=0; i<storeLiabilities["bankLoans"].length; i++) {
-            if (storeLiabilities["bankLoans"][i]["name"] !== chosenLoan) {
+        for (let i=0; i < storeLiabilities["bankLoans"].length; i++) {
+            if (storeLiabilities["bankLoans"][i].name !== chosenLoan) {
                 tempArray.push(storeLiabilities["bankLoans"][i])
-         
             }
             else {
                 storeLiabilities["bankLoans"][i]["remaining"] -= loanPaymentState.amount
                 if(storeLiabilities["bankLoans"][i]["remaining"] !== 0) {
                     tempArray.push(storeLiabilities["bankLoans"][i])
-                } else {
-
-                    storeLiabilities["bankLoans"] = tempArray
-                    
-                    store.set("liabilities", storeLiabilities)
-                    setLiabilityState(storeLiabilities)
-                 
-                    storeExpenses.bankLoanPayment = newBankLoanPayment()
-                    storeExpenses.totalExpenses = newTotalExpenses()
-                    store.set("expenses", storeExpenses)
-                    setExpensesState(storeExpenses)
-                 
-                    storeCashflow.cashflow = newCashflow()
-                    store.set("cashflow", storeCashflow)
-                    setCashflowState(storeCashflow)
-              
-                }
+                } 
             }
         
         }
-            
+     
         storeLiabilities["bankLoans"] = tempArray
+
         store.set("liabilities", storeLiabilities)
         setLiabilityState(storeLiabilities)
 
         storeAssets.cash -= loanPaymentState.amount
-
         store.set("assets", storeAssets)
         setAssetState(storeAssets)
 
+        storeExpenses.bankLoanPayment = newBankLoanPayment()
+     
+        storeExpenses.totalExpenses = newTotalExpenses()
+        store.set("expenses", storeExpenses)
+        setExpensesState(storeExpenses)
+     
+        storeCashflow.cashflow = newCashflow()
+        store.set("cashflow", storeCashflow)
+        setCashflowState(storeCashflow)
+
+       
         setLoanPaymentState({
             "loanName": "",
             "amount": 0

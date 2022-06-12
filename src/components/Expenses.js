@@ -50,7 +50,7 @@ function Expenses() {
                 <p>Car Payment: $<span>{expenses.carPayment}</span></p>
                 <p>Credit Card Payment: $<span>{expenses.creditCardPayment}</span></p>
                 <p>Retail Payment: $<span>{expensesState.retailPayment}</span></p>
-                <p>Bank Loan Payment: $<span>{expenses.bankLoanPayment}</span></p>
+                <p>Bank Loan Payment: $<span>{expensesState.bankLoanPayment}</span></p>
                 <p>Other Expenses: $<span>{expensesState.otherExpenses}</span></p>
                 <hr></hr>
                 <p>Number of Children: <span>{expensesState.numberOfChildren}</span></p>
