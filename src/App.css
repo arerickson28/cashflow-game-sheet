@@ -71,6 +71,12 @@ th, td {
   justify-content: space-around;
 } */
 
+.invalidInput {
+  border: solid;
+  border-width: 5px;
+  border-color: red;
+}
+
 button {
   margin: 5px;
 }

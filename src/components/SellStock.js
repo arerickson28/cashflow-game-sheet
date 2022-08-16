@@ -26,14 +26,20 @@ function SellStock() {
     })
 
 
+    function getMaxStocksSellable(stockName) {
+
+        for (let i=0; i<storeAssets.stocksMutualsCDs.length; i++) {
+            if (storeAssets.stocksMutualsCDs[i]["name"] == sellStockState["name"]) {
+                return String(storeAssets.stocksMutualsCDs[i]["no. shares"])
+        }
+    }}
+
     function handleStockSubmit(e) {
         console.log(sellStockState)
         // storeAssets.stocksMutualsCDs.push(sellStockState)
         for (let i=0; i<storeAssets.stocksMutualsCDs.length; i++) {
             if (storeAssets.stocksMutualsCDs[i]["name"] == sellStockState["name"]) {
                 storeAssets.stocksMutualsCDs[i]["no. shares"] -= sellStockState["no. shares"]
-
-             
             } 
         }
         let tempArray = []
@@ -96,10 +102,17 @@ function SellStock() {
 
                 <label>No. Shares</label>
                 <br></br>
-                <input type="number" step="1" onInput={(e) =>setSellStockState({
-                 ...sellStockState,
-                 "no. shares": parseInt(e.target.value)
-                }) }></input>
+                <input type="number" id="sellStockQuantity" step="1" min= "0" max={getMaxStocksSellable(sellStockState["name"])} onInput={(e) => {
+                
+             
+                        setSellStockState({
+                            ...sellStockState,
+                            "no. shares": parseInt(e.target.value)
+                       }) 
+               
+                    }}
+
+                    ></input>
                 <br></br>
                 <label>Current Price</label>
                 <br></br>
