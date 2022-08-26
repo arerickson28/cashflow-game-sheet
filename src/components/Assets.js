@@ -46,13 +46,10 @@ function Assets() {
 
     function handleCashChange(e) {
         if (Math.abs(parseInt(e.target.value)) > parseInt(storeAssets.cash)) {
-            console.log("woah")
             alert("Not enough ca$h!")
             return
         } else {
             setAddSubState(parseInt(e.target.value))
-            console.log(storeAssets.cash)
-            console.log(e.target.value)
         }
         
     }
@@ -66,12 +63,7 @@ function Assets() {
         e.preventDefault()
 
     }
- 
-    function isZero(currentCash) {
-        if(parseInt(currentCash) == 0)
-        return 0
-    }
-
+    
     return (
         <>
         <OrangeBox>
@@ -84,7 +76,7 @@ function Assets() {
 
         <form className={addSubCashBtn} onSubmit={handleCashSubmit}>
             <label>
-            <input type="number" step="5" min={isZero(storeAssets.cash)}value={addSubState} onChange={handleCashChange} />
+            <input type="number" step="5" value={addSubState} onChange={handleCashChange} />
             </label>
             <input type="submit" value="Submit" />
         </form>
