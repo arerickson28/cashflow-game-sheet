@@ -15,7 +15,7 @@ import SellBus from "./SellBus"
 // Not enough cash error for new business
 // Not enough cash error for new real estate
 // Invalid stock number when selling more stock than you have
-// Possibility to buy more of same stock
+
 // Liabilities, once something is paid off, it dissapears, careful with pop
 // Liabilities, once something with a monthy payment is paid off, expenses and cashflow adjust
 
