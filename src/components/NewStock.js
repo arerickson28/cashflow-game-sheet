@@ -28,8 +28,14 @@ function NewStock() {
 
     function handleStockSubmit(e) {
         console.log(newStockState)
-
-        storeAssets.cash -= newStockState["no. shares"] * newStockState["cost/share"] 
+        let totalStockCost = newStockState["no. shares"] * newStockState["cost/share"]
+        
+        if (totalStockCost > storeAssets.cash ) {
+            alert("Not enough ca$h!")
+            return
+       }
+        
+        storeAssets.cash -=  totalStockCost
 
         storeAssets.stocksMutualsCDs.push(newStockState)
         store.set("assets", storeAssets)
