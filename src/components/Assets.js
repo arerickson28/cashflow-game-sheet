@@ -12,7 +12,8 @@ import SellBus from "./SellBus"
 
 // Todo: 
 // Form to initiate sheet
-// Not enough cash error
+// Not enough cash error for new business
+// Not enough cash error for new real estate
 // Invalid stock number when selling more stock than you have
 // Possibility to buy more of same stock
 // Liabilities, once something is paid off, it dissapears, careful with pop
@@ -44,7 +45,16 @@ function Assets() {
     const [addSubCashBtn, setAddSubCashBtn] = useState("hide")
 
     function handleCashChange(e) {
-        setAddSubState(parseInt(e.target.value))
+        if (Math.abs(parseInt(e.target.value)) > parseInt(storeAssets.cash)) {
+            console.log("woah")
+            alert("Not enough ca$h!")
+            return
+        } else {
+            setAddSubState(parseInt(e.target.value))
+            console.log(storeAssets.cash)
+            console.log(e.target.value)
+        }
+        
     }
 
     function handleCashSubmit(e) {
@@ -55,6 +65,11 @@ function Assets() {
         setAddSubCashBtn("hide")
         e.preventDefault()
 
+    }
+ 
+    function isZero(currentCash) {
+        if(parseInt(currentCash) == 0)
+        return 0
     }
 
     return (
@@ -69,7 +84,7 @@ function Assets() {
 
         <form className={addSubCashBtn} onSubmit={handleCashSubmit}>
             <label>
-            <input type="number" step="5" value={addSubState} onChange={handleCashChange} />
+            <input type="number" step="5" min={isZero(storeAssets.cash)}value={addSubState} onChange={handleCashChange} />
             </label>
             <input type="submit" value="Submit" />
         </form>
