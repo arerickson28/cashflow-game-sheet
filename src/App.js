@@ -6,6 +6,7 @@ import Assets from './components/Assets';
 import Income from './components/Income';
 import { assets, liabilities, income, expenses, cashflow } from "./Data/data"
 import store from "store"
+import InstatiateSheet from './components/InstantiateSheet';
 
 
 function App() {
@@ -35,6 +36,8 @@ store.set('cashflow', cashflow)
       <Assets />
       <Liabilities />
       </div>
+
+      <InstatiateSheet />
     
     </div>
   );
