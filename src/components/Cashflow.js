@@ -10,6 +10,11 @@ padding: 5px;
 margin: 10px;
 `
 
+const GoldH1 = styled.h1`
+    color: white;
+    background-color: rgb(240, 240, 75);
+`
+
 function Cashflow() {
 
     const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState } = useShareMyStates()
@@ -29,7 +34,7 @@ function Cashflow() {
             <GoldBox>
 
            
-            <h2>Cashflow Calculator</h2> 
+            <GoldH1>Cashflow Calculator</GoldH1>
             <h4>Total Income: $<span>{incomeState.totalIncome}</span></h4>
             <h4>Total Expenses: $<span>{expensesState.totalExpenses}</span></h4>
             <h4>Monthly Cashflow: <span>${cashflowState.cashflow}</span></h4>

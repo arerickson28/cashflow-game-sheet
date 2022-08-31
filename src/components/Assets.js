@@ -14,7 +14,6 @@ import SellBus from "./SellBus"
 // Form to initiate sheet
 // Not enough cash error for new business
 // Not enough cash error for new real estate
-// Invalid stock number when selling more stock than you have
 
 // Liabilities, once something is paid off, it dissapears, careful with pop
 // Liabilities, once something with a monthy payment is paid off, expenses and cashflow adjust
@@ -35,6 +34,11 @@ const OrangeBox = styled.div`
     padding: 5px;
     margin: 10px;
     `
+
+const OrangeH1 = styled.h1`
+    color: white;
+    background-color: rgb(255, 123, 0);
+`
 
 function Assets() {
     
@@ -67,7 +71,7 @@ function Assets() {
     return (
         <>
         <OrangeBox>
-        <h1>Assets</h1>
+        <OrangeH1>Assets</OrangeH1>
         <p>Cash : $<span>{assetState.cash}</span></p>
         <button onClick={() => {
             setAddSubCashBtn("")

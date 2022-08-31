@@ -17,7 +17,10 @@ border: solid 4px rgb(128, 17, 128);
 padding: 5px;
 margin: 10px;
 `
-
+const PurpleH1 = styled.h1`
+    color: white;
+    background-color: rgb(128, 17, 128);
+`
 
 function Liabilities() {
    
@@ -29,7 +32,7 @@ function Liabilities() {
         <>
             <PurpleBox>
                 
-            <h2>Liabilities</h2>
+            <PurpleH1>Liabilities</PurpleH1>
 
             <p>Home Mortgage: <span>{liabilityState.homeMortgage}</span></p>
             <p>School Loans: <span>{liabilityState.schoolLoans}</span></p>

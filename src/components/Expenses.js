@@ -15,6 +15,11 @@ padding: 5px;
 margin: 10px;
 `
 
+const GreenH1 = styled.h1`
+    color: white;
+    background-color: rgb(85, 200, 85);
+`
+
 
 function Expenses() {
  
@@ -43,7 +48,7 @@ function Expenses() {
     return (
         <>
               <GreenBox>
-                <h2>Expenses</h2>
+                <GreenH1>Expenses</GreenH1>
                 <p>Taxes: $<span>{expensesState.taxes}</span></p>
                 <p>Home Mortgage: $<span>{expensesState.homeMortgagePayment}</span></p>
                 <p>School Loan Payment: $<span>{expensesState.schoolLoanPayment}</span></p>

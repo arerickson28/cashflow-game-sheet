@@ -13,7 +13,10 @@ border: solid 4px rgb(20, 20, 167);
 padding: 5px;
 margin: 10px;
 `
-
+const BlueH1 = styled.h1`
+    color: white;
+    background-color: rgb(20, 20, 167);
+`
 
 
 
@@ -25,7 +28,7 @@ function Income() {
     return (
         <>
         <BlueBox>
-        <h2>Income</h2>
+        <BlueH1>Income</BlueH1>
         <p>Monthly Salary: $<span>{incomeState.monthlySalary}</span></p>
         <hr></hr>
         <h3>Passive Income</h3>
