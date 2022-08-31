@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import store from "store"
+import {useShareMyStates, storeExpenses, storeIncome, storeLiabilities, storeCashflow, storeAssets, } from "../Data/dataFunc" 
 
 
 const PinkBox = styled.div`
@@ -8,7 +10,68 @@ const PinkBox = styled.div`
     margin: 10px;
     `
 
+
+    
+
 function InstatiateSheet() {
+
+    const [instantiateSheetState, setInstantiateSheetState] = useState({
+        sheetAssets: {
+            cash: 0,
+            stocksMutualsCDs: [],
+            realEstate:  [],
+            businesses: []
+        },
+        sheetLiabilities: {
+            homeMortgage: 70000,
+            schoolLoans: 25000,
+            carLoans: 2000,
+            creditCards: 1200,
+            retailDebt: 700,
+            reEsMortgages: [],
+            businessDebts: [],
+            bankLoans: []
+              
+        },
+        sheetIncome: {
+            interestIncome: 0,
+            dividendIncome: 150,
+            realEstateIncome: 200,
+            businessIncome: 300,
+            monthlySalary: 3020,
+            passiveIncome: 650,
+            totalIncome: 3670,
+        },
+        sheetExpenses: {
+            taxes: 500,
+            homeMortgagePayment: 55,
+            schoolLoanPayment: 60,
+            carPayment: 100,
+            creditCardPayment: 240,
+            retailPayment: 0,
+            otherExpenses: 10,
+            numberOfChildren: 2,
+            perChildExpense: 100,
+            childExpenses: 200,
+            bankLoanPayment: 1500,
+            totalExpenses: 2665,
+        },
+        sheetCashflow: {
+            cashflow: 1005
+        }
+        
+})
+
+    function handleSheetSubmit() {
+        console.log("sheet submittd")
+        // set instatiateSheetState
+
+        store.set("assets", instantiateSheetState.sheetAssets)
+        store.set("liabilities", instantiateSheetState.sheetLiabilities)
+        store.set("income", instantiateSheetState.sheetIncome)
+        store.set("expenses", instantiateSheetState.sheetExpenses)
+        store.set("cashflow", instantiateSheetState.sheetCashflow)
+    }
 
     return (
         <>
