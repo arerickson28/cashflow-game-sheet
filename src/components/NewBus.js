@@ -29,6 +29,11 @@ function NewBus() {
 
     function handleBusinessSubmit(e) {
 
+        if (newBusState["downPay"] > storeAssets.cash ) {
+            alert("Not enough ca$h!")
+            return
+       }
+
         storeAssets.cash -= newBusState["downPay"]
 
         storeAssets.businesses.push(newBusState)

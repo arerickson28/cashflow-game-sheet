@@ -28,6 +28,11 @@ function NewRE() {
 
     function handleRESubmit(e) {
 
+        if (newREState["downPay"]  > storeAssets.cash ) {
+            alert("Not enough ca$h!")
+            return
+       }
+
         storeAssets.cash -= newREState["downPay"]        
 
         storeAssets.realEstate.push(newREState)

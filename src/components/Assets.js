@@ -12,9 +12,6 @@ import SellBus from "./SellBus"
 
 // Todo: 
 // Form to initiate sheet
-// Not enough cash error for new business
-// Not enough cash error for new real estate
-
 // Liabilities, once something is paid off, it dissapears, careful with pop
 // Liabilities, once something with a monthy payment is paid off, expenses and cashflow adjust
 
@@ -24,7 +21,7 @@ import SellBus from "./SellBus"
 
 import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 
-import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
+import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc" 
 
 
 
