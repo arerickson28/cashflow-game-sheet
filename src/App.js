@@ -4,9 +4,11 @@ import Cashflow from "./components/Cashflow"
 import Liabilities from './components/Liabilities';
 import Assets from './components/Assets';
 import Income from './components/Income';
+import NavBar from './components/NavBar';
 // import { assets, liabilities, income, expenses, cashflow } from "./Data/data"
 import store from "store"
 import InstatiateSheet from './components/InstantiateSheet';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -74,23 +76,37 @@ store.set("cashflow", instantiateSheetState.sheetCashflow)
 
 
   return (
-    <div className="App">
-      <h1>Cashflow Game Sheet</h1>
-      <div className="incExp">
-      <Income />
-      <Cashflow />
-      <Expenses />
-      </div>
-      
-    
-      <div className="assLiab">
-      <Assets />
-      <Liabilities />
-      </div>
+    <>
+     <div className="App">
+      <Router>
+        <h1>Cashflow Game Sheet</h1>
+        <NavBar />
+        <Routes>
+     
+ 
+          <Route path="/cashflow-game-sheet/gamesheet" element={  
+              <>
+                  <div className="incExp">
+                   <Income />
+                  <Cashflow />
+                   <Expenses />
+                  </div>
 
-      <InstatiateSheet />
-    
-    </div>
+                  <div className="assLiab">
+                  <Assets />
+                  <Liabilities />
+                  </div>
+                
+              </>
+            }/>
+
+       <Route path="/cashflow-game-sheet/instantiate" element={<InstatiateSheet /> } />
+     
+    </Routes>
+       </Router>
+
+       </div>
+    </>
   );
 }
 

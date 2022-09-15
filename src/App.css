@@ -88,3 +88,10 @@ button {
 input {
   margin: 3px;
 }
+
+#navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: skyblue;
+  padding: 15px;
+}
