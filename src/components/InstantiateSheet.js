@@ -15,7 +15,7 @@ const PinkBox = styled.div`
 
 function InstantiateSheet() {
 
-    const { instantiateSheetState, setInstantiateSheetState } = useShareMyStates()
+    const { instantiateSheetState, setInstantiateSheetState, newSheetBtn, setNewSheetBtn } = useShareMyStates()
 
     function handleSheetSubmit(e) {
         console.log("sheet submittd")
@@ -73,7 +73,7 @@ function InstantiateSheet() {
     //         }
             
     // })
-
+        setNewSheetBtn(false)
         e.preventDefault()
     }
 

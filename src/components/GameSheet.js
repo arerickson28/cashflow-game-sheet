@@ -14,8 +14,10 @@ function GameSheet() {
 
     return (
         <>
+        <div className="App">
+
           {newSheetBtn ? <InstantiateSheet /> : 
-          
+
           <>
           <div>
                 <button onClick={()=> {setNewSheetBtn(true)}}>Start New Gamesheet</button>
@@ -36,6 +38,7 @@ function GameSheet() {
               
 
                 {/* <button>Reset Sheet</button> */}
+        </div>
         </>
     )
 }
