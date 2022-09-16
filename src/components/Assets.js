@@ -17,10 +17,6 @@ import SellBus from "./SellBus"
 
 
 
-
-
-import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
-
 import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc" 
 
 

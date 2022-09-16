@@ -9,9 +9,9 @@ function NavBar() {
       
             <div id="navbar">
            
-            <Link to="/cashflow-game-sheet/">Home</Link>
-            <Link to="/cashflow-game-sheet/gamesheet">GameSheet</Link>
-            <Link to="/cashflow-game-sheet/instantiate">InstantiateSheet</Link>
+            <h2><Link to="/cashflow-game-sheet/">Home</Link></h2>
+            <h2><Link to="/cashflow-game-sheet/gamesheet">GameSheet</Link></h2>
+            {/* <h2><Link to="/cashflow-game-sheet/instantiate">InstantiateSheet</Link></h2> */}
             </div>
         </>
     )

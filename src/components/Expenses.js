@@ -2,10 +2,6 @@ import React, { useState } from "react"
 import { useBetween } from "use-between"
 import styled from "styled-components"
 import store from "store"
-
-
-import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
-
 import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow } from "../Data/dataFunc"
 
 
@@ -52,8 +48,8 @@ function Expenses() {
                 <p>Taxes: $<span>{expensesState.taxes}</span></p>
                 <p>Home Mortgage: $<span>{expensesState.homeMortgagePayment}</span></p>
                 <p>School Loan Payment: $<span>{expensesState.schoolLoanPayment}</span></p>
-                <p>Car Payment: $<span>{expenses.carPayment}</span></p>
-                <p>Credit Card Payment: $<span>{expenses.creditCardPayment}</span></p>
+                <p>Car Payment: $<span>{expensesState.carPayment}</span></p>
+                <p>Credit Card Payment: $<span>{expensesState.creditCardPayment}</span></p>
                 <p>Retail Payment: $<span>{expensesState.retailPayment}</span></p>
                 <p>Bank Loan Payment: $<span>{expensesState.bankLoanPayment}</span></p>
                 <p>Other Expenses: $<span>{expensesState.otherExpenses}</span></p>

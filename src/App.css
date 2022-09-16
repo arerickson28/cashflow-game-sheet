@@ -91,7 +91,11 @@ input {
 
 #navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   background-color: skyblue;
   padding: 15px;
+}
+
+#navbar h2 {
+  margin: 20px;
 }

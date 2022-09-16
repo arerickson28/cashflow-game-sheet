@@ -6,9 +6,6 @@ import PayLiab from "./PayLiab"
 import PayLoan from "./PayLoan"
 import PayBus from "./PayBus"
 import PayRE from "./PayRE"
-
-
-import { assets, liabilities, income, expenses, cashflow } from "../Data/data"
 import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, newBusinessDebts } from "../Data/dataFunc"
 
 
