@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import store from "store"
 import styled from "styled-components"
-import {useShareMyStates, storeIncome, storeExpenses, storeAssets, storeLiabilities, storeCashflow, newChildExpenses, newTotalExpenses, newCreditCardPayment, newBankLoanPayment, newCarPayment, newCashflow, newTotalIncome } from "../Data/dataFunc"
+import {useShareMyStates, storeAssets, storeCashflow } from "../Data/dataFunc"
 
 const GoldBox = styled.div`
 border: solid 4px rgb(240, 240, 75);

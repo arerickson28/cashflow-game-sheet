@@ -65,6 +65,12 @@ th, td {
   justify-content: space-around;
 }
 
+.instSheet {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 /* .flex {
   display: flex;
   flex-direction: row;

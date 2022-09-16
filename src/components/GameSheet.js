@@ -1,5 +1,5 @@
 import React from "react"
-import {useShareMyStates} from "../Data/dataFunc"
+import { useShareMyStates } from "../Data/dataFunc"
 import InstantiateSheet from "./InstantiateSheet"
 import Expenses from "./Expenses"
 import Cashflow from "./Cashflow"
@@ -14,31 +14,31 @@ function GameSheet() {
 
     return (
         <>
-        <div className="App">
 
-          {newSheetBtn ? <InstantiateSheet /> : 
 
-          <>
-          <div>
-                <button onClick={()=> {setNewSheetBtn(true)}}>Start New Gamesheet</button>
-                </div>
+            {newSheetBtn ? <div className="instSheet"><InstantiateSheet />  </div> :
 
-                <div className="incExp">
-                <Income />
-                <Cashflow />
-                <Expenses />
-                </div>
+                <>
+                    <div>
+                        <button onClick={() => { setNewSheetBtn(true) }}>Start New Gamesheet</button>
+                    </div>
 
-                <div className="assLiab">
-                <Assets />
-                <Liabilities />
-                </div>
-        </>}
+                    <div className="incExp">
+                        <Income />
+                        <Cashflow />
+                        <Expenses />
+                    </div>
 
-              
+                    <div className="assLiab">
+                        <Assets />
+                        <Liabilities />
+                    </div>
+                </>}
 
-                {/* <button>Reset Sheet</button> */}
-        </div>
+
+
+            {/* <button>Reset Sheet</button> */}
+
         </>
     )
 }
