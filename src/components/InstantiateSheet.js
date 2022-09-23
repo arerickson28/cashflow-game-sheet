@@ -80,7 +80,6 @@ function InstantiateSheet() {
     return (
         <>
             <PinkBox>
-                <h2>This is the InstatiateSheet component</h2>
                 <form onSubmit={handleSheetSubmit}>
                     <h3>Profession</h3>
                     <input></input>

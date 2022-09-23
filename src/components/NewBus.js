@@ -45,6 +45,10 @@ function NewBus() {
         store.set("income", storeIncome)
         setIncomeState(storeIncome)
 
+        storeCashflow.cashflow = newCashflow()
+        store.set("cashflow", storeCashflow)
+        setCashflowState(storeCashflow)
+
         let newBusLiability = {
             "name": newBusState["name"],
             "debt": newBusState["cost"] - newBusState["downPay"]
