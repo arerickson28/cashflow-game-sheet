@@ -2,6 +2,8 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import GameSheet from "./components/GameSheet"
+import store from "store"
+import Liabilities from './components/Liabilities';
 
 
 
@@ -23,15 +25,41 @@ function App() {
   //       realEstate:  [],
   //       businesses: []
   //   },
-  //   sheetLiabilities: {
-  //       homeMortgage: 70000,
-  //       schoolLoans: 25000,
-  //       carLoans: 2000,
-  //       creditCards: 1200,
-  //       retailDebt: 700,
-  //       reEsMortgages: [],
-  //       businessDebts: [],
-  //       bankLoans: []
+    // sheetLiabilities: {
+    //     homeMortgage: {
+    //       balance: 70000,
+    //       expensePair: "homeMortgagePayment"
+    //     },
+    //     schoolLoans: {
+    //       balance:  25000,
+    //       expensePair: "schoolLoanPayment"
+    //     },
+    //     carLoans: {
+    //       balance:  2000,
+    //       expensePair: "carPayment"
+    //     },
+    //     creditCards: {
+    //       balance:  1200,
+    //       expensePair: "creditCardPayment"
+    //     },
+    //     retailDebt: {
+    //       balance: 700,
+    //       expensePair: "retailPayment"
+    //     },
+    //     reEsMortgages: [],
+    //     businessDebts: [],
+    //     bankLoans: [  {
+    //       id: "a",
+    //       name: "Wells Fargo",
+    //       amount: 10000,
+    //       remaining: 10000
+    //   },
+    //   {
+    //       id: "b",
+      //     name: "Spire Credit Union",
+      //     amount: 5000,
+      //     remaining: 5000
+      // }]
 
   //   },
   //   sheetIncome: {
@@ -68,6 +96,7 @@ function App() {
   // store.set("expenses", instantiateSheetState.sheetExpenses)
   // store.set("cashflow", instantiateSheetState.sheetCashflow)
 
+  // console.log(store.get("liabilities"), "storeLiabilities")
 
   return (
     <>

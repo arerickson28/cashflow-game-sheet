@@ -31,11 +31,11 @@ function Liabilities() {
                 
             <PurpleH1>Liabilities</PurpleH1>
 
-            <p>Home Mortgage: <span>{liabilityState.homeMortgage}</span></p>
-            <p>School Loans: <span>{liabilityState.schoolLoans}</span></p>
-            <p>Car Loans: <span>{liabilityState.carLoans}</span></p>
-            <p>Credit Cards: <span>{liabilityState.creditCards}</span></p>
-            <p>Retial Debt: <span>{liabilityState.retailDebt}</span></p>
+            <p>Home Mortgage: <span>{liabilityState.homeMortgage.balance}</span></p>
+            <p>School Loans: <span>{liabilityState.schoolLoans.balance}</span></p>
+            <p>Car Loans: <span>{liabilityState.carLoans.balance}</span></p>
+            <p>Credit Cards: <span>{liabilityState.creditCards.balance}</span></p>
+            <p>Retial Debt: <span>{liabilityState.retailDebt.balance}</span></p>
 
             <button onClick={() => setPayLiabBtn(true)}>Make Payment</button>
 

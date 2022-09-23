@@ -11,7 +11,8 @@ import SellBus from "./SellBus"
 
 // Todo: 
 // Form to initiate sheet
-// Liabilities, once something is paid off, it dissapears, careful with pop
+// On new local host, errors becuase localstorage not set
+// Liabilities, once something is paid off, it turns green
 // Liabilities, once something with a monthy payment is paid off, expenses and cashflow adjust
 
 

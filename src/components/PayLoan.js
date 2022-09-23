@@ -22,6 +22,10 @@ function PayLoan() {
 
         let chosenLoan = loanPaymentState["loanName"]
 
+        console.log(chosenLoan, "chosenLoan")
+        console.log(storeLiabilities["bankLoans"], "storeLiabilites[bankLoans]")
+        console.log("storeLiabilites", storeLiabilities)
+
         let tempArray = []
 
         for (let i=0; i < storeLiabilities["bankLoans"].length; i++) {
@@ -36,7 +40,8 @@ function PayLoan() {
             }
         
         }
-     
+        
+        console.log(tempArray, "tempArray")
         storeLiabilities["bankLoans"] = tempArray
 
         store.set("liabilities", storeLiabilities)
@@ -61,6 +66,9 @@ function PayLoan() {
             "loanName": "",
             "amount": 0
         })
+
+        console.log(liabilityState)
+        console.log(storeLiabilities)
     }
 
 

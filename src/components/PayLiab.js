@@ -14,14 +14,32 @@ function PayLiab() {
         "amount": 0
     })
 
-
     function handleLiabPayment() {
         setPayLiabBtn(false)
         console.log(liabPaymentState["liability"], liabPaymentState.amount)
         let chosenLiability = liabPaymentState["liability"]
 
-        storeLiabilities[chosenLiability] -= liabPaymentState.amount
+        storeLiabilities[chosenLiability].balance -= liabPaymentState.amount
+        console.log(storeLiabilities[chosenLiability])
+
+        if (storeLiabilities[chosenLiability].balance == 0) {
+
+            let relatedExpense = storeLiabilities[chosenLiability].expensePair
+         
+            storeExpenses[relatedExpense] = 0
+
+            storeExpenses.totalExpenses = newTotalExpenses()
+            store.set("expenses", storeExpenses)
+            setExpensesState(storeExpenses)
+         
+            storeCashflow.cashflow = newCashflow()
+            store.set("cashflow", storeCashflow)
+            setCashflowState(storeCashflow)
+    
+        }
+     
         store.set("liabilities", storeLiabilities)
+    
         setLiabilityState(storeLiabilities)
 
 

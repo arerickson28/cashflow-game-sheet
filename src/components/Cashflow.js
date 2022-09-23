@@ -4,14 +4,14 @@ import styled from "styled-components"
 import {useShareMyStates, storeAssets, storeCashflow } from "../Data/dataFunc"
 
 const GoldBox = styled.div`
-border: solid 4px rgb(240, 240, 75);
+border: solid 4px rgb(0,139,139);
 padding: 5px;
 margin: 10px;
 `
 
 const GoldH1 = styled.h1`
     color: white;
-    background-color: rgb(240, 240, 75);
+    background-color: rgb(0,139,139);
 `
 
 function Cashflow() {

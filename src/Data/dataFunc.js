@@ -29,18 +29,76 @@ const useSharedStates = ()=> {
         sheetAssets: {
             cash: 0,
             stocksMutualsCDs: [],
-            realEstate:  [],
-            businesses: []
+            realEstate:  [
+                {
+                    "id": "a",
+                    "name": "camelot circle",
+                    "type": "3br/2ba",
+                    "downPay": 20000,
+                    "cost": 100000,
+                    "cashflow": 200
+                    }
+            ],
+            businesses: [
+                {
+                    "id": 1,
+                    "name": "My Pizza Business",
+                    "downPay": 5000,
+                    "cost": 15000,
+                    "cashflow": 300
+                    }
+            ]
         },
         sheetLiabilities: {
-            homeMortgage: 70000,
-            schoolLoans: 25000,
-            carLoans: 2000,
-            creditCards: 1200,
-            retailDebt: 700,
-            reEsMortgages: [],
-            businessDebts: [],
-            bankLoans: []
+            homeMortgage: {
+                balance: 70000,
+                expensePair: "homeMortgagePayment"
+              },
+              schoolLoans: {
+                balance:  25000,
+                expensePair: "schoolLoanPayment"
+              },
+              carLoans: {
+                balance:  2000,
+                expensePair: "carPayment"
+              },
+              creditCards: {
+                balance:  1200,
+                expensePair: "creditCardPayment"
+              },
+              retailDebt: {
+                balance: 700,
+                expensePair: "retailPayment"
+              },
+            reEsMortgages: [
+                {
+                    "id": "a",
+                    "name": "camelot cirlce",
+                    "type": "3br/2ba",
+                    "mortgage": 80000
+                }
+            ],
+            businessDebts: [
+                {
+                    id: "a",
+                    name: "My Pizza Business",
+                    debt: 10000
+                }
+            ],
+            bankLoans: [
+                {
+                    id: "a",
+                    name: "Wells Fargo",
+                    amount: 10000,
+                    remaining: 10000
+                },
+                {
+                    id: "b",
+                    name: "Spire Credit Union",
+                    amount: 5000,
+                    remaining: 5000
+                }
+            ]
               
         },
         sheetIncome: {
