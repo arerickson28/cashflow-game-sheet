@@ -13,7 +13,6 @@ import SellBus from "./SellBus"
 // Form to initiate sheet
 // On new local host, errors becuase localstorage not set
 // Liabilities, once something is paid off, it turns green
-// Liabilities, once something with a monthy payment is paid off, expenses and cashflow adjust
 
 
 

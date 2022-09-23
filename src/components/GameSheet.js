@@ -1,5 +1,5 @@
 import React from "react"
-import { useShareMyStates } from "../Data/dataFunc"
+import { storeAssets, useShareMyStates } from "../Data/dataFunc"
 import InstantiateSheet from "./InstantiateSheet"
 import Expenses from "./Expenses"
 import Cashflow from "./Cashflow"
@@ -11,7 +11,7 @@ import store from "store"
 
 
 function GameSheet() {
-    const { instantiateSheetState, setInstantiateSheetState, newSheetBtn, setNewSheetBtn } = useShareMyStates()
+    const { professionState, setProfessionState, instantiateSheetState, setInstantiateSheetState, newSheetBtn, setNewSheetBtn, storeProfession } = useShareMyStates()
 
 //     setInstantiateSheetState({
 //         sheetAssets: {
@@ -106,17 +106,20 @@ function GameSheet() {
 //         }
 
 // })
-
-store.set("assets", instantiateSheetState.sheetAssets)
-store.set("liabilities", instantiateSheetState.sheetLiabilities)
-store.set("income", instantiateSheetState.sheetIncome)
-store.set("expenses", instantiateSheetState.sheetExpenses)
-store.set("cashflow", instantiateSheetState.sheetCashflow)
-
+console.log(instantiateSheetState)
+console.log(instantiateSheetState.sheetProfession)
+// store.set("profession", instantiateSheetState.sheetProfession)
+// store.set("assets", instantiateSheetState.sheetAssets)
+// store.set("liabilities", instantiateSheetState.sheetLiabilities)
+// store.set("income", instantiateSheetState.sheetIncome)
+// store.set("expenses", instantiateSheetState.sheetExpenses)
+// store.set("cashflow", instantiateSheetState.sheetCashflow)
+// console.log(storeProfession)
+// console.log(storeAssets)
     return (
         <>
 
-
+            <h1>{instantiateSheetState.sheetProfession}</h1>
             {newSheetBtn ? <div className="instSheet"><InstantiateSheet />  </div> :
 
                 <>

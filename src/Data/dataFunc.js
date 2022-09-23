@@ -7,8 +7,10 @@ let storeExpenses = store.get("expenses")
 let storeAssets = store.get("assets")
 let storeLiabilities = store.get("liabilities")
 let storeCashflow = store.get("cashflow")
+let storeProfession = store.get("profession")
 
 const useSharedStates = ()=> {
+    const [professionState, setProfessionState] = useState(store.get("profession"))
     const [assetState, setAssetState] = useState(store.get('assets'))
     const [liabilityState, setLiabilityState] = useState(store.get("liabilities"))
     const [incomeState, setIncomeState] = useState(store.get("income"))
@@ -26,6 +28,7 @@ const useSharedStates = ()=> {
     const [sellBusBtn, setSellBusBtn] = useState(false)
     const [newSheetBtn, setNewSheetBtn] = useState(false)
     const [instantiateSheetState, setInstantiateSheetState] = useState({
+        sheetProfession: "Software Dev",
         sheetAssets: {
             cash: 0,
             stocksMutualsCDs: [],
@@ -131,7 +134,7 @@ const useSharedStates = ()=> {
 })
 
     return {
-        assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn, payREBtn, setPayREBtn, sellREBtn, setSellREBtn, sellBusBtn, setSellBusBtn, instantiateSheetState, setInstantiateSheetState, newSheetBtn, setNewSheetBtn
+        professionState, setProfessionState, assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn, payREBtn, setPayREBtn, sellREBtn, setSellREBtn, sellBusBtn, setSellBusBtn, instantiateSheetState, setInstantiateSheetState, newSheetBtn, setNewSheetBtn
     }
 }
 
@@ -224,4 +227,4 @@ let newTotalPassiveIncome = function() {
     return storeIncome.interestIncome + storeIncome.dividendIncome + storeIncome.realEstateIncome + storeIncome.businessIncome
 }
 
-export {useShareMyStates, storeIncome, storeExpenses, storeAssets, storeLiabilities, storeCashflow, newChildExpenses, newTotalExpenses, newCreditCardPayment, newBankLoanPayment, newCarPayment, newCashflow, newTotalIncome, newBusinessDebts, newBusinessIncome, newDividendIncome, newReEsMortgages, newRealEstateIncome, newTotalPassiveIncome }
+export {useShareMyStates, storeProfession, storeIncome, storeExpenses, storeAssets, storeLiabilities, storeCashflow, newChildExpenses, newTotalExpenses, newCreditCardPayment, newBankLoanPayment, newCarPayment, newCashflow, newTotalIncome, newBusinessDebts, newBusinessIncome, newDividendIncome, newReEsMortgages, newRealEstateIncome, newTotalPassiveIncome }
