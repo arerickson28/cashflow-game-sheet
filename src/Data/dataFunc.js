@@ -28,7 +28,7 @@ const useSharedStates = ()=> {
     const [sellBusBtn, setSellBusBtn] = useState(false)
     const [newSheetBtn, setNewSheetBtn] = useState(false)
     const [instantiateSheetState, setInstantiateSheetState] = useState({
-        sheetProfession: "Software Dev",
+        sheetProfession: "",
         sheetAssets: {
             cash: 0,
             stocksMutualsCDs: [],

@@ -119,11 +119,13 @@ console.log(instantiateSheetState.sheetProfession)
     return (
         <>
 
-            <h1>{instantiateSheetState.sheetProfession}</h1>
+           
             {newSheetBtn ? <div className="instSheet"><InstantiateSheet />  </div> :
 
                 <>
+                
                     <div>
+                    <h1>{instantiateSheetState.sheetProfession}</h1>
                         <button onClick={() => { setNewSheetBtn(true) }}>Start New Gamesheet</button>
                     </div>
 

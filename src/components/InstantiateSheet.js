@@ -101,8 +101,14 @@ store.set("cashflow", instantiateSheetState.sheetCashflow)
                         ...instantiateSheetState,
                         "sheetProfession": e.target.value
                     })}></input>
-                    <h3>Salary</h3>
-                    <input></input>
+                    <h3>Monthly Salary</h3>
+                    <input onInput={e => setInstantiateSheetState({
+                        ...instantiateSheetState,
+                        "sheetIncome": {
+                        ...instantiateSheetState.sheetIncome,
+                        "monthlySalary": e.target.value
+                    }
+                    })}></input>
                     <h3>Cashflow</h3>
                     <input></input>
                     <h3>Savings</h3>
@@ -118,7 +124,6 @@ store.set("cashflow", instantiateSheetState.sheetCashflow)
                     <h3>Car Payment</h3>
                     <input></input>
                     <h2>Liabilities</h2>
-                    <input></input>
                     <h3>Mortgage</h3>
                     <input></input>
                     <h3>School Loans</h3>
