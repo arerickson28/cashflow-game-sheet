@@ -37,6 +37,9 @@ store.set("cashflow", instantiateSheetState.sheetCashflow)
         store.set("expenses", instantiateSheetState.sheetExpenses)
         store.set("cashflow", instantiateSheetState.sheetCashflow)
 
+
+        window.location.reload()
+
         //     setInstantiateSheetState({
         //         sheetAssets: {
         //             cash: 0,
