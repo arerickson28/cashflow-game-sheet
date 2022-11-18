@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import store from "store"
 import { useShareMyStates } from "../Data/dataFunc"
@@ -19,7 +19,7 @@ function InstantiateSheet() {
 
     
        
-
+store.set("profession", instantiateSheetState.sheetProfession)
 store.set("assets", instantiateSheetState.sheetAssets)
 store.set("liabilities", instantiateSheetState.sheetLiabilities)
 store.set("income", instantiateSheetState.sheetIncome)
