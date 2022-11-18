@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 import { storeAssets, useShareMyStates } from "../Data/dataFunc"
 import InstantiateSheet from "./InstantiateSheet"
 import Expenses from "./Expenses"
@@ -106,6 +107,22 @@ function GameSheet() {
 //         }
 
 // })
+
+
+const BalanceSheetDiv = styled.div`
+    border: solid 4px rgb(217, 22, 83);
+    padding: 5px;
+    margin: 10px;
+`
+
+const IncomeStatementDiv = styled.div`
+border: solid 4px rgb(217, 22, 83);
+padding: 5px;
+margin: 10px;
+`
+
+
+
 console.log(instantiateSheetState)
 console.log(instantiateSheetState.sheetProfession)
 // store.set("profession", instantiateSheetState.sheetProfession)
@@ -129,16 +146,21 @@ console.log(instantiateSheetState.sheetProfession)
                         <button onClick={() => { setNewSheetBtn(true) }}>Start New Gamesheet</button>
                     </div>
 
-                    <div className="incExp">
+                    <IncomeStatementDiv className="incExp">
+                        
+                        <div>
                         <Income />
-                        <Cashflow />
                         <Expenses />
-                    </div>
-
-                    <div className="assLiab">
+                        </div>
+                     
+                        <Cashflow />
+                       
+                    </IncomeStatementDiv>
+                    <h1>Balance Sheet</h1>
+                    <BalanceSheetDiv className="assLiab">
                         <Assets />
                         <Liabilities />
-                    </div>
+                    </BalanceSheetDiv>
                 </>}
 
 

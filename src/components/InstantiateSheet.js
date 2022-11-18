@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import store from "store"
 import { useShareMyStates } from "../Data/dataFunc"
@@ -10,6 +10,13 @@ const PinkBox = styled.div`
     margin: 10px;
     `
 
+const MyForm = styled.form`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+`
 
 
 
@@ -17,14 +24,14 @@ function InstantiateSheet() {
 
     const { instantiateSheetState, setInstantiateSheetState, newSheetBtn, setNewSheetBtn } = useShareMyStates()
 
-    
-       
-store.set("profession", instantiateSheetState.sheetProfession)
-store.set("assets", instantiateSheetState.sheetAssets)
-store.set("liabilities", instantiateSheetState.sheetLiabilities)
-store.set("income", instantiateSheetState.sheetIncome)
-store.set("expenses", instantiateSheetState.sheetExpenses)
-store.set("cashflow", instantiateSheetState.sheetCashflow)
+
+
+    store.set("profession", instantiateSheetState.sheetProfession)
+    store.set("assets", instantiateSheetState.sheetAssets)
+    store.set("liabilities", instantiateSheetState.sheetLiabilities)
+    store.set("income", instantiateSheetState.sheetIncome)
+    store.set("expenses", instantiateSheetState.sheetExpenses)
+    store.set("cashflow", instantiateSheetState.sheetCashflow)
 
     function handleSheetSubmit(e) {
         console.log("sheet submittd")
@@ -98,48 +105,102 @@ store.set("cashflow", instantiateSheetState.sheetCashflow)
     return (
         <>
             <PinkBox>
-                <form onSubmit={handleSheetSubmit}>
-                    <h3>Profession</h3>
-                    <input onInput={e => setInstantiateSheetState({
-                        ...instantiateSheetState,
-                        "sheetProfession": e.target.value
-                    })}></input>
-                    <h3>Monthly Salary</h3>
-                    <input onInput={e => setInstantiateSheetState({
-                        ...instantiateSheetState,
-                        "sheetIncome": {
-                        ...instantiateSheetState.sheetIncome,
-                        "monthlySalary": e.target.value
-                    }
-                    })}></input>
-                    <h3>Cashflow</h3>
-                    <input></input>
-                    <h3>Savings</h3>
-                    <input></input>
-                    <h3>Per Child Expense:</h3>
-                    <input></input>
-                    <h3>Taxes</h3>
-                    <input></input>
-                    <h3>Mortgage/Rent</h3>
-                    <input></input>
-                    <h3>School Loans</h3>
-                    <input></input>
-                    <h3>Car Payment</h3>
-                    <input></input>
-                    <h2>Liabilities</h2>
-                    <h3>Mortgage</h3>
-                    <input></input>
-                    <h3>School Loans</h3>
-                    <input></input>
-                    <h3>Car Loans</h3>
-                    <input></input>
-                    <h3>Credit Cards</h3>
-                    <input></input>
-                    <h3>Retail Debt</h3>
-                    <input></input>
+                <MyForm onSubmit={handleSheetSubmit}>
+
+
+           
+
+                    <div>
+                        <h3>Profession</h3>
+                        <input onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetProfession": e.target.value
+                        })}></input>
+                    </div>
+
+                    <div>
+                        <h3>Monthly Salary</h3>
+                        <input onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetIncome": {
+                                ...instantiateSheetState.sheetIncome,
+                                "monthlySalary": e.target.value
+                            }
+                        })}></input>
+                    </div>
+
+
+                    <div>
+                        <h3>Cashflow</h3>
+                        <input></input>
+                    </div>
+
+
+                    <div>
+                        <h3>Savings</h3>
+                        <input></input>
+                    </div>
+
+                    <div>
+                        <h3>Per Child Expense</h3>
+                        <input></input>
+                    </div>
+
+
+                    <div>
+                        <h3>Taxes</h3>
+                        <input></input>
+                    </div>
+
+
+                    <div>
+                        <h3>Mortgage/Rent</h3>
+                        <input></input>
+                    </div>
+
+
+                    <div>
+                        <h3>School Loans</h3>
+                        <input></input>
+                    </div>
+
+                    <div>
+                        <h3>Car Payment</h3>
+                        <input></input>
+                    </div>
+
+                    <div>
+                        <h3>Mortgage</h3>
+                        <input></input>
+                    </div>
+
+                    <div>
+                        <h3>School Loans</h3>
+                        <input></input>
+                    </div>
+
+
+                    <div>
+                        <h3>Car Loans</h3>
+                        <input></input>
+                    </div>
+
+
+                    <div>
+                        <h3>Credit Cards</h3>
+                        <input></input>
+                    </div>
+
+
+                    <div>
+                        <h3>Retail Debt</h3>
+                        <input></input>
+                    </div>
+
+
                     <br></br>
                     <input type="submit" value="Submit" />
-                </form>
+                </MyForm>
 
             </PinkBox>
         </>

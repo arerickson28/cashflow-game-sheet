@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import GameSheet from "./components/GameSheet"
+import Home from "./components/Home"
 import store from "store"
 import Liabilities from './components/Liabilities';
 
@@ -106,6 +107,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/cashflow-game-sheet/gamesheet" element={<GameSheet />} />
+            <Route path="/cashflow-game-sheet/" element={<Home />} />
             {/* <Route path="/cashflow-game-sheet/instantiate" element={<InstatiateSheet /> } /> */}
           </Routes>
         </Router>

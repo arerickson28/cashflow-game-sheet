@@ -13,6 +13,7 @@ const PurpleBox = styled.div`
 border: solid 4px rgb(128, 17, 128);
 padding: 5px;
 margin: 10px;
+width: 700px;
 `
 const PurpleH1 = styled.h1`
     color: white;
