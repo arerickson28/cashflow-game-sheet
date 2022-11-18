@@ -121,6 +121,10 @@ padding: 5px;
 margin: 10px;
 `
 
+const BoxedIncExpDiv = styled.div`
+    width: 700px;
+`
+
 
 
 console.log(instantiateSheetState)
@@ -148,10 +152,11 @@ console.log(instantiateSheetState.sheetProfession)
 
                     <IncomeStatementDiv className="incExp">
                         
-                        <div>
+                        <BoxedIncExpDiv>
+                            <h1>Income Statement</h1>
                         <Income />
                         <Expenses />
-                        </div>
+                        </BoxedIncExpDiv>
                      
                         <Cashflow />
                        

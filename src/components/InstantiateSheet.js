@@ -129,10 +129,16 @@ function InstantiateSheet() {
                         })}></input>
                     </div>
 
-
                     <div>
                         <h3>Cashflow</h3>
-                        <input></input>
+                        <input onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetCashflow": {
+                                "cashflow": e.target.value
+                            }
+                          
+                        })}>
+                        </input>
                     </div>
 
 
