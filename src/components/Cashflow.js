@@ -20,7 +20,7 @@ function Cashflow() {
 
    function changeState() {
 
-    storeAssets.cash += storeCashflow.cashflow
+    storeAssets.cash += parseInt(storeCashflow.cashflow)
 
     store.set("assets", storeAssets)
 

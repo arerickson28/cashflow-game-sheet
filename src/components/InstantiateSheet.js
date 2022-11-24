@@ -8,16 +8,27 @@ const PinkBox = styled.div`
     border: solid 4px rgb(255,182,193);
     padding: 5px;
     margin: 10px;
+    width: 50%;
     `
 
 const MyForm = styled.form`
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
 `
 
+const MyFormDiv = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    align-items: center;
+    justify-content: center;
+`
+
+const InputDiv = styled.div`
+    width: 200px;
+`
 
 
 function InstantiateSheet() {
@@ -107,18 +118,18 @@ function InstantiateSheet() {
             <PinkBox>
                 <MyForm onSubmit={handleSheetSubmit}>
 
-
+                    <MyFormDiv>
            
 
-                    <div>
+                    <InputDiv>
                         <h3>Profession</h3>
                         <input onInput={e => setInstantiateSheetState({
                             ...instantiateSheetState,
                             "sheetProfession": e.target.value
                         })}></input>
-                    </div>
+                    </InputDiv>
 
-                    <div>
+                    <InputDiv>
                         <h3>Monthly Salary</h3>
                         <input onInput={e => setInstantiateSheetState({
                             ...instantiateSheetState,
@@ -127,11 +138,11 @@ function InstantiateSheet() {
                                 "monthlySalary": e.target.value
                             }
                         })}></input>
-                    </div>
+                    </InputDiv>
 
-                    <div>
+                    <InputDiv>
                         <h3>Cashflow</h3>
-                        <input onInput={e => setInstantiateSheetState({
+                        <input type="number" onInput={e => setInstantiateSheetState({
                             ...instantiateSheetState,
                             "sheetCashflow": {
                                 "cashflow": e.target.value
@@ -139,71 +150,71 @@ function InstantiateSheet() {
                           
                         })}>
                         </input>
-                    </div>
+                    </InputDiv>
 
 
-                    <div>
+                    <InputDiv>
                         <h3>Savings</h3>
                         <input></input>
-                    </div>
+                    </InputDiv>
 
-                    <div>
+                    <InputDiv>
                         <h3>Per Child Expense</h3>
                         <input></input>
-                    </div>
+                    </InputDiv>
 
 
-                    <div>
+                    <InputDiv>
                         <h3>Taxes</h3>
                         <input></input>
-                    </div>
+                    </InputDiv>
 
 
-                    <div>
+                    <InputDiv>
                         <h3>Mortgage/Rent</h3>
                         <input></input>
-                    </div>
+                    </InputDiv>
 
 
-                    <div>
+                    <InputDiv>
                         <h3>School Loans</h3>
                         <input></input>
-                    </div>
+                    </InputDiv>
 
-                    <div>
+                    <InputDiv>
                         <h3>Car Payment</h3>
                         <input></input>
-                    </div>
+                    </InputDiv>
 
-                    <div>
+                    <InputDiv>
                         <h3>Mortgage</h3>
                         <input></input>
-                    </div>
+                    </InputDiv>
 
-                    <div>
+                    <InputDiv>
                         <h3>School Loans</h3>
                         <input></input>
-                    </div>
+                    </InputDiv>
 
 
-                    <div>
+                    <InputDiv>
                         <h3>Car Loans</h3>
                         <input></input>
-                    </div>
+                    </InputDiv>
 
 
-                    <div>
+                    <InputDiv>
                         <h3>Credit Cards</h3>
                         <input></input>
-                    </div>
+                    </InputDiv>
 
 
-                    <div>
+                    <InputDiv>
                         <h3>Retail Debt</h3>
                         <input></input>
-                    </div>
+                    </InputDiv>
 
-
+                    </MyFormDiv>
                     <br></br>
                     <input type="submit" value="Submit" />
                 </MyForm>

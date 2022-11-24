@@ -129,12 +129,12 @@ const BoxedIncExpDiv = styled.div`
 
 console.log(instantiateSheetState)
 console.log(instantiateSheetState.sheetProfession)
-// store.set("profession", instantiateSheetState.sheetProfession)
-// store.set("assets", instantiateSheetState.sheetAssets)
-// store.set("liabilities", instantiateSheetState.sheetLiabilities)
-// store.set("income", instantiateSheetState.sheetIncome)
-// store.set("expenses", instantiateSheetState.sheetExpenses)
-// store.set("cashflow", instantiateSheetState.sheetCashflow)
+store.set("profession", instantiateSheetState.sheetProfession)
+store.set("assets", instantiateSheetState.sheetAssets)
+store.set("liabilities", instantiateSheetState.sheetLiabilities)
+store.set("income", instantiateSheetState.sheetIncome)
+store.set("expenses", instantiateSheetState.sheetExpenses)
+store.set("cashflow", instantiateSheetState.sheetCashflow)
 // console.log(storeProfession)
 // console.log(storeAssets)
     return (
