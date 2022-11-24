@@ -116,6 +116,7 @@ function InstantiateSheet() {
     return (
         <>
             <PinkBox>
+            <h1>Submit Info To Begin New Gamesheet</h1>
                 <MyForm onSubmit={handleSheetSubmit}>
 
                     <MyFormDiv>
@@ -131,7 +132,7 @@ function InstantiateSheet() {
 
                     <InputDiv>
                         <h3>Monthly Salary</h3>
-                        <input onInput={e => setInstantiateSheetState({
+                        <input type="number" onInput={e => setInstantiateSheetState({
                             ...instantiateSheetState,
                             "sheetIncome": {
                                 ...instantiateSheetState.sheetIncome,

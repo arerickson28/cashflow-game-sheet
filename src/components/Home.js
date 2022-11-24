@@ -1,11 +1,17 @@
 import React, { useState } from "react"
+import CashflowGameSheetImage from "../images/cashflow-sheet-from-web.jpeg"
+import styled from "styled-components"
 
 
 function Home() {
 
+    const Image = styled.img`
+        width: 1000px;
+    `
+
     return (
         <>
-            <h1>This is the home component</h1>
+            <Image src= {CashflowGameSheetImage}></Image> 
         </>
     )
 }
