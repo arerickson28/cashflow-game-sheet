@@ -148,7 +148,6 @@ function InstantiateSheet() {
                             "sheetCashflow": {
                                 "cashflow": e.target.value
                             }
-                          
                         })}>
                         </input>
                     </InputDiv>
@@ -156,7 +155,13 @@ function InstantiateSheet() {
 
                     <InputDiv>
                         <h3>Savings</h3>
-                        <input></input>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetAssets": {
+                                ...instantiateSheetState.sheetAssets,
+                                "cash": parseInt(e.target.value)
+                            }
+                        })}></input>
                     </InputDiv>
 
                     <InputDiv>
