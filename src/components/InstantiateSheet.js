@@ -2,7 +2,12 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import store from "store"
 import { useShareMyStates } from "../Data/dataFunc"
+import CashflowCards from "../images/cashflowCards.jpeg"
 
+
+const Image = styled.img`
+width: 1000px;
+`
 
 const PinkBox = styled.div`
     border: solid 4px rgb(255,182,193);
@@ -28,6 +33,11 @@ const MyFormDiv = styled.div`
 
 const InputDiv = styled.div`
     width: 200px;
+    border: solid;
+    border-width: 2px;
+    border-color: black;
+    padding: 15px;
+    margin: 5px;
 `
 
 
@@ -141,7 +151,7 @@ function InstantiateSheet() {
                         })}></input>
                     </InputDiv>
 
-                    <InputDiv>
+                    {/* <InputDiv>
                         <h3>Cashflow</h3>
                         <input type="number" onInput={e => setInstantiateSheetState({
                             ...instantiateSheetState,
@@ -150,7 +160,7 @@ function InstantiateSheet() {
                             }
                         })}>
                         </input>
-                    </InputDiv>
+                    </InputDiv> */}
 
 
                     <InputDiv>
@@ -164,54 +174,86 @@ function InstantiateSheet() {
                         })}></input>
                     </InputDiv>
 
+
+                    {/* <InputDiv>
+                        <h3>Number of Children</h3>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetExpenses": {
+                                ...instantiateSheetState.sheetExpenses,
+                                "numberOfChildren": parseInt(e.target.value)
+                            }
+                        })}></input>
+                    </InputDiv> */}
+
+
                     <InputDiv>
                         <h3>Per Child Expense</h3>
-                        <input></input>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetExpenses": {
+                                ...instantiateSheetState.sheetExpenses,
+                                "perChildExpense": parseInt(e.target.value)
+                            }
+                        })}></input>
                     </InputDiv>
 
 
                     <InputDiv>
                         <h3>Taxes</h3>
-                        <input></input>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetExpenses": {
+                                ...instantiateSheetState.sheetExpenses,
+                                "taxes": parseInt(e.target.value)
+                            }
+                        })}></input>
                     </InputDiv>
 
 
                     <InputDiv>
                         <h3>Mortgage/Rent</h3>
-                        <input></input>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetExpenses": {
+                                ...instantiateSheetState.sheetExpenses,
+                                "homeMortgagePayment": parseInt(e.target.value)
+                            }
+                        })}></input>
                     </InputDiv>
 
 
                     <InputDiv>
                         <h3>School Loans</h3>
-                        <input></input>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetExpenses": {
+                                ...instantiateSheetState.sheetExpenses,
+                                "schoolLoanPayment": parseInt(e.target.value)
+                            }
+                        })}></input>
                     </InputDiv>
 
                     <InputDiv>
-                        <h3>Car Payment</h3>
-                        <input></input>
+                        <h3>Car Loan Payment</h3>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetExpenses": {
+                                ...instantiateSheetState.sheetExpenses,
+                                "carPayment": parseInt(e.target.value)
+                            }
+                        })}></input>
                     </InputDiv>
-
-                    <InputDiv>
-                        <h3>Mortgage</h3>
-                        <input></input>
-                    </InputDiv>
-
-                    <InputDiv>
-                        <h3>School Loans</h3>
-                        <input></input>
-                    </InputDiv>
-
-
-                    <InputDiv>
-                        <h3>Car Loans</h3>
-                        <input></input>
-                    </InputDiv>
-
 
                     <InputDiv>
                         <h3>Credit Cards</h3>
-                        <input></input>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetExpenses": {
+                                ...instantiateSheetState.sheetExpenses,
+                                "creditCardPayment": parseInt(e.target.value)
+                            }
+                        })}></input>
                     </InputDiv>
 
 
@@ -226,6 +268,9 @@ function InstantiateSheet() {
                 </MyForm>
 
             </PinkBox>
+
+            <Image src= {CashflowCards}></Image> 
+
         </>
     )
 }

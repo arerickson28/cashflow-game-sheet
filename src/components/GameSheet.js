@@ -121,6 +121,12 @@ padding: 5px;
 margin: 10px;
 `
 
+const TestDiv = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+`
+
 const BoxedIncExpDiv = styled.div`
     width: 700px;
 `
@@ -149,23 +155,31 @@ store.set("cashflow", instantiateSheetState.sheetCashflow)
                     <h1>{professionState}</h1>
                         <button onClick={() => { setNewSheetBtn(true) }}>Start New Gamesheet</button>
                     </div>
-
-                    <IncomeStatementDiv className="incExp">
+                    
+                    <h1>Income Statement</h1>
+                    {/* <IncomeStatementDiv className="incExp"> */}
+                    <TestDiv className="incExp">
                         
-                        <BoxedIncExpDiv>
-                            <h1>Income Statement</h1>
+                        {/* <BoxedIncExpDiv> */}
+                        {/* <div> */}
+                          
                         <Income />
                         <Expenses />
-                        </BoxedIncExpDiv>
-                     
                         <Cashflow />
+                        {/* </BoxedIncExpDiv> */}
+                        {/* </div> */}
                        
-                    </IncomeStatementDiv>
+                       
+                    {/* </IncomeStatementDiv> */}
+                    </TestDiv>
+                   
                     <h1>Balance Sheet</h1>
-                    <BalanceSheetDiv className="assLiab">
+                    {/* <BalanceSheetDiv className="assLiab"> */}
+                    <div className="assLiab">
                         <Assets />
                         <Liabilities />
-                    </BalanceSheetDiv>
+                    {/* </BalanceSheetDiv> */}
+                    </div>
                 </>}
 
 

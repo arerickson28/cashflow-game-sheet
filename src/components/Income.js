@@ -13,6 +13,7 @@ margin: 10px;
 const BlueH1 = styled.h1`
     color: white;
     background-color: rgb(20, 20, 167);
+    width: 500px;
 `
 
 

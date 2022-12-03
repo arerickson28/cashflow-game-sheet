@@ -9,6 +9,7 @@ const GreenBox = styled.div`
 border: solid 4px rgb(85, 200, 85);
 padding: 5px;
 margin: 10px;
+width: 500px;
 `
 
 const GreenH1 = styled.h1`
@@ -55,7 +56,7 @@ function Expenses() {
                 <p>Other Expenses: $<span>{expensesState.otherExpenses}</span></p>
                 <hr></hr>
                 <p>Number of Children: <span>{expensesState.numberOfChildren}</span></p>
-                <p>Per Child Expense: <span>{expensesState.perChildExpense}</span></p>
+                <p>Per Child Expense: $<span>{expensesState.perChildExpense}</span></p>
                 <p>Child Expenses: $<span>{expensesState.childExpenses}</span></p>
                 <button onClick={() => changeState()}>Add Child</button>
                 <hr></hr>
