@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import store from "store"
 import styled from "styled-components"
 import {useShareMyStates, storeAssets, storeCashflow } from "../Data/dataFunc"
@@ -16,7 +16,7 @@ const GoldH1 = styled.h1`
 
 function Cashflow() {
 
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState } = useShareMyStates()
+    const { setAssetState, incomeState, expensesState, cashflowState } = useShareMyStates()
 
    function changeState() {
 

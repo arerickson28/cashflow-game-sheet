@@ -1,11 +1,9 @@
 import React, { useState } from "react"
-import { useBetween } from "use-between"
-import styled from "styled-components"
 import store from "store"
-import {useShareMyStates, storeExpenses, newTotalExpenses, storeCashflow, newCashflow, storeLiabilities } from "../Data/dataFunc" 
+import {useShareMyStates, storeLiabilities } from "../Data/dataFunc" 
 
 function PayRE() {
-    const { liabilityState, setLiabilityState, payREBtn, setPayREBtn } = useShareMyStates()
+    const { liabilityState, setLiabilityState, setPayREBtn } = useShareMyStates()
 
     const [rePaymentState, setREPaymentState] = useState({
         "name": "",
@@ -28,16 +26,11 @@ function PayRE() {
                 setLiabilityState(storeLiabilities)
         }
 
-
         setREPaymentState({
             "name": "",
             "amount": 0
         })
     }
-
-
-
-
 
     return (
         <form onSubmit={handleREPayment}>

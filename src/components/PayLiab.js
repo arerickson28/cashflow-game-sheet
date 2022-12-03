@@ -1,12 +1,10 @@
 import React, { useState } from "react"
-import { useBetween } from "use-between"
-import styled from "styled-components"
 import store from "store"
-import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newRealEstateIncome, newDividendIncome, newTotalIncome, newTotalPassiveIncome, storeLiabilities } from "../Data/dataFunc"
+import {useShareMyStates, storeExpenses, newTotalExpenses, storeCashflow, newCashflow, storeLiabilities } from "../Data/dataFunc"
 
 
 function PayLiab() {
-    const { liabilityState, setLiabilityState, expensesState, setExpensesState, cashflowState, setCashflowState, payLiabBtn, setPayLiabBtn } = useShareMyStates()
+    const { setLiabilityState, setExpensesState, setCashflowState, setPayLiabBtn } = useShareMyStates()
 
 
     const [liabPaymentState, setLiabPaymentState] = useState({

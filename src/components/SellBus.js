@@ -1,13 +1,11 @@
 import React, { useState } from "react"
-import { useBetween } from "use-between"
-import styled from "styled-components"
 import store from "store"
-import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newRealEstateIncome, newDividendIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
+import {useShareMyStates, storeIncome, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
 
 function SellBus() {
 
 
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn, sellREBtn, setSellREBtn, sellBusBtn, setSellBusBtn } = useShareMyStates()
+    const { assetState, setAssetState, setIncomeState, setCashflowState, setSellBusBtn } = useShareMyStates()
 
 
     const [sellBusState, setSellBusState] = useState({

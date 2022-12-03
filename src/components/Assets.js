@@ -7,16 +7,13 @@ import NewStock from "./NewStock"
 import SellStock from "./SellStock"
 import SellRE from "./SellRE"
 import SellBus from "./SellBus"
-
+import { useShareMyStates, storeAssets } from "../Data/dataFunc"
 
 // Todo: 
 // Form to initiate sheet
 // On new local host, errors becuase localstorage not set
 // Liabilities, once something is paid off, it turns green
 
-
-
-import { useShareMyStates, storeAssets } from "../Data/dataFunc"
 
 
 
@@ -35,7 +32,7 @@ const OrangeH1 = styled.h1`
 
 function Assets() {
 
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn, sellREBtn, setSellREBtn, sellBusBtn, setSellBusBtn } = useShareMyStates()
+    const { assetState, setAssetState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn, sellREBtn, setSellREBtn, sellBusBtn, setSellBusBtn } = useShareMyStates()
 
     const [addSubState, setAddSubState] = useState(0)
 

@@ -27,111 +27,173 @@ const useSharedStates = ()=> {
     const [sellREBtn, setSellREBtn] = useState(false)
     const [sellBusBtn, setSellBusBtn] = useState(false)
     const [newSheetBtn, setNewSheetBtn] = useState(false)
+
     const [instantiateSheetState, setInstantiateSheetState] = useState({
-        sheetProfession: "",
         sheetAssets: {
             cash: 0,
             stocksMutualsCDs: [],
-            realEstate:  [
-                {
-                    "id": "a",
-                    "name": "camelot circle",
-                    "type": "3br/2ba",
-                    "downPay": 20000,
-                    "cost": 100000,
-                    "cashflow": 200
-                    }
-            ],
-            businesses: [
-                {
-                    "id": 1,
-                    "name": "My Pizza Business",
-                    "downPay": 5000,
-                    "cost": 15000,
-                    "cashflow": 300
-                    }
-            ]
+            realEstate:  [],
+            businesses: []
         },
         sheetLiabilities: {
             homeMortgage: {
-                balance: 70000,
+                balance: 0,
                 expensePair: "homeMortgagePayment"
               },
               schoolLoans: {
-                balance:  25000,
+                balance:  0,
                 expensePair: "schoolLoanPayment"
               },
               carLoans: {
-                balance:  2000,
+                balance:  0,
                 expensePair: "carPayment"
               },
               creditCards: {
-                balance:  1200,
+                balance:  0,
                 expensePair: "creditCardPayment"
               },
               retailDebt: {
-                balance: 700,
+                balance: 0,
                 expensePair: "retailPayment"
               },
-            reEsMortgages: [
-                {
-                    "id": "a",
-                    "name": "camelot cirlce",
-                    "type": "3br/2ba",
-                    "mortgage": 80000
-                }
-            ],
-            businessDebts: [
-                {
-                    id: "a",
-                    name: "My Pizza Business",
-                    debt: 10000
-                }
-            ],
-            bankLoans: [
-                {
-                    id: "a",
-                    name: "Wells Fargo",
-                    amount: 10000,
-                    remaining: 10000
-                },
-                {
-                    id: "b",
-                    name: "Spire Credit Union",
-                    amount: 5000,
-                    remaining: 5000
-                }
-            ]
-              
+            reEsMortgages: [],
+            businessDebts: [],
+            bankLoans: []
         },
         sheetIncome: {
             interestIncome: 0,
-            dividendIncome: 150,
-            realEstateIncome: 200,
-            businessIncome: 300,
-            monthlySalary: 3020,
-            passiveIncome: 650,
-            totalIncome: 3670,
+            dividendIncome: 0,
+            realEstateIncome: 0,
+            businessIncome: 0,
+            monthlySalary: 0,
+            passiveIncome: 0,
+            totalIncome: 0,
         },
         sheetExpenses: {
-            taxes: 500,
-            homeMortgagePayment: 55,
-            schoolLoanPayment: 60,
-            carPayment: 100,
-            creditCardPayment: 240,
+            taxes: 0,
+            homeMortgagePayment: 0,
+            schoolLoanPayment: 0,
+            carPayment: 0,
+            creditCardPayment: 0,
             retailPayment: 0,
-            otherExpenses: 10,
-            numberOfChildren: 2,
-            perChildExpense: 100,
-            childExpenses: 200,
-            bankLoanPayment: 1500,
-            totalExpenses: 2665,
+            otherExpenses: 0,
+            numberOfChildren: 0,
+            perChildExpense: 0,
+            childExpenses: 0,
+            bankLoanPayment: 0,
+            totalExpenses: 0,
         },
         sheetCashflow: {
-            cashflow: 1005
+            cashflow: 0
         }
-        
+
 })
+
+//     const [instantiateSheetState, setInstantiateSheetState] = useState({
+//         sheetProfession: "",
+//         sheetAssets: {
+//             cash: 0,
+//             stocksMutualsCDs: [],
+//             realEstate:  [
+//                 {
+//                     "id": "a",
+//                     "name": "camelot circle",
+//                     "type": "3br/2ba",
+//                     "downPay": 20000,
+//                     "cost": 100000,
+//                     "cashflow": 200
+//                     }
+//             ],
+//             businesses: [
+//                 {
+//                     "id": 1,
+//                     "name": "My Pizza Business",
+//                     "downPay": 5000,
+//                     "cost": 15000,
+//                     "cashflow": 300
+//                     }
+//             ]
+//         },
+        // sheetLiabilities: {
+        //     homeMortgage: {
+        //         balance: 70000,
+        //         expensePair: "homeMortgagePayment"
+        //       },
+        //       schoolLoans: {
+        //         balance:  25000,
+        //         expensePair: "schoolLoanPayment"
+        //       },
+        //       carLoans: {
+        //         balance:  2000,
+        //         expensePair: "carPayment"
+        //       },
+        //       creditCards: {
+        //         balance:  1200,
+        //         expensePair: "creditCardPayment"
+        //       },
+        //       retailDebt: {
+        //         balance: 700,
+        //         expensePair: "retailPayment"
+        //       },
+        //     reEsMortgages: [
+        //         {
+        //             "id": "a",
+        //             "name": "camelot cirlce",
+        //             "type": "3br/2ba",
+        //             "mortgage": 80000
+        //         }
+        //     ],
+        //     businessDebts: [
+        //         {
+        //             id: "a",
+        //             name: "My Pizza Business",
+        //             debt: 10000
+        //         }
+        //     ],
+        //     bankLoans: [
+        //         {
+        //             id: "a",
+        //             name: "Wells Fargo",
+        //             amount: 10000,
+        //             remaining: 10000
+        //         },
+        //         {
+        //             id: "b",
+        //             name: "Spire Credit Union",
+        //             amount: 5000,
+        //             remaining: 5000
+        //         }
+        //     ]
+              
+        // },
+//         sheetIncome: {
+//             interestIncome: 0,
+//             dividendIncome: 150,
+//             realEstateIncome: 200,
+//             businessIncome: 300,
+//             monthlySalary: 3020,
+//             passiveIncome: 650,
+//             totalIncome: 3670,
+//         },
+//         sheetExpenses: {
+//             taxes: 500,
+//             homeMortgagePayment: 55,
+//             schoolLoanPayment: 60,
+//             carPayment: 100,
+//             creditCardPayment: 240,
+//             retailPayment: 0,
+//             otherExpenses: 10,
+//             numberOfChildren: 2,
+//             perChildExpense: 100,
+//             childExpenses: 200,
+//             bankLoanPayment: 1500,
+//             totalExpenses: 2665,
+//         },
+//         sheetCashflow: {
+//             cashflow: 1005
+//         }
+        
+// })
 
     return {
         professionState, setProfessionState, assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn, payREBtn, setPayREBtn, sellREBtn, setSellREBtn, sellBusBtn, setSellBusBtn, instantiateSheetState, setInstantiateSheetState, newSheetBtn, setNewSheetBtn

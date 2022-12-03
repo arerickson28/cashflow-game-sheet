@@ -1,8 +1,6 @@
 import React, { useState } from "react"
-import { useBetween } from "use-between"
-import styled from "styled-components"
 import store from "store"
-import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newRealEstateIncome, newDividendIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
+import {useShareMyStates, storeIncome, storeCashflow, newCashflow, storeAssets, newDividendIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
 
 
 
@@ -10,7 +8,7 @@ import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotal
 function NewStock() {
 
 
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn } = useShareMyStates()
+    const { setAssetState, setIncomeState, setCashflowState, setNewStockBtn } = useShareMyStates()
 
 
     const [newStockState, setNewStockState] = useState({

@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { storeAssets, useShareMyStates } from "../Data/dataFunc"
+import { useShareMyStates } from "../Data/dataFunc"
 import InstantiateSheet from "./InstantiateSheet"
 import Expenses from "./Expenses"
 import Cashflow from "./Cashflow"
@@ -12,7 +12,7 @@ import store from "store"
 
 
 function GameSheet() {
-    const { professionState, setProfessionState, instantiateSheetState, setInstantiateSheetState, newSheetBtn, setNewSheetBtn, storeProfession } = useShareMyStates()
+    const { professionState, instantiateSheetState, newSheetBtn, setNewSheetBtn } = useShareMyStates()
 
 //     setInstantiateSheetState({
 //         sheetAssets: {

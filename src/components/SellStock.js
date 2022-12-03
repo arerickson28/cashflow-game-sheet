@@ -1,16 +1,12 @@
 import React, { useState } from "react"
-import { useBetween } from "use-between"
-import styled from "styled-components"
 import store from "store"
-import {useShareMyStates, storeExpenses, storeIncome, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, storeAssets, newBusinessIncome, newRealEstateIncome, newDividendIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
-
-
+import {useShareMyStates, storeIncome, storeCashflow, newCashflow, storeAssets, newDividendIncome, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
 
 
 function SellStock() {
 
 
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn } = useShareMyStates()
+    const { assetState, setAssetState, setIncomeState, setCashflowState, setSellStockBtn } = useShareMyStates()
 
 
     const [sellStockState, setSellStockState] = useState({
@@ -19,7 +15,6 @@ function SellStock() {
         "current price": 0,
         // "dividens/share": 0
     })
-
 
     function getMaxStocksSellable(stockName) {
 
@@ -66,8 +61,6 @@ function SellStock() {
         store.set("cashflow", storeCashflow)
         setCashflowState(storeCashflow)
 
-        
-
         setSellStockState({
             "name": "",
             "no. shares": 0,
@@ -79,7 +72,6 @@ function SellStock() {
 
     return (
         <>
-      
             <form onSubmit={handleStockSubmit}>
                 <select onChange={(e)=>setSellStockState({
                     ...sellStockState,
@@ -120,7 +112,6 @@ function SellStock() {
                 <button onClick={()=>setSellStockBtn(false)}>Cancel</button>
     
             </form>
-   
         </>
     )
 }

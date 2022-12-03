@@ -1,12 +1,10 @@
-import React, { useState } from "react"
-import { useBetween } from "use-between"
+import React from "react"
 import styled from "styled-components"
-import store from "store"
 import PayLiab from "./PayLiab"
 import PayLoan from "./PayLoan"
 import PayBus from "./PayBus"
 import PayRE from "./PayRE"
-import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow, newBusinessDebts } from "../Data/dataFunc"
+import {useShareMyStates } from "../Data/dataFunc"
 
 
 const PurpleBox = styled.div`
@@ -22,7 +20,7 @@ const PurpleH1 = styled.h1`
 
 function Liabilities() {
    
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn, payREBtn, setPayREBtn } = useShareMyStates()
+    const { liabilityState, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn, payREBtn, setPayREBtn } = useShareMyStates()
 
 
 
@@ -32,11 +30,11 @@ function Liabilities() {
                 
             <PurpleH1>Liabilities</PurpleH1>
 
-            <p>Home Mortgage: <span>{liabilityState.homeMortgage.balance}</span></p>
-            <p>School Loans: <span>{liabilityState.schoolLoans.balance}</span></p>
-            <p>Car Loans: <span>{liabilityState.carLoans.balance}</span></p>
-            <p>Credit Cards: <span>{liabilityState.creditCards.balance}</span></p>
-            <p>Retial Debt: <span>{liabilityState.retailDebt.balance}</span></p>
+            <p>Home Mortgage: $<span>{liabilityState.homeMortgage.balance}</span></p>
+            <p>School Loans: $<span>{liabilityState.schoolLoans.balance}</span></p>
+            <p>Car Loans: $<span>{liabilityState.carLoans.balance}</span></p>
+            <p>Credit Cards: $<span>{liabilityState.creditCards.balance}</span></p>
+            <p>Retial Debt: $<span>{liabilityState.retailDebt.balance}</span></p>
 
             <button onClick={() => setPayLiabBtn(true)}>Make Payment</button>
 

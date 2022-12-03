@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import CashflowGameSheetImage from "../images/cashflow-sheet-from-web.jpeg"
 import styled from "styled-components"
 

@@ -1,8 +1,6 @@
-import React, { useState } from "react"
-import { useBetween } from "use-between"
+import React from "react"
 import styled from "styled-components"
-import store from "store"
-import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow } from "../Data/dataFunc"
+import {useShareMyStates } from "../Data/dataFunc"
 
 
 const BlueBox = styled.div`
@@ -21,7 +19,7 @@ const BlueH1 = styled.h1`
 
 function Income() {
 
-    const { assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState } = useShareMyStates()
+    const { incomeState } = useShareMyStates()
 
     return (
         <>

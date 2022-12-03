@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import store from "store"
 import { useShareMyStates } from "../Data/dataFunc"
@@ -7,6 +7,7 @@ import CashflowCards from "../images/cashflowCards.jpeg"
 
 const Image = styled.img`
 width: 1000px;
+margin: 10px;
 `
 
 const PinkBox = styled.div`
@@ -14,6 +15,9 @@ const PinkBox = styled.div`
     padding: 5px;
     margin: 10px;
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     `
 
 const MyForm = styled.form`
@@ -26,7 +30,6 @@ const MyForm = styled.form`
 const MyFormDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
-    width: 600px;
     align-items: center;
     justify-content: center;
 `
@@ -35,7 +38,7 @@ const InputDiv = styled.div`
     width: 200px;
     border: solid;
     border-width: 2px;
-    border-color: black;
+    border-color: rgb(255,182,193);
     padding: 15px;
     margin: 5px;
 `
@@ -43,7 +46,7 @@ const InputDiv = styled.div`
 
 function InstantiateSheet() {
 
-    const { instantiateSheetState, setInstantiateSheetState, newSheetBtn, setNewSheetBtn } = useShareMyStates()
+    const { instantiateSheetState, setInstantiateSheetState, setNewSheetBtn } = useShareMyStates()
 
 
 
@@ -118,18 +121,13 @@ function InstantiateSheet() {
         e.preventDefault()
     }
 
-    // <input onInput={e=>setNewREState({
-    //     ...newREState,
-    //     "name": e.target.value
-    // })} type="text"></input>
-
     return (
         <>
-            <PinkBox>
-            <h1>Submit Info To Begin New Gamesheet</h1>
-                <MyForm onSubmit={handleSheetSubmit}>
-
-                    <MyFormDiv>
+            <PinkBox className="PinkBox">
+           
+                <MyForm className="MyForm" onSubmit={handleSheetSubmit}>
+                <h1>Submit Info To Begin New Gamesheet</h1>
+                    <MyFormDiv className="MyFormDiv">
            
 
                     <InputDiv>
@@ -151,16 +149,7 @@ function InstantiateSheet() {
                         })}></input>
                     </InputDiv>
 
-                    {/* <InputDiv>
-                        <h3>Cashflow</h3>
-                        <input type="number" onInput={e => setInstantiateSheetState({
-                            ...instantiateSheetState,
-                            "sheetCashflow": {
-                                "cashflow": e.target.value
-                            }
-                        })}>
-                        </input>
-                    </InputDiv> */}
+                
 
 
                     <InputDiv>
@@ -175,16 +164,7 @@ function InstantiateSheet() {
                     </InputDiv>
 
 
-                    {/* <InputDiv>
-                        <h3>Number of Children</h3>
-                        <input type="number" onInput={e => setInstantiateSheetState({
-                            ...instantiateSheetState,
-                            "sheetExpenses": {
-                                ...instantiateSheetState.sheetExpenses,
-                                "numberOfChildren": parseInt(e.target.value)
-                            }
-                        })}></input>
-                    </InputDiv> */}
+                 
 
 
                     <InputDiv>
@@ -224,7 +204,7 @@ function InstantiateSheet() {
 
 
                     <InputDiv>
-                        <h3>School Loans</h3>
+                        <h3>School Loan Payment</h3>
                         <input type="number" onInput={e => setInstantiateSheetState({
                             ...instantiateSheetState,
                             "sheetExpenses": {
@@ -246,7 +226,7 @@ function InstantiateSheet() {
                     </InputDiv>
 
                     <InputDiv>
-                        <h3>Credit Cards</h3>
+                        <h3>Credit Card Payment</h3>
                         <input type="number" onInput={e => setInstantiateSheetState({
                             ...instantiateSheetState,
                             "sheetExpenses": {
@@ -258,13 +238,92 @@ function InstantiateSheet() {
 
 
                     <InputDiv>
-                        <h3>Retail Debt</h3>
-                        <input></input>
+                        <h3>Retail Debt Payment</h3>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetExpenses": {
+                                ...instantiateSheetState.sheetExpenses,
+                                "retailPayment": parseInt(e.target.value)
+                            }
+                        })}></input>
                     </InputDiv>
 
+                    <InputDiv>
+                        <h3>Other Expenses</h3>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetExpenses": {
+                                ...instantiateSheetState.sheetExpenses,
+                                "otherExpenses": parseInt(e.target.value)
+                            }
+                        })}></input>
+                    </InputDiv>
+
+                    <InputDiv>
+                        <h3>Mortgage</h3>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetLiabilities": {
+                                ...instantiateSheetState.sheetLiabilities,
+                                "homeMortgage": {
+                                    ...instantiateSheetState.sheetLiabilities.homeMortgage,
+                                    "balance": parseInt(e.target.value)
+                                }
+                            }
+                        })}></input>
+                    </InputDiv>
+
+                    <InputDiv>
+                        <h3>School Loans</h3>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetLiabilities": {
+                                ...instantiateSheetState.sheetLiabilities,
+                                "schoolLoans": parseInt(e.target.value)
+                            }
+                        })}></input>
+                    </InputDiv>
+
+                    <InputDiv>
+                        <h3>Car Loans</h3>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetLiabilities": {
+                                ...instantiateSheetState.sheetLiabilities,
+                                "carLoans": parseInt(e.target.value)
+                            }
+                        })}></input>
+                    </InputDiv>
+
+                    <InputDiv>
+                        <h3>Credit Card Debt</h3>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetLiabilities": {
+                                ...instantiateSheetState.sheetLiabilities,
+                                "creditCards": parseInt(e.target.value)
+                            }
+                        })}></input>
+                    </InputDiv>
+
+                    <InputDiv>
+                        <h3>Retail Debt</h3>
+                        <input type="number" onInput={e => setInstantiateSheetState({
+                            ...instantiateSheetState,
+                            "sheetLiabilities": {
+                                ...instantiateSheetState.sheetLiabilities,
+                                "retailDebt": parseInt(e.target.value)
+                            }
+                        })}></input>
+                    </InputDiv>
+
+            
                     </MyFormDiv>
                     <br></br>
+                    <PinkBox>
                     <input type="submit" value="Submit" />
+                    </PinkBox>
+                   
                 </MyForm>
 
             </PinkBox>
