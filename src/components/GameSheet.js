@@ -147,13 +147,13 @@ store.set("cashflow", instantiateSheetState.sheetCashflow)
         <>
 
            
-            {newSheetBtn ? <div className="instSheet"><InstantiateSheet />  </div> :
+            {/* {newSheetBtn ? <div className="instSheet"><InstantiateSheet />  </div> : */}
 
                 <>
                 
                     <div>
                     <h1>{professionState}</h1>
-                        <button onClick={() => { setNewSheetBtn(true) }}>Start New Gamesheet</button>
+                    {/* <button onClick={() => { setNewSheetBtn(true) }}>Start New Gamesheet</button> */}
                     </div>
                     
                     <h1>Income Statement</h1>
@@ -180,7 +180,8 @@ store.set("cashflow", instantiateSheetState.sheetCashflow)
                         <Liabilities />
                     {/* </BalanceSheetDiv> */}
                     </div>
-                </>}
+                </>
+                {/* } */}
 
 
 

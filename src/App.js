@@ -5,6 +5,7 @@ import GameSheet from "./components/GameSheet"
 import Home from "./components/Home"
 import store from "store"
 import Liabilities from './components/Liabilities';
+import InstantiateSheet from './components/InstantiateSheet';
 
 
 
@@ -108,7 +109,7 @@ function App() {
           <Routes>
             <Route path="/cashflow-game-sheet/gamesheet" element={<GameSheet />} />
             <Route path="/cashflow-game-sheet/" element={<Home />} />
-            {/* <Route path="/cashflow-game-sheet/instantiate" element={<InstatiateSheet /> } /> */}
+            <Route path="/cashflow-game-sheet/instantiate" element={<div className="instSheet"><InstantiateSheet /></div> } />
           </Routes>
         </Router>
       </div>

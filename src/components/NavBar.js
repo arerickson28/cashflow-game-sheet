@@ -10,8 +10,8 @@ function NavBar() {
             <div id="navbar">
            
             <h2><Link to="/cashflow-game-sheet/">Home</Link></h2>
-            <h2><Link to="/cashflow-game-sheet/gamesheet">GameSheet</Link></h2>
-            {/* <h2><Link to="/cashflow-game-sheet/instantiate">InstantiateSheet</Link></h2> */}
+            <h2><Link to="/cashflow-game-sheet/gamesheet">Game Sheet</Link></h2>
+            <h2><Link to="/cashflow-game-sheet/instantiate">Start New Game Sheet</Link></h2>
             </div>
         </>
     )
