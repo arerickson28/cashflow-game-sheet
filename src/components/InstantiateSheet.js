@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import store from "store"
-import { useShareMyStates } from "../Data/dataFunc"
+import { useShareMyStates, newChildExpenses, newTotalExpenses, newCashflow, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
 import CashflowCards from "../images/cashflowCards.jpeg"
 
 
@@ -48,8 +48,6 @@ function InstantiateSheet() {
 
     const { instantiateSheetState, setInstantiateSheetState, setNewSheetBtn } = useShareMyStates()
 
-
-
     store.set("profession", instantiateSheetState.sheetProfession)
     store.set("assets", instantiateSheetState.sheetAssets)
     store.set("liabilities", instantiateSheetState.sheetLiabilities)
@@ -59,8 +57,9 @@ function InstantiateSheet() {
 
     function handleSheetSubmit(e) {
         console.log("sheet submittd")
-        // set instatiateSheetState
-
+        console.log(instantiateSheetState)
+        alert("Info Submitted, head to GameSheet!")
+     
         store.set("profession", instantiateSheetState.sheetProfession)
         store.set("assets", instantiateSheetState.sheetAssets)
         store.set("liabilities", instantiateSheetState.sheetLiabilities)
@@ -68,55 +67,72 @@ function InstantiateSheet() {
         store.set("expenses", instantiateSheetState.sheetExpenses)
         store.set("cashflow", instantiateSheetState.sheetCashflow)
 
-
+        newTotalIncome()
+        newChildExpenses() 
+        newTotalExpenses() 
+        newCashflow() 
         window.location.reload()
 
-        //     setInstantiateSheetState({
-        //         sheetAssets: {
-        //             cash: 0,
-        //             stocksMutualsCDs: [],
-        //             realEstate:  [],
-        //             businesses: []
-        //         },
-        //         sheetLiabilities: {
-        //             homeMortgage: 0,
-        //             schoolLoans: 0,
-        //             carLoans: 0,
-        //             creditCards: 0,
-        //             retailDebt: 0,
-        //             reEsMortgages: [],
-        //             businessDebts: [],
-        //             bankLoans: []
-
-        //         },
-        //         sheetIncome: {
-        //             interestIncome: 0,
-        //             dividendIncome: 0,
-        //             realEstateIncome: 0,
-        //             businessIncome: 0,
-        //             monthlySalary: 0,
-        //             passiveIncome: 0,
-        //             totalIncome: 0,
-        //         },
-        //         sheetExpenses: {
-        //             taxes: 0,
-        //             homeMortgagePayment: 0,
-        //             schoolLoanPayment: 0,
-        //             carPayment: 0,
-        //             creditCardPayment: 0,
-        //             retailPayment: 0,
-        //             otherExpenses: 0,
-        //             numberOfChildren: 0,
-        //             perChildExpense: 0,
-        //             childExpenses: 0,
-        //             bankLoanPayment: 0,
-        //             totalExpenses: 0,
-        //         },
-        //         sheetCashflow: {
-        //             cashflow: 0
-        //         }
-
-        // })
+        setInstantiateSheetState({
+            sheetAssets: {
+                cash: 0,
+                stocksMutualsCDs: [],
+                realEstate:  [],
+                businesses: []
+            },
+            sheetLiabilities: {
+                homeMortgage: {
+                    balance: 0,
+                    expensePair: "homeMortgagePayment"
+                  },
+                  schoolLoans: {
+                    balance:  0,
+                    expensePair: "schoolLoanPayment"
+                  },
+                  carLoans: {
+                    balance:  0,
+                    expensePair: "carPayment"
+                  },
+                  creditCards: {
+                    balance:  0,
+                    expensePair: "creditCardPayment"
+                  },
+                  retailDebt: {
+                    balance: 0,
+                    expensePair: "retailPayment"
+                  },
+                reEsMortgages: [],
+                businessDebts: [],
+                bankLoans: []
+            },
+            sheetIncome: {
+                interestIncome: 0,
+                dividendIncome: 0,
+                realEstateIncome: 0,
+                businessIncome: 0,
+                monthlySalary: 0,
+                passiveIncome: 0,
+                totalIncome: 0,
+            },
+            sheetExpenses: {
+                taxes: 0,
+                homeMortgagePayment: 0,
+                schoolLoanPayment: 0,
+                carPayment: 0,
+                creditCardPayment: 0,
+                retailPayment: 0,
+                otherExpenses: 0,
+                numberOfChildren: 0,
+                perChildExpense: 0,
+                childExpenses: 0,
+                bankLoanPayment: 0,
+                totalExpenses: 0,
+            },
+            sheetCashflow: {
+                cashflow: 0
+            }
+    })
+       
         setNewSheetBtn(false)
         e.preventDefault()
     }
@@ -149,9 +165,6 @@ function InstantiateSheet() {
                         })}></input>
                     </InputDiv>
 
-                
-
-
                     <InputDiv>
                         <h3>Savings</h3>
                         <input type="number" onInput={e => setInstantiateSheetState({
@@ -162,10 +175,6 @@ function InstantiateSheet() {
                             }
                         })}></input>
                     </InputDiv>
-
-
-                 
-
 
                     <InputDiv>
                         <h3>Per Child Expense</h3>
@@ -178,7 +187,6 @@ function InstantiateSheet() {
                         })}></input>
                     </InputDiv>
 
-
                     <InputDiv>
                         <h3>Taxes</h3>
                         <input type="number" onInput={e => setInstantiateSheetState({
@@ -190,7 +198,6 @@ function InstantiateSheet() {
                         })}></input>
                     </InputDiv>
 
-
                     <InputDiv>
                         <h3>Mortgage/Rent</h3>
                         <input type="number" onInput={e => setInstantiateSheetState({
@@ -201,7 +208,6 @@ function InstantiateSheet() {
                             }
                         })}></input>
                     </InputDiv>
-
 
                     <InputDiv>
                         <h3>School Loan Payment</h3>
@@ -235,7 +241,6 @@ function InstantiateSheet() {
                             }
                         })}></input>
                     </InputDiv>
-
 
                     <InputDiv>
                         <h3>Retail Debt Payment</h3>
@@ -317,7 +322,6 @@ function InstantiateSheet() {
                         })}></input>
                     </InputDiv>
 
-            
                     </MyFormDiv>
                     <br></br>
                     <PinkBox>

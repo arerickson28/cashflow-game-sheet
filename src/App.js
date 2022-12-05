@@ -3,17 +3,42 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import GameSheet from "./components/GameSheet"
 import Home from "./components/Home"
-import store from "store"
-import Liabilities from './components/Liabilities';
 import InstantiateSheet from './components/InstantiateSheet';
+import {blankSheet, testSheet } from "./Data/dataFunc"
+import store from "store"
 
 
 
 function App() {
 
-  // // if (store.get("assets") == null) {
-  //   store.set('assets', assets)
-  // // }
+function makeObject(obj) {
+  let object = {
+    "profession": obj.profession,
+    "assets": obj.sheetAssets,
+    "liabilities": obj.sheetLiabilities,
+    "income": obj.sheetIncome,
+    "expenses": obj.sheetExpenses,
+    "cashflow": obj.sheetCashflow
+  }
+
+  return object
+}
+
+
+function setLocalStorageIfNull(obj) {
+    let theObj = makeObject(obj)
+    let keyArray = Object.keys(theObj)
+    let valueArray = Object.values(theObj)
+
+    for (let i=0; i<keyArray.length; i++) {
+      if (store.get(keyArray[i]) == null) {
+        store.set(keyArray[i], valueArray[i])
+      }
+    }
+}
+
+
+setLocalStorageIfNull(blankSheet)
 
   // store.set('liabilities', liabilities)
   // store.set('income', income)

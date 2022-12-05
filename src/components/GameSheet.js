@@ -9,6 +9,27 @@ import Assets from './Assets';
 import Income from './Income';
 import store from "store"
 
+const BalanceSheetDiv = styled.div`
+    border: solid 4px rgb(217, 22, 83);
+    padding: 5px;
+    margin: 10px;
+`
+
+const IncomeStatementDiv = styled.div`
+border: solid 4px rgb(217, 22, 83);
+padding: 5px;
+margin: 10px;
+`
+
+const TestDiv = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+`
+
+const BoxedIncExpDiv = styled.div`
+    width: 700px;
+`
 
 
 function GameSheet() {
@@ -109,38 +130,13 @@ function GameSheet() {
 // })
 
 
-const BalanceSheetDiv = styled.div`
-    border: solid 4px rgb(217, 22, 83);
-    padding: 5px;
-    margin: 10px;
-`
-
-const IncomeStatementDiv = styled.div`
-border: solid 4px rgb(217, 22, 83);
-padding: 5px;
-margin: 10px;
-`
-
-const TestDiv = styled.div`
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-`
-
-const BoxedIncExpDiv = styled.div`
-    width: 700px;
-`
-
-
-
-console.log(instantiateSheetState)
-console.log(instantiateSheetState.sheetProfession)
-store.set("profession", instantiateSheetState.sheetProfession)
-store.set("assets", instantiateSheetState.sheetAssets)
-store.set("liabilities", instantiateSheetState.sheetLiabilities)
-store.set("income", instantiateSheetState.sheetIncome)
-store.set("expenses", instantiateSheetState.sheetExpenses)
-store.set("cashflow", instantiateSheetState.sheetCashflow)
+// console.log(instantiateSheetState)
+// store.set("profession", instantiateSheetState.sheetProfession)
+// store.set("assets", instantiateSheetState.sheetAssets)
+// store.set("liabilities", instantiateSheetState.sheetLiabilities)
+// store.set("income", instantiateSheetState.sheetIncome)
+// store.set("expenses", instantiateSheetState.sheetExpenses)
+// store.set("cashflow", instantiateSheetState.sheetCashflow)
 // console.log(storeProfession)
 // console.log(storeAssets)
     return (
