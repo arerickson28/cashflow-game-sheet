@@ -198,68 +198,6 @@ const useSharedStates = ()=> {
     const [sellREBtn, setSellREBtn] = useState(false)
     const [sellBusBtn, setSellBusBtn] = useState(false)
     const [newSheetBtn, setNewSheetBtn] = useState(false)
-
-//     const [instantiateSheetState, setInstantiateSheetState] = useState({
-//         sheetAssets: {
-//             cash: 0,
-//             stocksMutualsCDs: [],
-//             realEstate:  [],
-//             businesses: []
-//         },
-//         sheetLiabilities: {
-//             homeMortgage: {
-//                 balance: 0,
-//                 expensePair: "homeMortgagePayment"
-//               },
-//               schoolLoans: {
-//                 balance:  0,
-//                 expensePair: "schoolLoanPayment"
-//               },
-//               carLoans: {
-//                 balance:  0,
-//                 expensePair: "carPayment"
-//               },
-//               creditCards: {
-//                 balance:  0,
-//                 expensePair: "creditCardPayment"
-//               },
-//               retailDebt: {
-//                 balance: 0,
-//                 expensePair: "retailPayment"
-//               },
-//             reEsMortgages: [],
-//             businessDebts: [],
-//             bankLoans: []
-//         },
-//         sheetIncome: {
-//             interestIncome: 0,
-//             dividendIncome: 0,
-//             realEstateIncome: 0,
-//             businessIncome: 0,
-//             monthlySalary: 0,
-//             passiveIncome: 0,
-//             totalIncome: 0,
-//         },
-//         sheetExpenses: {
-//             taxes: 0,
-//             homeMortgagePayment: 0,
-//             schoolLoanPayment: 0,
-//             carPayment: 0,
-//             creditCardPayment: 0,
-//             retailPayment: 0,
-//             otherExpenses: 0,
-//             numberOfChildren: 0,
-//             perChildExpense: 0,
-//             childExpenses: 0,
-//             bankLoanPayment: 0,
-//             totalExpenses: 0,
-//         },
-//         sheetCashflow: {
-//             cashflow: 0
-//         }
-
-// })
-
     const [instantiateSheetState, setInstantiateSheetState] = useState(blankSheet)
 
 
@@ -272,19 +210,20 @@ const useShareMyStates = ()=> useBetween(useSharedStates)
 
 
 let newChildExpenses = function() {
-    return storeExpenses.numberOfChildren * storeExpenses.perChildExpense
+    return parseInt(storeExpenses.numberOfChildren) * parseInt(storeExpenses.perChildExpense)
 }
 
 let newTotalExpenses = function() {
-    return storeExpenses.taxes + storeExpenses.homeMortgagePayment + storeExpenses.schoolLoanPayment + storeExpenses.carPayment + storeExpenses.creditCardPayment + storeExpenses.retailPayment + storeExpenses.otherExpenses + storeExpenses.childExpenses + storeExpenses.bankLoanPayment
+    console.log("newTotalExpenses called")
+    return parseInt(storeExpenses.taxes) + parseInt(storeExpenses.homeMortgagePayment) + parseInt(storeExpenses.schoolLoanPayment) + parseInt(storeExpenses.carPayment) + parseInt(storeExpenses.creditCardPayment) + parseInt(storeExpenses.retailPayment) + parseInt(storeExpenses.otherExpenses) + parseInt(storeExpenses.childExpenses) + parseInt(storeExpenses.bankLoanPayment)
 }
 
 let newCarPayment = function() {
-    return storeLiabilities.carLoans * 0.05
+    return parseInt(storeLiabilities.carLoans) * 0.05
 }
 
 let newCreditCardPayment = function() {
-    return storeLiabilities.creditCards * 0.2
+    return parseInt(storeLiabilities.creditCards) * 0.2
 }
 
 let newBankLoanPayment = function() {
@@ -300,7 +239,8 @@ let newCashflow = function() {
  }
 
  let newTotalIncome = function() {
-    return storeIncome.monthlySalary + storeIncome.passiveIncome
+    console.log("newTotalIncome called")
+    return parseInt(storeIncome.monthlySalary) + parseInt(storeIncome.passiveIncome)
 }
 
 let newBusinessDebts = function () {
@@ -352,7 +292,7 @@ let newReEsMortgages = function () {
 
 
 let newTotalPassiveIncome = function() {
-    return storeIncome.interestIncome + storeIncome.dividendIncome + storeIncome.realEstateIncome + storeIncome.businessIncome
+    return parseInt(storeIncome.interestIncome) + parseInt(storeIncome.dividendIncome )+ parseInt(storeIncome.realEstateIncome) + parseInt(storeIncome.businessIncome)
 }
 
 export {testSheet, blankSheet, useShareMyStates, storeProfession, storeIncome, storeExpenses, storeAssets, storeLiabilities, storeCashflow, newChildExpenses, newTotalExpenses, newCreditCardPayment, newBankLoanPayment, newCarPayment, newCashflow, newTotalIncome, newBusinessDebts, newBusinessIncome, newDividendIncome, newReEsMortgages, newRealEstateIncome, newTotalPassiveIncome }

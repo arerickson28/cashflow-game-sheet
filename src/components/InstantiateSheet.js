@@ -1,14 +1,11 @@
-import React from "react"
+import React, {useEffect} from "react"
 import styled from "styled-components"
 import store from "store"
-import { useShareMyStates, newChildExpenses, newTotalExpenses, newCashflow, newTotalIncome, newTotalPassiveIncome } from "../Data/dataFunc"
-import CashflowCards from "../images/cashflowCards.jpeg"
+import { useShareMyStates, newChildExpenses, newTotalExpenses, newCashflow, newTotalIncome, newTotalPassiveIncome, blankSheet, testSheet, storeAssets, storeExpenses, storeCashflow, storeIncome } from "../Data/dataFunc"
 
 
-const Image = styled.img`
-width: 1000px;
-margin: 10px;
-`
+
+
 
 const PinkBox = styled.div`
     border: solid 4px rgb(255,182,193);
@@ -46,156 +43,165 @@ const InputDiv = styled.div`
 
 function InstantiateSheet() {
 
-    const { instantiateSheetState, setInstantiateSheetState, setNewSheetBtn } = useShareMyStates()
+    const { instantiateSheetState, setInstantiateSheetState, setNewSheetBtn, setExpensesState, setCashflowState, setIncomeState } = useShareMyStates()
+    console.log("Instantiate sheet component rendered")
+    // useEffect(() => {
+    //     storeExpenses.totalExpenses = newTotalExpenses()
+    //     store.set("expenses", storeExpenses)
+    //     setExpensesState(storeExpenses)
+     
+    //     storeCashflow.cashflow = newCashflow()
+    //     store.set("cashflow", storeCashflow)
+    //     setCashflowState(storeCashflow)
 
-    store.set("profession", instantiateSheetState.sheetProfession)
-    store.set("assets", instantiateSheetState.sheetAssets)
-    store.set("liabilities", instantiateSheetState.sheetLiabilities)
-    store.set("income", instantiateSheetState.sheetIncome)
-    store.set("expenses", instantiateSheetState.sheetExpenses)
-    store.set("cashflow", instantiateSheetState.sheetCashflow)
+    //     storeIncome.totalIncome = newTotalIncome()
+    //     store.set("income", storeIncome)
+    //     setIncomeState(storeIncome)
+    //   });
+
+    function validateForm(e) {
+        e.preventDefault()
+        let inputs = document.querySelectorAll("input")
+        console.log(inputs)
+
+        for (let i=0; i<inputs.length; i++) {
+            if (inputs[i].value == "" || parseInt(inputs[i].value) == NaN) {
+                inputs[i].classList.add("invalid")
+                inputs[i].reset()
+                console.log(inputs[i].classList)
+                alert("Please enter a number for all fields");
+                return
+              } else {
+                inputs[i].classList.remove("invalid")
+              }
+        }
+        // handleSheetSubmit()
+       
+    }
 
     function handleSheetSubmit(e) {
+        e.preventDefault()
+        // validateForm()
+
         console.log("sheet submittd")
         console.log(instantiateSheetState)
         alert("Info Submitted, head to GameSheet!")
      
-        store.set("profession", instantiateSheetState.sheetProfession)
-        store.set("assets", instantiateSheetState.sheetAssets)
-        store.set("liabilities", instantiateSheetState.sheetLiabilities)
-        store.set("income", instantiateSheetState.sheetIncome)
-        store.set("expenses", instantiateSheetState.sheetExpenses)
-        store.set("cashflow", instantiateSheetState.sheetCashflow)
+        // store.set("profession", instantiateSheetState.sheetProfession)
+        store.set("profession", e.target.profession.value)
 
-        newTotalIncome()
-        newChildExpenses() 
-        newTotalExpenses() 
-        newCashflow() 
+        // store.set("assets", instantiateSheetState.sheetAssets)
+        // store.set("liabilities", instantiateSheetState.sheetLiabilities)
+
+        // store.set("income", instantiateSheetState.sheetIncome)
+        let tempStoreIncome = storeIncome
+        tempStoreIncome.monthlySalary = e.target.monthlySalary.value
+        store.set("income", tempStoreIncome)
+        
+
+        // store.set("expenses", instantiateSheetState.sheetExpenses)
+        // store.set("cashflow", instantiateSheetState.sheetCashflow)
+
+        let tempStoreAssets = storeAssets
+        tempStoreAssets.cash = e.target.savings.value
+        store.set("assets", tempStoreAssets)
+
+        let tempStoreExpenses = storeExpenses
+        tempStoreExpenses.perChildExpense = e.target.perChildExp.value
+        tempStoreExpenses.taxes = e.target.taxes.value
+
+        store.set("expenses", tempStoreExpenses)
+
+
+
+        storeExpenses.totalExpenses = newTotalExpenses()
+        store.set("expenses", storeExpenses)
+        setExpensesState(storeExpenses)
+     
+        storeIncome.totalIncome = newTotalIncome()
+        store.set("income", storeIncome)
+        setIncomeState(storeIncome)
+
+        let tempStoreCashflow = storeCashflow
+        tempStoreCashflow.cashflow = newCashflow()
+        store.set("cashflow", tempStoreCashflow)
+        setCashflowState(storeCashflow)
+
+        setInstantiateSheetState(blankSheet)
         window.location.reload()
-
-        setInstantiateSheetState({
-            sheetAssets: {
-                cash: 0,
-                stocksMutualsCDs: [],
-                realEstate:  [],
-                businesses: []
-            },
-            sheetLiabilities: {
-                homeMortgage: {
-                    balance: 0,
-                    expensePair: "homeMortgagePayment"
-                  },
-                  schoolLoans: {
-                    balance:  0,
-                    expensePair: "schoolLoanPayment"
-                  },
-                  carLoans: {
-                    balance:  0,
-                    expensePair: "carPayment"
-                  },
-                  creditCards: {
-                    balance:  0,
-                    expensePair: "creditCardPayment"
-                  },
-                  retailDebt: {
-                    balance: 0,
-                    expensePair: "retailPayment"
-                  },
-                reEsMortgages: [],
-                businessDebts: [],
-                bankLoans: []
-            },
-            sheetIncome: {
-                interestIncome: 0,
-                dividendIncome: 0,
-                realEstateIncome: 0,
-                businessIncome: 0,
-                monthlySalary: 0,
-                passiveIncome: 0,
-                totalIncome: 0,
-            },
-            sheetExpenses: {
-                taxes: 0,
-                homeMortgagePayment: 0,
-                schoolLoanPayment: 0,
-                carPayment: 0,
-                creditCardPayment: 0,
-                retailPayment: 0,
-                otherExpenses: 0,
-                numberOfChildren: 0,
-                perChildExpense: 0,
-                childExpenses: 0,
-                bankLoanPayment: 0,
-                totalExpenses: 0,
-            },
-            sheetCashflow: {
-                cashflow: 0
-            }
-    })
        
         setNewSheetBtn(false)
-        e.preventDefault()
+      
     }
 
     return (
         <>
             <PinkBox className="PinkBox">
            
-                <MyForm className="MyForm" onSubmit={handleSheetSubmit}>
+                <MyForm name="MyForm" className="MyForm" onSubmit={handleSheetSubmit}>
                 <h1>Submit Info To Begin New Gamesheet</h1>
                     <MyFormDiv className="MyFormDiv">
            
 
                     <InputDiv>
                         <h3>Profession</h3>
-                        <input onInput={e => setInstantiateSheetState({
+                        {/* <input id="profession" onChange={e => {
+                        console.log(e.target.value)
+                        setInstantiateSheetState({
                             ...instantiateSheetState,
                             "sheetProfession": e.target.value
-                        })}></input>
+                        })}}></input> */}
+                        <input id="profession" name="profession"></input>
                     </InputDiv>
 
                     <InputDiv>
                         <h3>Monthly Salary</h3>
-                        <input type="number" onInput={e => setInstantiateSheetState({
+                        {/* <input type="number" onChange={e => setInstantiateSheetState({
                             ...instantiateSheetState,
                             "sheetIncome": {
                                 ...instantiateSheetState.sheetIncome,
-                                "monthlySalary": e.target.value
+                                "monthlySalary": parseInt(e.target.value)
                             }
-                        })}></input>
+                        })}></input> */}
+                        <input id="monthlySalary" name="monthlySalary"></input>
                     </InputDiv>
 
                     <InputDiv>
                         <h3>Savings</h3>
-                        <input type="number" onInput={e => setInstantiateSheetState({
+                        {/* <input type="number" onInput={e => setInstantiateSheetState({
                             ...instantiateSheetState,
                             "sheetAssets": {
                                 ...instantiateSheetState.sheetAssets,
                                 "cash": parseInt(e.target.value)
                             }
-                        })}></input>
+                        })}></input> */}
+                          <input id="savings" name="savings"></input>
                     </InputDiv>
 
                     <InputDiv>
                         <h3>Per Child Expense</h3>
-                        <input type="number" onInput={e => setInstantiateSheetState({
+                        {/* <input type="number" onInput={e => setInstantiateSheetState({
                             ...instantiateSheetState,
                             "sheetExpenses": {
                                 ...instantiateSheetState.sheetExpenses,
                                 "perChildExpense": parseInt(e.target.value)
                             }
-                        })}></input>
+                        })}></input> */}
+                          <input id="perChildExp" name="perChildExp"></input>
                     </InputDiv>
 
                     <InputDiv>
                         <h3>Taxes</h3>
-                        <input type="number" onInput={e => setInstantiateSheetState({
+                        {/* <input type="number" onInput={e => {
+                            console.log(e.target.value)
+                            setInstantiateSheetState({
                             ...instantiateSheetState,
                             "sheetExpenses": {
                                 ...instantiateSheetState.sheetExpenses,
                                 "taxes": parseInt(e.target.value)
                             }
-                        })}></input>
+                        })}}></input> */}
+                        <input id="taxes" name="taxes"></input>
                     </InputDiv>
 
                     <InputDiv>
@@ -331,8 +337,6 @@ function InstantiateSheet() {
                 </MyForm>
 
             </PinkBox>
-
-            <Image src= {CashflowCards}></Image> 
 
         </>
     )

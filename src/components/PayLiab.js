@@ -6,7 +6,6 @@ import {useShareMyStates, storeExpenses, newTotalExpenses, storeCashflow, newCas
 function PayLiab() {
     const { setLiabilityState, setExpensesState, setCashflowState, setPayLiabBtn } = useShareMyStates()
 
-
     const [liabPaymentState, setLiabPaymentState] = useState({
         "liability": "",
         "amount": 0

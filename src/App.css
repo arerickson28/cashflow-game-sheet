@@ -105,3 +105,9 @@ input {
 #navbar h2 {
   margin: 20px;
 }
+
+.invalid {
+  border: solid;
+  border-width: 5px;
+  border-color: rgb(192, 29, 29);
+}

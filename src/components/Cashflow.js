@@ -20,9 +20,10 @@ function Cashflow() {
 
    function changeState() {
 
-    storeAssets.cash += parseInt(storeCashflow.cashflow)
+    let tempStoreAssets = storeAssets
+    tempStoreAssets.cash = parseInt(tempStoreAssets.cash) + parseInt(storeCashflow.cashflow)
 
-    store.set("assets", storeAssets)
+    store.set("assets", tempStoreAssets)
 
     setAssetState(store.get("assets"))
 
