@@ -13,6 +13,7 @@ import { useShareMyStates, storeAssets } from "../Data/dataFunc"
 // Form to initiate sheet
 // On new local host, errors becuase localstorage not set
 // Liabilities, once something is paid off, it turns green
+// istatntiate sheet form, enforce all fields have been filled out
 
 
 
