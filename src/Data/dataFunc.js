@@ -9,7 +9,6 @@ let storeLiabilities = store.get("liabilities")
 let storeCashflow = store.get("cashflow")
 let storeProfession = store.get("profession")
 
-console.log("hey")
    
 const testSheet =    {
     sheetProfession: "",

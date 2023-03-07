@@ -8,28 +8,28 @@ import SellStock from "./SellStock"
 import SellRE from "./SellRE"
 import SellBus from "./SellBus"
 import { useShareMyStates, storeAssets } from "../Data/dataFunc"
+import {OrangeBox, OrangeH1} from "./StyledComponents"
 
 // Todo: 
 // Form to initiate sheet
 // On new local host, errors becuase localstorage not set
 // Liabilities, once something is paid off, it turns green
-// istatntiate sheet form, enforce all fields have been filled out
 
 
 
 
 
-const OrangeBox = styled.div`
-    border: solid 4px rgb(255, 123, 0);
-    padding: 5px;
-    margin: 10px;
-    width: 700px;
-    `
+// const OrangeBox = styled.div`
+//     border: solid 4px rgb(255, 123, 0);
+//     padding: 5px;
+//     margin: 10px;
+//     width: 700px;
+//     `
 
-const OrangeH1 = styled.h1`
-    color: white;
-    background-color: rgb(255, 123, 0);
-`
+// const OrangeH1 = styled.h1`
+//     color: white;
+//     background-color: rgb(255, 123, 0);
+// `
 
 function Assets() {
 

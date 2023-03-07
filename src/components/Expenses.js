@@ -2,19 +2,20 @@ import React from "react"
 import styled from "styled-components"
 import store from "store"
 import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow } from "../Data/dataFunc"
+import {GreenBox, GreenH1} from "./StyledComponents"
 
 
-const GreenBox = styled.div`
-border: solid 4px rgb(85, 200, 85);
-padding: 5px;
-margin: 10px;
-width: 500px;
-`
+// const GreenBox = styled.div`
+// border: solid 4px rgb(85, 200, 85);
+// padding: 5px;
+// margin: 10px;
+// width: 500px;
+// `
 
-const GreenH1 = styled.h1`
-    color: white;
-    background-color: rgb(85, 200, 85);
-`
+// const GreenH1 = styled.h1`
+//     color: white;
+//     background-color: rgb(85, 200, 85);
+// `
 
 
 function Expenses() {

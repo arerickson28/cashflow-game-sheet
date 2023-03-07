@@ -2,17 +2,18 @@ import React from "react"
 import store from "store"
 import styled from "styled-components"
 import {useShareMyStates, storeAssets, storeCashflow } from "../Data/dataFunc"
+import {GoldBox, GoldH1} from "./StyledComponents"
 
-const GoldBox = styled.div`
-border: solid 4px rgb(0,139,139);
-padding: 5px;
-margin: 10px;
-`
+// const GoldBox = styled.div`
+// border: solid 4px rgb(0,139,139);
+// padding: 5px;
+// margin: 10px;
+// `
 
-const GoldH1 = styled.h1`
-    color: white;
-    background-color: rgb(0,139,139);
-`
+// const GoldH1 = styled.h1`
+//     color: white;
+//     background-color: rgb(0,139,139);
+// `
 
 function Cashflow() {
 
