@@ -11,34 +11,34 @@ import store from "store"
 
 function App() {
 
-function makeObject(obj) {
-  let object = {
-    "profession": obj.profession,
-    "assets": obj.sheetAssets,
-    "liabilities": obj.sheetLiabilities,
-    "income": obj.sheetIncome,
-    "expenses": obj.sheetExpenses,
-    "cashflow": obj.sheetCashflow
-  }
+// function makeObject(obj) {
+//   let object = {
+//     "profession": obj.profession,
+//     "assets": obj.sheetAssets,
+//     "liabilities": obj.sheetLiabilities,
+//     "income": obj.sheetIncome,
+//     "expenses": obj.sheetExpenses,
+//     "cashflow": obj.sheetCashflow
+//   }
 
-  return object
-}
-
-
-function setLocalStorageIfNull(obj) {
-    let theObj = makeObject(obj)
-    let keyArray = Object.keys(theObj)
-    let valueArray = Object.values(theObj)
-
-    for (let i=0; i<keyArray.length; i++) {
-      if (store.get(keyArray[i]) == null) {
-        store.set(keyArray[i], valueArray[i])
-      }
-    }
-}
+//   return object
+// }
 
 
-setLocalStorageIfNull(blankSheet)
+// function setLocalStorageIfNull(obj) {
+//     let theObj = makeObject(obj)
+//     let keyArray = Object.keys(theObj)
+//     let valueArray = Object.values(theObj)
+
+//     for (let i=0; i<keyArray.length; i++) {
+//       if (store.get(keyArray[i]) == null) {
+//         store.set(keyArray[i], valueArray[i])
+//       }
+//     }
+// }
+
+
+// setLocalStorageIfNull(blankSheet)
 
   
 

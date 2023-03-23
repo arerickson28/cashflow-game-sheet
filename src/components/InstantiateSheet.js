@@ -44,7 +44,7 @@ function InstantiateSheet() {
 
 
     function validateForm(e) {
-        e.preventDefault()
+        // e.preventDefault()
         let inputs = document.querySelectorAll("input")
         console.log(inputs)
 
@@ -63,19 +63,35 @@ function InstantiateSheet() {
 
     }
 
+
+
+
+    function setStatesFromStorage() {
+        setIncomeState(storeIncome)
+        setAssetState(storeAssets)
+        setExpensesState(storeExpenses)
+        setLiabilityState(storeLiabilities)
+        setCashflowState(storeCashflow)
+    }
+
     function handleSheetSubmit(e) {
-        e.preventDefault()
+        // e.preventDefault()
         // validateForm()
 
         console.log("sheet submittd")
         console.log(instantiateSheetState)
+        console.log("storeAssets", storeAssets)
         alert("Info Submitted, head to GameSheet!")
 
+
+        //SETTING STORAGE
 
         //SETTING PROFESSION
         store.set("profession", e.target.profession.value)
 
         //SETTING INCOME
+        console.log("storeIncome", storeIncome)
+        console.log("storeAssets", storeAssets)
         let tempStoreIncome = storeIncome
         console.log("tempStoreIncome", tempStoreIncome)
         tempStoreIncome.monthlySalary = e.target.monthlySalary.value
@@ -84,13 +100,13 @@ function InstantiateSheet() {
         let tempStoreTotalIncome = storeIncome
         tempStoreTotalIncome.totalIncome = newTotalIncome()
         store.set("income", tempStoreTotalIncome)
-        setIncomeState(storeIncome)
+        // setIncomeState(storeIncome)
 
         //SETTING ASSETS
         let tempStoreAssets = storeAssets
         tempStoreAssets.cash = e.target.savings.value
         store.set("assets", tempStoreAssets)
-        setAssetState(storeAssets)
+        // setAssetState(storeAssets)
 
         //SETTING EXPENSES
         let tempStoreExpenses = storeExpenses
@@ -107,7 +123,7 @@ function InstantiateSheet() {
         let tempStoreTotalExpenses = storeExpenses
         tempStoreTotalExpenses.totalExpenses = newTotalExpenses()
         store.set("expenses", tempStoreTotalExpenses)
-        setExpensesState(storeExpenses)
+        // setExpensesState(storeExpenses)
 
         //SETTING LIABILITIES
         let tempStoreLiabilities = storeLiabilities
@@ -117,18 +133,20 @@ function InstantiateSheet() {
         tempStoreLiabilities.creditCards.balance = e.target.creditCardsBalance.value
         tempStoreLiabilities.retailDebt.balance = e.target.retailDebtBalance.value
         store.set("liabilities", tempStoreLiabilities)
-        setLiabilityState(storeLiabilities)
+        // setLiabilityState(storeLiabilities)
 
         //SETTING CASHFLOW
         let tempStoreCashflow = storeCashflow
         tempStoreCashflow.cashflow = newCashflow()
         store.set("cashflow", tempStoreCashflow)
-        setCashflowState(storeCashflow)
+        // setCashflowState(storeCashflow)
 
         setInstantiateSheetState(blankSheet)
         window.location.reload()
 
         setNewSheetBtn(false)
+
+        setStatesFromStorage()
 
     }
 

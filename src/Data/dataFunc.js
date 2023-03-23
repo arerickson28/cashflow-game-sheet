@@ -2,14 +2,8 @@ import store from "store"
 import { useState } from "react"
 import { useBetween } from "use-between"
 
-let storeIncome = store.get("income")
-let storeExpenses = store.get("expenses")
-let storeAssets = store.get("assets")
-let storeLiabilities = store.get("liabilities")
-let storeCashflow = store.get("cashflow")
-let storeProfession = store.get("profession")
+console.log("dataFunc file has been run")
 
-   
 const testSheet =    {
     sheetProfession: "",
     sheetAssets: {
@@ -116,8 +110,6 @@ const testSheet =    {
     
 }
 
-
-
 const blankSheet = {
 sheetProfession: "",
 sheetAssets: {
@@ -178,6 +170,45 @@ sheetCashflow: {
     cashflow: 0
 }   
 }
+
+function makeObject(obj) {
+    let object = {
+      "profession": obj.profession,
+      "assets": obj.sheetAssets,
+      "liabilities": obj.sheetLiabilities,
+      "income": obj.sheetIncome,
+      "expenses": obj.sheetExpenses,
+      "cashflow": obj.sheetCashflow
+    }
+  
+    return object
+  }
+  
+  
+  function setLocalStorageIfNull(obj) {
+      let theObj = makeObject(obj)
+      let keyArray = Object.keys(theObj)
+      let valueArray = Object.values(theObj)
+  
+      for (let i=0; i<keyArray.length; i++) {
+        if (store.get(keyArray[i]) == null) {
+          store.set(keyArray[i], valueArray[i])
+        }
+      }
+  }
+  
+  
+  setLocalStorageIfNull(blankSheet)
+
+let storeIncome = store.get("income")
+let storeExpenses = store.get("expenses")
+let storeAssets = store.get("assets")
+let storeLiabilities = store.get("liabilities")
+let storeCashflow = store.get("cashflow")
+let storeProfession = store.get("profession")
+
+console.log("storeIncome from dataFunc file", storeIncome)   
+
 
 const useSharedStates = ()=> {
     const [professionState, setProfessionState] = useState(store.get("profession"))
