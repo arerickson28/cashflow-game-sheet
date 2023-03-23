@@ -81,7 +81,6 @@ function InstantiateSheet() {
         console.log("sheet submittd")
         console.log(instantiateSheetState)
         console.log("storeAssets", storeAssets)
-        alert("Info Submitted, head to GameSheet!")
 
 
         //SETTING STORAGE
@@ -154,7 +153,7 @@ function InstantiateSheet() {
         <>
             <PinkBox className="PinkBox">
 
-                <MyForm name="MyForm" className="MyForm" onSubmit={validateForm}>
+                <MyForm name="MyForm" className="MyForm" action="/gamesheet" onSubmit={validateForm}>
                     <h1>Submit Info To Begin New Gamesheet</h1>
                     <MyFormDiv className="MyFormDiv">
 

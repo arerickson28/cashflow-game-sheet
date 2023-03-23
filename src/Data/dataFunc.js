@@ -173,7 +173,7 @@ sheetCashflow: {
 
 function makeObject(obj) {
     let object = {
-      "profession": obj.profession,
+      "profession": obj.sheetProfession,
       "assets": obj.sheetAssets,
       "liabilities": obj.sheetLiabilities,
       "income": obj.sheetIncome,
