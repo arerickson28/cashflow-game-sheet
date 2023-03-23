@@ -153,7 +153,7 @@ function InstantiateSheet() {
         <>
             <PinkBox className="PinkBox">
 
-                <MyForm name="MyForm" className="MyForm" action="/gamesheet" onSubmit={validateForm}>
+                <MyForm name="MyForm" className="MyForm" action="/cashflow-game-sheet/gamesheet" onSubmit={validateForm}>
                     <h1>Submit Info To Begin New Gamesheet</h1>
                     <MyFormDiv className="MyFormDiv">
 
