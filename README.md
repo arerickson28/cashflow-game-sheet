@@ -15,4 +15,16 @@ SO THAT I can better enjoy game play and save my pencil erasors
 
 <hr>
 
+![Game Sheet Income Statement](src/images/gameSheetIncomeStatement.png)
+
+<hr>
+
+![Game Sheet Screenshot](src/images/gameSheetBalanceSheet.png)
+
+<hr>
+
 ![App Screenshot](src/images/cashflowCards.jpeg)
+
+<hr>
+
+![App Screenshot 2](src/images/gameSheetNewSheet.png)
