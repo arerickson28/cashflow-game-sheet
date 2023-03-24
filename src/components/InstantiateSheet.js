@@ -146,14 +146,14 @@ function InstantiateSheet() {
         setNewSheetBtn(false)
 
         setStatesFromStorage()
-
     }
 
     return (
         <>
             <PinkBox className="PinkBox">
 
-                <MyForm name="MyForm" className="MyForm" action="/cashflow-game-sheet/gamesheet" onSubmit={validateForm}>
+                {/* <MyForm name="MyForm" className="MyForm" action="/gamesheet" onSubmit={validateForm}> */}
+                <MyForm name="MyForm" className="MyForm" onSubmit={validateForm}>
                     <h1>Submit Info To Begin New Gamesheet</h1>
                     <MyFormDiv className="MyFormDiv">
 
