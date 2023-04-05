@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import PayLiab from "./PayLiab"
+import NewLoan from "./NewLoan"
 import PayLoan from "./PayLoan"
 import PayBus from "./PayBus"
 import PayRE from "./PayRE"
 import {useShareMyStates } from "../Data/dataFunc"
-
 
 const PurpleBox = styled.div`
 border: solid 4px rgb(128, 17, 128);
@@ -17,11 +17,9 @@ const PurpleH1 = styled.h1`
     color: white;
     background-color: rgb(128, 17, 128);
 `
-
 function Liabilities() {
    
-    const { liabilityState, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn, payREBtn, setPayREBtn } = useShareMyStates()
-
+    const { liabilityState, payLiabBtn, setPayLiabBtn, newLoanBtn, setNewLoanBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn, payREBtn, setPayREBtn } = useShareMyStates()
 
 
     return (
@@ -29,20 +27,16 @@ function Liabilities() {
             <PurpleBox>
                 
             <PurpleH1>Liabilities</PurpleH1>
-
             <p>Home Mortgage: $<span>{liabilityState.homeMortgage.balance}</span></p>
             <p>School Loans: $<span>{liabilityState.schoolLoans.balance}</span></p>
             <p>Car Loans: $<span>{liabilityState.carLoans.balance}</span></p>
             <p>Credit Cards: $<span>{liabilityState.creditCards.balance}</span></p>
             <p>Retial Debt: $<span>{liabilityState.retailDebt.balance}</span></p>
-
             <button onClick={() => setPayLiabBtn(true)}>Make Payment</button>
-
             {payLiabBtn ? <PayLiab /> : <></>}
            
             <hr></hr>
             <h4>Bank Loans (10%)</h4>
-
             <table>
                 <thead>
                     <tr>
@@ -65,15 +59,13 @@ function Liabilities() {
                 </tbody>
             </table>
 
-
-
-             <button onClick={() => setPayLoanBtn(true)}>Make Payment</button>
-
-             {payLoanBtn ? <PayLoan /> : <></>}
+            <button onClick={()=> setNewLoanBtn(true)}>New Loan</button>
+            <button onClick={() => setPayLoanBtn(true)}>Make Payment</button>
         
-
+             {payLoanBtn ? <PayLoan /> : <></>}
+             {newLoanBtn ? <NewLoan /> : <></>}
+        
             <hr></hr>
-
             <p>Real Estate</p>   
             <table>
                 <thead>
@@ -97,7 +89,6 @@ function Liabilities() {
             <button onClick={()=>setPayREBtn(true)}>Make Payment</button>
             
             {payREBtn ? <PayRE /> : <></>}
-
             <hr></hr>
             <h4>Business Debts</h4>
             <table>
@@ -119,18 +110,13 @@ function Liabilities() {
                 })}
                 </tbody>
             </table>
-
             <button onClick={()=>setPayBusBtn(true)}>Make Payment</button>
             
 
-
             {payBusBtn ? <PayBus /> : <></>}
-
             <hr></hr>
-
               </PurpleBox>
         </>
     )
 }
-
 export default Liabilities
