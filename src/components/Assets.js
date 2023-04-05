@@ -12,8 +12,10 @@ import {OrangeBox, OrangeH1} from "./StyledComponents"
 
 // Todo: 
 // Form to initiate sheet
-// On new local host, errors becuase localstorage not set
 // Liabilities, once something is paid off, it turns green
+// Business debts, if paid off and business is sold it dissapears --- when selling business, only dissapears if debt is paid off
+//Pay business debts doesn't subtract from cash
+//need a New Loan button
 
 
 
