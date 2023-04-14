@@ -11,7 +11,11 @@ import { useShareMyStates, storeAssets } from "../Data/dataFunc"
 import {OrangeBox, OrangeH1} from "./StyledComponents"
 
 // Todo: 
+
 // Liabilities, once something is paid off, it turns green
+// Business debts, if paid off and business is sold it dissapears --- when selling business, only dissapears if debt is paid off
+//Pay business debts doesn't subtract from cash
+//need a New Loan button
 
 
 

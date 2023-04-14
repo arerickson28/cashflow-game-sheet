@@ -1,9 +1,13 @@
 import store from "store"
 import { useState } from "react"
 import { useBetween } from "use-between"
-
-console.log("dataFunc file has been run")
-
+let storeIncome = store.get("income")
+let storeExpenses = store.get("expenses")
+let storeAssets = store.get("assets")
+let storeLiabilities = store.get("liabilities")
+let storeCashflow = store.get("cashflow")
+let storeProfession = store.get("profession")
+   
 const testSheet =    {
     sheetProfession: "",
     sheetAssets: {
@@ -110,6 +114,7 @@ const testSheet =    {
     
 }
 
+
 const blankSheet = {
 sheetProfession: "",
 sheetAssets: {
@@ -170,46 +175,6 @@ sheetCashflow: {
     cashflow: 0
 }   
 }
-
-function makeObject(obj) {
-    let object = {
-      "profession": obj.sheetProfession,
-      "assets": obj.sheetAssets,
-      "liabilities": obj.sheetLiabilities,
-      "income": obj.sheetIncome,
-      "expenses": obj.sheetExpenses,
-      "cashflow": obj.sheetCashflow
-    }
-  
-    return object
-  }
-  
-  
-  function setLocalStorageIfNull(obj) {
-      let theObj = makeObject(obj)
-      let keyArray = Object.keys(theObj)
-      let valueArray = Object.values(theObj)
-  
-      for (let i=0; i<keyArray.length; i++) {
-        if (store.get(keyArray[i]) == null) {
-          store.set(keyArray[i], valueArray[i])
-        }
-      }
-  }
-  
-  
-  setLocalStorageIfNull(blankSheet)
-
-let storeIncome = store.get("income")
-let storeExpenses = store.get("expenses")
-let storeAssets = store.get("assets")
-let storeLiabilities = store.get("liabilities")
-let storeCashflow = store.get("cashflow")
-let storeProfession = store.get("profession")
-
-console.log("storeIncome from dataFunc file", storeIncome)   
-
-
 const useSharedStates = ()=> {
     const [professionState, setProfessionState] = useState(store.get("profession"))
     const [assetState, setAssetState] = useState(store.get('assets'))
@@ -223,6 +188,7 @@ const useSharedStates = ()=> {
     const [sellStockBtn, setSellStockBtn] = useState(false)
     const [payLiabBtn, setPayLiabBtn] = useState(false)
     const [payLoanBtn, setPayLoanBtn] = useState(false)
+    const [newLoanBtn, setNewLoanBtn] = useState(false)
     const [payBusBtn, setPayBusBtn] = useState(false)
     const [payREBtn, setPayREBtn] = useState(false)
     const [sellREBtn, setSellREBtn] = useState(false)
@@ -230,32 +196,25 @@ const useSharedStates = ()=> {
     const [newSheetBtn, setNewSheetBtn] = useState(false)
     const [instantiateSheetState, setInstantiateSheetState] = useState(blankSheet)
 
-
     return {
-        professionState, setProfessionState, assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn, payLiabBtn, setPayLiabBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn, payREBtn, setPayREBtn, sellREBtn, setSellREBtn, sellBusBtn, setSellBusBtn, instantiateSheetState, setInstantiateSheetState, newSheetBtn, setNewSheetBtn
+        professionState, setProfessionState, assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn, payLiabBtn, setPayLiabBtn, newLoanBtn, setNewLoanBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn, payREBtn, setPayREBtn, sellREBtn, setSellREBtn, sellBusBtn, setSellBusBtn, instantiateSheetState, setInstantiateSheetState, newSheetBtn, setNewSheetBtn
     }
 }
-
 const useShareMyStates = ()=> useBetween(useSharedStates)
-
 
 let newChildExpenses = function() {
     return parseInt(storeExpenses.numberOfChildren) * parseInt(storeExpenses.perChildExpense)
 }
-
 let newTotalExpenses = function() {
     console.log("newTotalExpenses called")
     return parseInt(storeExpenses.taxes) + parseInt(storeExpenses.homeMortgagePayment) + parseInt(storeExpenses.schoolLoanPayment) + parseInt(storeExpenses.carPayment) + parseInt(storeExpenses.creditCardPayment) + parseInt(storeExpenses.retailPayment) + parseInt(storeExpenses.otherExpenses) + parseInt(storeExpenses.childExpenses) + parseInt(storeExpenses.bankLoanPayment)
 }
-
 let newCarPayment = function() {
     return parseInt(storeLiabilities.carLoans) * 0.05
 }
-
 let newCreditCardPayment = function() {
     return parseInt(storeLiabilities.creditCards) * 0.2
 }
-
 let newBankLoanPayment = function() {
     let payment = 0
     for(let i=0; i< storeLiabilities.bankLoans.length; i++){
@@ -263,16 +222,13 @@ let newBankLoanPayment = function() {
     }
     return payment
 }
-
 let newCashflow = function() {
     return storeIncome.totalIncome - storeExpenses.totalExpenses
  }
-
  let newTotalIncome = function() {
     console.log("newTotalIncome called")
     return parseInt(storeIncome.monthlySalary) + parseInt(storeIncome.passiveIncome)
 }
-
 let newBusinessDebts = function () {
     for (let x=0; x< storeAssets.businesses.length; x++) {
         storeLiabilities.businessesDebts.push({
@@ -281,7 +237,6 @@ let newBusinessDebts = function () {
         })
     }
 }
-
 let newBusinessIncome = function() {
     let newBusinessIncome = 0
     for(let y=0; y< storeAssets.businesses.length; y++) {
@@ -290,7 +245,6 @@ let newBusinessIncome = function() {
     console.log(newBusinessIncome, "newBusinessIncome")
     return newBusinessIncome
 }
-
 let newRealEstateIncome = function() {
     let newREIncome = 0
     for(let y=0; y< storeAssets.realEstate.length; y++) {
@@ -298,7 +252,6 @@ let newRealEstateIncome = function() {
     }
     return newREIncome
 }
-
 let newDividendIncome = function() {
     let newDividendIncome = 0
     for(let y=0; y< storeAssets.stocksMutualsCDs.length; y++) {
@@ -307,7 +260,6 @@ let newDividendIncome = function() {
     }
     return newDividendIncome
 }
-
 
 let newReEsMortgages = function () {
     
@@ -320,9 +272,7 @@ let newReEsMortgages = function () {
 }
 
 
-
 let newTotalPassiveIncome = function() {
     return parseInt(storeIncome.interestIncome) + parseInt(storeIncome.dividendIncome )+ parseInt(storeIncome.realEstateIncome) + parseInt(storeIncome.businessIncome)
 }
-
 export {testSheet, blankSheet, useShareMyStates, storeProfession, storeIncome, storeExpenses, storeAssets, storeLiabilities, storeCashflow, newChildExpenses, newTotalExpenses, newCreditCardPayment, newBankLoanPayment, newCarPayment, newCashflow, newTotalIncome, newBusinessDebts, newBusinessIncome, newDividendIncome, newReEsMortgages, newRealEstateIncome, newTotalPassiveIncome }
