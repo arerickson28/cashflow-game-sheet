@@ -11,8 +11,6 @@ import { useShareMyStates, storeAssets } from "../Data/dataFunc"
 import {OrangeBox, OrangeH1} from "./StyledComponents"
 
 // Todo: 
-// Form to initiate sheet
-// On new local host, errors becuase localstorage not set
 // Liabilities, once something is paid off, it turns green
 
 
