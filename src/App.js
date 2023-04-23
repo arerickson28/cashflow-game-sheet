@@ -47,7 +47,7 @@ setLocalStorageIfNull(blankSheet)
     <>
       <div className="App">
         <Router basename='/cashflow-game-sheet'>
-          <h1>Cashflow Game Sheet</h1>
+          <h1>Cashflow-Game-Sheet</h1>
           <NavBar />
           <Routes>
             <Route path="/gamesheet" element={<GameSheet />} />

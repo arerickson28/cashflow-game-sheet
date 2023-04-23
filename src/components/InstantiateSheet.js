@@ -222,16 +222,16 @@ function InstantiateSheet() {
                         </InputDiv>
 
                         <InputDiv>
-                            <h3>Mortgage</h3>
+                            <h3>Mortgage Balance</h3>
                             <input id="homeMortgageBalance" name="homeMortgageBalance"></input>
                         </InputDiv>
 
                         <InputDiv>
-                            <h3>School Loans</h3>
+                            <h3>School Loans Balance</h3>
                             <input id="schoolLoansBalance" name="schoolLoansBalance"></input>
                         </InputDiv>
                         <InputDiv>
-                            <h3>Car Loans</h3>
+                            <h3>Car Loans Balance</h3>
                             <input id="carLoansBalance" name="carLoansBalance"></input>
                         </InputDiv>
 
@@ -241,14 +241,14 @@ function InstantiateSheet() {
                         </InputDiv>
 
                         <InputDiv>
-                            <h3>Retail Debt</h3>
+                            <h3>Retail Debt Balance</h3>
                             <input id="retailDebtBalance" name="retailDebtBalance"></input>
                         </InputDiv>
 
                     </MyFormDiv>
                     <br></br>
                     <PinkBox>
-                        <input type="submit" value="Submit" />
+                        <input data-cy = "submit" type="submit" value="Submit" />
                     </PinkBox>
                 </MyForm>
             </PinkBox>
