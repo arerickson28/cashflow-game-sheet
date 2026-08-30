@@ -1,7 +1,7 @@
-import React, { useEffect } from "react"
+import React from "react"
 import styled from "styled-components"
 import store from "store"
-import { useShareMyStates, newTotalExpenses, newCashflow, newTotalIncome, blankSheet, testSheet, storeAssets, storeExpenses, storeCashflow, storeIncome, storeLiabilities } from "../Data/dataFunc"
+import { useShareMyStates, newTotalExpenses, newCashflow, newTotalIncome, blankSheet, storeAssets, storeExpenses, storeCashflow, storeIncome, storeLiabilities } from "../Data/dataFunc"
 
 const PinkBox = styled.div`
     border: solid 4px rgb(255,182,193);
@@ -49,7 +49,7 @@ function InstantiateSheet() {
         console.log(inputs)
 
         for (let i = 0; i < inputs.length; i++) {
-            if (inputs[i].value == "" || parseInt(inputs[i].value) == NaN) {
+            if (inputs[i].value === "" || parseInt(inputs[i].value) === Number.isNaN()) {
                 inputs[i].classList.add("invalid")
                 // inputs[i].reset()
                 console.log(inputs[i].classList)

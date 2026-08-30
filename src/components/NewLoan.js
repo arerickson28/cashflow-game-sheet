@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import store from "store"
 import {useShareMyStates, storeCashflow, storeExpenses, newTotalExpenses, newBankLoanPayment, newCashflow, storeLiabilities, storeAssets } from "../Data/dataFunc"
 function NewLoan() {
-    const { setCashflowState, setExpensesState, setAssetState,liabilityState, setLiabilityState, setPayLoanBtn, setNewLoanBtn } = useShareMyStates()
+    const { setCashflowState, setExpensesState, setAssetState,liabilityState, setLiabilityState, setNewLoanBtn } = useShareMyStates()
     const [newLoanState, setNewLoanState] = useState({
         "loanName": "",
         "amount": 0

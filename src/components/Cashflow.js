@@ -1,6 +1,6 @@
 import React from "react"
 import store from "store"
-import styled from "styled-components"
+// import styled from "styled-components"
 import {useShareMyStates, storeAssets, storeCashflow } from "../Data/dataFunc"
 import {GoldBox, GoldH1} from "./StyledComponents"
 
