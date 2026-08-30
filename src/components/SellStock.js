@@ -19,7 +19,7 @@ function SellStock() {
     function getMaxStocksSellable(stockName) {
 
         for (let i=0; i<storeAssets.stocksMutualsCDs.length; i++) {
-            if (storeAssets.stocksMutualsCDs[i]["name"] == sellStockState["name"]) {
+            if (storeAssets.stocksMutualsCDs[i]["name"] === sellStockState["name"]) {
                 return String(storeAssets.stocksMutualsCDs[i]["no. shares"])
         }
     }}
@@ -28,14 +28,14 @@ function SellStock() {
         console.log(sellStockState)
         // storeAssets.stocksMutualsCDs.push(sellStockState)
         for (let i=0; i<storeAssets.stocksMutualsCDs.length; i++) {
-            if (storeAssets.stocksMutualsCDs[i]["name"] == sellStockState["name"]) {
+            if (storeAssets.stocksMutualsCDs[i]["name"] === sellStockState["name"]) {
                 storeAssets.stocksMutualsCDs[i]["no. shares"] -= sellStockState["no. shares"]
             } 
         }
         let tempArray = []
         for (let i= storeAssets.stocksMutualsCDs.length - 1; i>=0; i--) {
             
-            if (storeAssets.stocksMutualsCDs[i]["no. shares"] != 0) {
+            if (parseInt(storeAssets.stocksMutualsCDs[i]["no. shares"]) !== 0) {
                 tempArray.push(storeAssets.stocksMutualsCDs[i])
                 console.log(storeAssets.stocksMutualsCDs)
             }

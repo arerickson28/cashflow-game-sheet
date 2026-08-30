@@ -1,25 +1,25 @@
 import React from "react"
 import styled from "styled-components"
-import { useShareMyStates, newTotalIncome, newTotalExpenses, newCashflow, newChildExpenses } from "../Data/dataFunc"
-import InstantiateSheet from "./InstantiateSheet"
+import { useShareMyStates } from "../Data/dataFunc"
+// import InstantiateSheet from "./InstantiateSheet"
 import Expenses from "./Expenses"
 import Cashflow from "./Cashflow"
 import Liabilities from './Liabilities';
 import Assets from './Assets';
 import Income from './Income';
-import store from "store"
+// import store from "store"
 
-const BalanceSheetDiv = styled.div`
-    border: solid 4px rgb(217, 22, 83);
-    padding: 5px;
-    margin: 10px;
-`
+// const BalanceSheetDiv = styled.div`
+//     border: solid 4px rgb(217, 22, 83);
+//     padding: 5px;
+//     margin: 10px;
+// `
 
-const IncomeStatementDiv = styled.div`
-border: solid 4px rgb(217, 22, 83);
-padding: 5px;
-margin: 10px;
-`
+// const IncomeStatementDiv = styled.div`
+// border: solid 4px rgb(217, 22, 83);
+// padding: 5px;
+// margin: 10px;
+// `
 
 const TestDiv = styled.div`
     display: flex;
@@ -27,13 +27,13 @@ const TestDiv = styled.div`
     align-items: flex-start;
 `
 
-const BoxedIncExpDiv = styled.div`
-    width: 700px;
-`
+// const BoxedIncExpDiv = styled.div`
+//     width: 700px;
+// `
 
 
 function GameSheet() {
-    const { professionState, instantiateSheetState, newSheetBtn, setNewSheetBtn } = useShareMyStates()
+    const { professionState } = useShareMyStates()
 
     // newTotalIncome()
     // newChildExpenses() 

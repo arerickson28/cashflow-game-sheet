@@ -19,7 +19,7 @@ function PayLiab() {
         storeLiabilities[chosenLiability].balance -= liabPaymentState.amount
         console.log(storeLiabilities[chosenLiability])
 
-        if (storeLiabilities[chosenLiability].balance == 0) {
+        if (parseInt(storeLiabilities[chosenLiability].balance) === 0) {
 
             let relatedExpense = storeLiabilities[chosenLiability].expensePair
          

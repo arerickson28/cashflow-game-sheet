@@ -5,7 +5,7 @@ import NavBar from './components/NavBar';
 import GameSheet from "./components/GameSheet"
 import Home from "./components/Home"
 import InstantiateSheet from './components/InstantiateSheet';
-import {blankSheet, testSheet } from "./Data/dataFunc"
+import { blankSheet } from "./Data/dataFunc"
 import store from "store"
 
 //this is a test comment
