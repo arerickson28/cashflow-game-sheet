@@ -1,8 +1,8 @@
-import React, { useState } from "react"
-import store from "store"
-import { storeAssets } from "../Data/dataFunc"
+// import React, { useState } from "react"
+// import store from "store"
+
 import {YellowBox, YellowH1} from "./StyledComponents"
-import { useShareMyStates } from '../Data/SharedStatesContext';
+// import { useShareMyStates } from '../Data/SharedStatesContext';
 
 
 
