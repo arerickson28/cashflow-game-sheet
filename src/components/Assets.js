@@ -7,7 +7,9 @@ import NewStock from "./NewStock"
 import SellStock from "./SellStock"
 import SellRE from "./SellRE"
 import SellBus from "./SellBus"
-import { useShareMyStates, storeAssets } from "../Data/dataFunc"
+// import { useShareMyStates, storeAssets } from "../Data/dataFunc"
+import { storeAssets } from "../Data/dataFunc"
+import { useShareMyStates } from '../Data/SharedStatesContext';
 import {OrangeBox, OrangeH1} from "./StyledComponents"
 
 // Todo: 

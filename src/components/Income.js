@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import {useShareMyStates } from "../Data/dataFunc"
+// import {useShareMyStates } from "../Data/dataFunc"
+import { useShareMyStates } from '../Data/SharedStatesContext';
 
 
 const BlueBox = styled.div`

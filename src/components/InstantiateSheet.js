@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import store from "store"
-import { useShareMyStates, newTotalExpenses, newCashflow, newTotalIncome, blankSheet, storeAssets, storeExpenses, storeCashflow, storeIncome, storeLiabilities } from "../Data/dataFunc"
+import { newTotalExpenses, newCashflow, newTotalIncome, blankSheet, storeAssets, storeExpenses, storeCashflow, storeIncome, storeLiabilities } from "../Data/dataFunc"
+import { useShareMyStates } from '../Data/SharedStatesContext';
 
 const PinkBox = styled.div`
     border: solid 4px rgb(255,182,193);

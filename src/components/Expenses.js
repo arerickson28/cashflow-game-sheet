@@ -1,7 +1,8 @@
 import React from "react"
 // import styled from "styled-components"
 import store from "store"
-import {useShareMyStates, storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow } from "../Data/dataFunc"
+import {storeExpenses, newChildExpenses, newTotalExpenses, storeCashflow, newCashflow } from "../Data/dataFunc"
+import { useShareMyStates } from '../Data/SharedStatesContext';
 import {GreenBox, GreenH1} from "./StyledComponents"
 
 

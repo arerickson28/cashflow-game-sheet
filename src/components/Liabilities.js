@@ -5,7 +5,7 @@ import NewLoan from "./NewLoan"
 import PayLoan from "./PayLoan"
 import PayBus from "./PayBus"
 import PayRE from "./PayRE"
-import {useShareMyStates } from "../Data/dataFunc"
+import { useShareMyStates } from '../Data/SharedStatesContext';
 
 const PurpleBox = styled.div`
 border: solid 4px rgb(128, 17, 128);

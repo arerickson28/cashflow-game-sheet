@@ -71,11 +71,37 @@ th, td {
   justify-content: space-around;
 }
 
+/* .ledgerDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.ledger {
+  flex-grow: 1;
+} */
+
 /* .flex {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 } */
+
+/* table {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+}
+
+thead tbody {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+} */
+
+table {
+  width: 100%;
+}
 
 .invalidInput {
   border: solid;

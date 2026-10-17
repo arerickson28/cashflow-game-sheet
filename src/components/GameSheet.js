@@ -1,12 +1,14 @@
 import React from "react"
 import styled from "styled-components"
-import { useShareMyStates } from "../Data/dataFunc"
+// import { useShareMyStates } from "../Data/dataFunc"
+import { useShareMyStates } from '../Data/SharedStatesContext';
 // import InstantiateSheet from "./InstantiateSheet"
 import Expenses from "./Expenses"
 import Cashflow from "./Cashflow"
 import Liabilities from './Liabilities';
 import Assets from './Assets';
 import Income from './Income';
+import Ledger from "./Ledger";
 // import store from "store"
 
 // const BalanceSheetDiv = styled.div`
@@ -49,7 +51,7 @@ function GameSheet() {
                 <>
                 
                     <div>
-                    <h1>{professionState}</h1>
+                    {/* <h1>{professionState}</h1> */}
                     {/* <button onClick={() => { setNewSheetBtn(true) }}>Start New Gamesheet</button> */}
                     </div>
                     
@@ -77,12 +79,17 @@ function GameSheet() {
                         <Liabilities />
                     {/* </BalanceSheetDiv> */}
                     </div>
+                    <div>
+                        <Ledger />
+                    </div>
                 </>
                 {/* } */}
 
 
 
             {/* <button>Reset Sheet</button> */}
+
+         
 
         </>
     )

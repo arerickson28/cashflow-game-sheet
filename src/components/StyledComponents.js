@@ -36,4 +36,15 @@ const GreenH1 = styled.h1`
     background-color: rgb(85, 200, 85);
 `
 
-export { OrangeBox, OrangeH1, GoldBox, GoldH1, GreenBox, GreenH1 }
+const YellowBox = styled.div`
+    border: solid 4px rgba(231, 247, 108, 1);
+    padding: 5px;
+    margin: 10px;
+`
+
+const YellowH1 = styled.h1`
+    color: white;
+    background-color: rgba(231, 247, 108, 1);
+`
+
+export { OrangeBox, OrangeH1, GoldBox, GoldH1, GreenBox, GreenH1, YellowBox, YellowH1 }

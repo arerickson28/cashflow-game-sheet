@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import store from "store"
-import {useShareMyStates, storeExpenses, newTotalExpenses, storeCashflow, newCashflow, storeLiabilities, storeAssets } from "../Data/dataFunc"
-
+import {storeExpenses, newTotalExpenses, storeCashflow, newCashflow, storeLiabilities, storeAssets } from "../Data/dataFunc"
+import { useShareMyStates } from '../Data/SharedStatesContext';
 
 function PayLiab() {
     const { setAssetState, setLiabilityState, setExpensesState, setCashflowState, setPayLiabBtn } = useShareMyStates()

@@ -1,6 +1,6 @@
 import store from "store"
 import { useState } from "react"
-import { useBetween } from "use-between"
+// import { useBetween } from "use-between"
 let storeIncome = store.get("income")
 let storeExpenses = store.get("expenses")
 let storeAssets = store.get("assets")
@@ -175,32 +175,32 @@ sheetCashflow: {
     cashflow: 0
 }   
 }
-const useSharedStates = ()=> {
-    const [professionState, setProfessionState] = useState(store.get("profession"))
-    const [assetState, setAssetState] = useState(store.get('assets'))
-    const [liabilityState, setLiabilityState] = useState(store.get("liabilities"))
-    const [incomeState, setIncomeState] = useState(store.get("income"))
-    const [expensesState, setExpensesState] = useState(store.get("expenses"))
-    const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
-    const [newBusinessBtn, setNewBusinessBtn] = useState(false)
-    const [newREBtn, setNewREBtn] = useState(false)
-    const [newStockBtn, setNewStockBtn] = useState(false)
-    const [sellStockBtn, setSellStockBtn] = useState(false)
-    const [payLiabBtn, setPayLiabBtn] = useState(false)
-    const [payLoanBtn, setPayLoanBtn] = useState(false)
-    const [newLoanBtn, setNewLoanBtn] = useState(false)
-    const [payBusBtn, setPayBusBtn] = useState(false)
-    const [payREBtn, setPayREBtn] = useState(false)
-    const [sellREBtn, setSellREBtn] = useState(false)
-    const [sellBusBtn, setSellBusBtn] = useState(false)
-    const [newSheetBtn, setNewSheetBtn] = useState(false)
-    const [instantiateSheetState, setInstantiateSheetState] = useState(blankSheet)
+// const useSharedStates = ()=> {
+//     const [professionState, setProfessionState] = useState(store.get("profession"))
+//     const [assetState, setAssetState] = useState(store.get('assets'))
+//     const [liabilityState, setLiabilityState] = useState(store.get("liabilities"))
+//     const [incomeState, setIncomeState] = useState(store.get("income"))
+//     const [expensesState, setExpensesState] = useState(store.get("expenses"))
+//     const [cashflowState, setCashflowState] = useState(store.get("cashflow"))
+//     const [newBusinessBtn, setNewBusinessBtn] = useState(false)
+//     const [newREBtn, setNewREBtn] = useState(false)
+//     const [newStockBtn, setNewStockBtn] = useState(false)
+//     const [sellStockBtn, setSellStockBtn] = useState(false)
+//     const [payLiabBtn, setPayLiabBtn] = useState(false)
+//     const [payLoanBtn, setPayLoanBtn] = useState(false)
+//     const [newLoanBtn, setNewLoanBtn] = useState(false)
+//     const [payBusBtn, setPayBusBtn] = useState(false)
+//     const [payREBtn, setPayREBtn] = useState(false)
+//     const [sellREBtn, setSellREBtn] = useState(false)
+//     const [sellBusBtn, setSellBusBtn] = useState(false)
+//     const [newSheetBtn, setNewSheetBtn] = useState(false)
+//     const [instantiateSheetState, setInstantiateSheetState] = useState(blankSheet)
 
-    return {
-        professionState, setProfessionState, assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn, payLiabBtn, setPayLiabBtn, newLoanBtn, setNewLoanBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn, payREBtn, setPayREBtn, sellREBtn, setSellREBtn, sellBusBtn, setSellBusBtn, instantiateSheetState, setInstantiateSheetState, newSheetBtn, setNewSheetBtn
-    }
-}
-const useShareMyStates = ()=> useBetween(useSharedStates)
+//     return {
+//         professionState, setProfessionState, assetState, setAssetState, liabilityState, setLiabilityState, incomeState, setIncomeState, expensesState, setExpensesState, cashflowState, setCashflowState, newBusinessBtn, setNewBusinessBtn, newREBtn, setNewREBtn, newStockBtn, setNewStockBtn, sellStockBtn, setSellStockBtn, payLiabBtn, setPayLiabBtn, newLoanBtn, setNewLoanBtn, payLoanBtn, setPayLoanBtn, payBusBtn, setPayBusBtn, payREBtn, setPayREBtn, sellREBtn, setSellREBtn, sellBusBtn, setSellBusBtn, instantiateSheetState, setInstantiateSheetState, newSheetBtn, setNewSheetBtn
+//     }
+// }
+// const useShareMyStates = ()=> useBetween(useSharedStates)
 
 let newChildExpenses = function() {
     return parseInt(storeExpenses.numberOfChildren) * parseInt(storeExpenses.perChildExpense)
@@ -275,4 +275,4 @@ let newReEsMortgages = function () {
 let newTotalPassiveIncome = function() {
     return parseInt(storeIncome.interestIncome) + parseInt(storeIncome.dividendIncome )+ parseInt(storeIncome.realEstateIncome) + parseInt(storeIncome.businessIncome)
 }
-export {testSheet, blankSheet, useShareMyStates, storeProfession, storeIncome, storeExpenses, storeAssets, storeLiabilities, storeCashflow, newChildExpenses, newTotalExpenses, newCreditCardPayment, newBankLoanPayment, newCarPayment, newCashflow, newTotalIncome, newBusinessDebts, newBusinessIncome, newDividendIncome, newReEsMortgages, newRealEstateIncome, newTotalPassiveIncome }
+export {testSheet, blankSheet, storeProfession, storeIncome, storeExpenses, storeAssets, storeLiabilities, storeCashflow, newChildExpenses, newTotalExpenses, newCreditCardPayment, newBankLoanPayment, newCarPayment, newCashflow, newTotalIncome, newBusinessDebts, newBusinessIncome, newDividendIncome, newReEsMortgages, newRealEstateIncome, newTotalPassiveIncome }

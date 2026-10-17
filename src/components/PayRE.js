@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import store from "store"
-import {useShareMyStates, storeLiabilities } from "../Data/dataFunc" 
+import { storeLiabilities } from "../Data/dataFunc" 
+import { useShareMyStates } from '../Data/SharedStatesContext';
 
 function PayRE() {
     const { liabilityState, setLiabilityState, setPayREBtn } = useShareMyStates()
