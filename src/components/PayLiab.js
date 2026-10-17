@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import store from "store"
-import {useShareMyStates, storeExpenses, newTotalExpenses, storeCashflow, newCashflow, storeLiabilities } from "../Data/dataFunc"
+import {useShareMyStates, storeExpenses, newTotalExpenses, storeCashflow, newCashflow, storeLiabilities, storeAssets } from "../Data/dataFunc"
 
 
 function PayLiab() {
-    const { setLiabilityState, setExpensesState, setCashflowState, setPayLiabBtn } = useShareMyStates()
+    const { setAssetState, setLiabilityState, setExpensesState, setCashflowState, setPayLiabBtn } = useShareMyStates()
 
     const [liabPaymentState, setLiabPaymentState] = useState({
         "liability": "",
@@ -16,7 +16,17 @@ function PayLiab() {
         console.log(liabPaymentState["liability"], liabPaymentState.amount)
         let chosenLiability = liabPaymentState["liability"]
 
-        storeLiabilities[chosenLiability].balance -= liabPaymentState.amount
+
+         if (liabPaymentState.amount > storeAssets.cash ) {
+            alert("Not enough ca$h!")
+            return
+       }
+        
+        storeAssets.cash = parseInt(storeAssets.cash)  - parseInt(liabPaymentState.amount)
+        store.set("assets", storeAssets)
+        setAssetState(storeAssets)
+
+        storeLiabilities[chosenLiability].balance =  parseInt(storeLiabilities[chosenLiability].balance) - parseInt(liabPaymentState.amount)
         console.log(storeLiabilities[chosenLiability])
 
         if (parseInt(storeLiabilities[chosenLiability].balance) === 0) {

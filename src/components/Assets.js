@@ -52,7 +52,9 @@ function Assets() {
     }
 
     function handleCashSubmit(e) {
-        storeAssets.cash += addSubState
+        console.log(storeAssets.cash)
+        storeAssets.cash = parseInt(storeAssets.cash) + parseInt(addSubState)
+        console.log(storeAssets.cash)
         store.set("assets", storeAssets)
         setAssetState(storeAssets)
         setAddSubState(0)
